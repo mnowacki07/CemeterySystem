@@ -13,6 +13,7 @@ namespace CemeterySystem
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            routes.MapOwinPath("/Pages/LoginPage.aspx");
         }
     }
 }

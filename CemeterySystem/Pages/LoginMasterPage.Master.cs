@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CemeterySystem
+namespace CemeterySystem.Pages
 {
-    public partial class _Default : Page
+    public partial class LoginMasterPage : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
