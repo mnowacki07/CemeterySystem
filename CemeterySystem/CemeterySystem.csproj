@@ -214,12 +214,24 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="DBModels\ApplicationUser.cs" />
+    <Compile Include="DBModels\Address.cs" />
+    <Compile Include="DBModels\BurialPlace.cs" />
+    <Compile Include="DBModels\BurialPlaceBooker.cs" />
+    <Compile Include="DBModels\CemeteryStaffPerson.cs" />
+    <Compile Include="DBModels\DeadPerson.cs" />
+    <Compile Include="DBModels\FamilyMember.cs" />
+    <Compile Include="DBModels\Funeral.cs" />
+    <Compile Include="DBModels\FuneralCompany.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201803092106140_Init_Migration.cs" />
     <Compile Include="Migrations\201803092106140_Init_Migration.Designer.cs">
       <DependentUpon>201803092106140_Init_Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803140938390_DB_VERSION_1.cs" />
+    <Compile Include="Migrations\201803140938390_DB_VERSION_1.Designer.cs">
+      <DependentUpon>201803140938390_DB_VERSION_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\Dashboard.aspx.cs">
@@ -267,6 +279,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803092106140_Init_Migration.resx">
       <DependentUpon>201803092106140_Init_Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803140938390_DB_VERSION_1.resx">
+      <DependentUpon>201803140938390_DB_VERSION_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
