@@ -17,7 +17,7 @@ namespace CemeterySystem.Repositories
         public abstract List<T> getAll();
         public abstract List<T> getBy(Func<T, bool> whereClausule);
         public abstract T getByID(string id);        
-        public abstract T create(T objectToCreate);
+        public abstract void create(T objectToCreate);
         public abstract void update(T objectToUpdate);
         public abstract void delete(T objectToDelete);
     }

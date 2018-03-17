@@ -26,7 +26,7 @@ namespace CemeterySystem.Repositories
             }
         }
 
-        public override IdentityRole create(IdentityRole objectToCreate)
+        public override void create(IdentityRole objectToCreate)
         {
             try
             {
@@ -34,11 +34,9 @@ namespace CemeterySystem.Repositories
                 if (currentRole == null)
                 {
                     RoleManager.Create(objectToCreate);                    
-                }
-                return objectToCreate;
+                }                
             }
-            catch (Exception ex) { }
-            return null;
+            catch (Exception ex) { }            
         }
 
         public override void delete(IdentityRole objectToDelete)

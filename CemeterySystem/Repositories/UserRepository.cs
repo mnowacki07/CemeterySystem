@@ -27,7 +27,7 @@ namespace CemeterySystem.Repositories
             return null;
         }
 
-        public override ApplicationUser create(ApplicationUser objectToCreate)
+        public override void create(ApplicationUser objectToCreate)
         {
             throw new NotImplementedException();
         }

@@ -16,13 +16,6 @@ namespace CemeterySystem.DBModels
         TYPE2 = 2            
     }
 
-    public enum EnumBurialPlacePaymentClass
-    {
-        NULL = 0,
-        CLASS1 = 1,
-        CLASS2 = 2
-    }
-
     public enum EnumBurialPlaceStatus
     {
         NULL = 0,
@@ -43,7 +36,9 @@ namespace CemeterySystem.DBModels
         [Column(TypeName = "Date")]
         public DateTime? PaymentDate { get; set; }
         [Required]
-        public EnumBurialPlacePaymentClass PaymentClass { get; set; }
+        public Guid PaymentClassID { get; set; }
+        [ForeignKey("PaymentClassID")]
+        public PaymentClass PaymentClass { get; set; }
         public string Description { get; set; }
         [Required]
         public EnumBurialPlaceStatus Status { get; set; }

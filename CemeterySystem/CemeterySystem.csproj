@@ -222,6 +222,7 @@
     <Compile Include="DBModels\FamilyMember.cs" />
     <Compile Include="DBModels\Funeral.cs" />
     <Compile Include="DBModels\FuneralCompany.cs" />
+    <Compile Include="DBModels\PaymentClass.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,6 +233,10 @@
     <Compile Include="Migrations\201803140938390_DB_VERSION_1.cs" />
     <Compile Include="Migrations\201803140938390_DB_VERSION_1.Designer.cs">
       <DependentUpon>201803140938390_DB_VERSION_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803162341142_PaymentClass.cs" />
+    <Compile Include="Migrations\201803162341142_PaymentClass.Designer.cs">
+      <DependentUpon>201803162341142_PaymentClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\Dashboard.aspx.cs">
@@ -257,9 +262,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBModels\ApplicationDBContext.cs" />
+    <Compile Include="Repositories\PaymentClassRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
+    <Compile Include="Services\PaymentClassService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -282,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803140938390_DB_VERSION_1.resx">
       <DependentUpon>201803140938390_DB_VERSION_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803162341142_PaymentClass.resx">
+      <DependentUpon>201803162341142_PaymentClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
