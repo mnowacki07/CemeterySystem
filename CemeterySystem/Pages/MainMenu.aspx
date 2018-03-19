@@ -102,7 +102,7 @@
         <input class="w3-input w3-border" type="text" name="Message" required>
       </div>
       
-          <asp:Button ID="Button1" runat="server" Text="Button" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" Height="54px" OnClick="Button1_Click" />
+          <asp:Button ID="Button1" runat="server" Text="Button" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" Height="54px" />
      
       </form>
   </div>

@@ -13,5 +13,5 @@ namespace CemeterySystem.Pages
 		{
 
 		}
-	}
+    }
 }
