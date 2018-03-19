@@ -175,7 +175,7 @@
     </Content>
     <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Pages\LoginMasterPage.Master" />
-    <Content Include="Pages\MainMenu.aspx" />
+    <Content Include="Pages\DashboardZarzadca.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pages\LoginPage.aspx" />
@@ -270,12 +270,12 @@
     <Compile Include="Pages\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainMenu.aspx.cs">
-      <DependentUpon>MainMenu.aspx</DependentUpon>
+    <Compile Include="Pages\DashboardZarzadca.aspx.cs">
+      <DependentUpon>DashboardZarzadca.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\MainMenu.aspx.designer.cs">
-      <DependentUpon>MainMenu.aspx</DependentUpon>
+    <Compile Include="Pages\DashboardZarzadca.aspx.designer.cs">
+      <DependentUpon>DashboardZarzadca.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ZadrzadcaMaster.Master.cs">
       <DependentUpon>ZadrzadcaMaster.Master</DependentUpon>

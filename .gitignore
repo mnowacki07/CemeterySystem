@@ -318,3 +318,8 @@ ASALocalRun/
 
 # MSBuild Binary and Structured Log
 *.binlog
+
+# Webconfig
+Web.config
+*.config
+CemeterySystem/Web.config

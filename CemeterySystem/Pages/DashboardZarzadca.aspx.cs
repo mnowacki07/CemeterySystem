@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CemeterySystem.Pages
 {
-	public partial class mainMenu : System.Web.UI.Page
+	public partial class DashboardZarzadca : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
