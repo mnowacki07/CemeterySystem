@@ -10,7 +10,7 @@
   <!-- Icon grid -->
   <div class="w3-row-padding">
     <div class="w3-half">
-      <img src="https://i.imgur.com/nzgTknT.png" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks">
+      <img src="https://i.imgur.com/nzgTknT.png" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
       <img src="https://i.imgur.com/zD7PEHB.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
  
     </div>

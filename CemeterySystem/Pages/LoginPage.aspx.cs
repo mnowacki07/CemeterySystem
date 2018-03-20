@@ -32,7 +32,7 @@ namespace CemeterySystem.Pages
             switch(signInResult)
             {
                 case SignInStatus.Success:
-                    Response.Redirect("/Pages/Dashboard.aspx");
+                    Response.Redirect("/Pages/DashboardZarzadca.aspx");
                     break;
                 case SignInStatus.Failure:
 

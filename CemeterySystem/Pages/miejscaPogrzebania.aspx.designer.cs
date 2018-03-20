@@ -10,15 +10,6 @@
 namespace CemeterySystem.Pages {
     
     
-    public partial class ZadrzadcaMaster {
-        
-        /// <summary>
-        /// Kontrolka ContentPlaceHolder1.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+    public partial class miejscaPogrzebania {
     }
 }
