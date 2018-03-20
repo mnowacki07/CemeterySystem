@@ -9,6 +9,13 @@ namespace CemeterySystem.Repositories
 {
     public class UserRoleRepository : Repository<IdentityRole>
     {
+        public static string ADMIN_ROLE_NAME = "Administrator";
+        public static string FAMILY_MEMBER_ROLE_NAME = "Członek rodziny";
+        public static string MANAGER_ROLE_NAME = "Zarządca cmentarza";
+        public static string ADMIN_ROLE_ID = "ADM";
+        public static string FAMILY_MEMBER_ROLE_ID = "FMB";
+        public static string MANAGER_ROLE_ID = "MAN";
+
         private RoleManager<IdentityRole> _roleManager = null;
 
         public UserRoleRepository(ApplicationDbContext dbContext) : base(dbContext) { }

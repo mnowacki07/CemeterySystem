@@ -160,13 +160,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\jQueryDataTableBootstrap.min.css" />
+    <Content Include="Content\css\jQueryDataTable_1_10_16.css" />
+    <Content Include="Content\css\jQueryDataTable_CustomStyles.css" />
     <Content Include="Content\img\background.jpg" />
-    <Content Include="Content\Site.css" />
-    <Content Include="css\style.css" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\js\jQueryDataTable_1_10_16.min.js" />
+    <Content Include="Content\js\jQueryDataTable_CustomScripts.js" />
+    <Content Include="Content\js\jQuery_3_3_1.min.js" />
     <Content Include="favicon.ico" />
-    <Content Include="css\fonts.css" />
+    <Content Include="Content\css\fonts.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -175,11 +181,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Pages\LoginMasterPage.Master" />
     <Content Include="Pages\DashboardZarzadca.aspx" />
     <Content Include="Pages\miejscaPogrzebania.aspx" />
     <Content Include="Pages\osobyZmarle.aspx" />
+    <Content Include="Pages\PaymentClassList.aspx" />
     <Content Include="Pages\Pogrzeby.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -256,13 +262,6 @@
       <DependentUpon>201803171640346_User_FamilyMember_Nullable_ForeignKey.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Pages\Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\LoginMasterPage.Master.cs">
       <DependentUpon>LoginMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +296,13 @@
     </Compile>
     <Compile Include="Pages\osobyZmarle.aspx.designer.cs">
       <DependentUpon>osobyZmarle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PaymentClassList.aspx.cs">
+      <DependentUpon>PaymentClassList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PaymentClassList.aspx.designer.cs">
+      <DependentUpon>PaymentClassList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Pogrzeby.aspx.cs">
       <DependentUpon>Pogrzeby.aspx</DependentUpon>

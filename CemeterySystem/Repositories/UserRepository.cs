@@ -59,6 +59,13 @@ namespace CemeterySystem.Repositories
                         .FirstOrDefault(x => x.Id.Equals(id));
         }
 
+        public ApplicationUser getByUsername(string username)
+        {
+            return this._dbContext
+                        .Users
+                        .FirstOrDefault(x => x.UserName.Equals(username));
+        }
+
         public override void update(ApplicationUser user)
         {
             this._dbContext.Users.Attach(user);

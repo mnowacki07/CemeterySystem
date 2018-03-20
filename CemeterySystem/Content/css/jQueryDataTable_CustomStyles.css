@@ -1,0 +1,26 @@
+﻿.table-wrapper {
+    padding: 20px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+.table-wrapper table thead tr th {
+    text-align: left;
+    padding-left: 8px;
+}
+
+.table-wrapper table tbody tr {
+    cursor: pointer;
+}
+    
+.table-wrapper table tbody tr:nth-child(odd) td {
+    background-color: #FFFFFF !important;
+}
+
+.table-wrapper table tbody tr:nth-child(even) td {
+    background-color: #DFDFDF !important;
+}
+
+.table-footer-filter {
+    width: 100%;
+}

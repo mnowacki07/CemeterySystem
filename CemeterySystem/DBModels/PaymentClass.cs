@@ -17,5 +17,15 @@ namespace CemeterySystem.DBModels
         [Required]
         public decimal Price { get; set; }
         public string Description { get; set; }
+
+        // not DB fields:
+        [NotMapped]
+        public string PriceFormatted
+        {
+            get
+            {
+                return this.Price.ToString("C", new System.Globalization.CultureInfo("pl-PL"));
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                 <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control" />
+                 <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control" TextMode="Password" />
             </div>
         </div>
         <div class="row">

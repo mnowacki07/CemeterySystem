@@ -88,7 +88,7 @@
     <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Dodatkowe informacje.</b></h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi aut ipsam itaque quia voluptates laborum provident sed molestiae illum. Maiores?</p>
-      <form id="form1" runat="server">
+      
       <div class="w3-section">
         <label>Imię</label>
         <input class="w3-input w3-border" type="text" name="Name" required>
@@ -104,7 +104,7 @@
       
           <asp:Button ID="Button1" runat="server" Text="Button" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" Height="54px" />
      
-      </form>
+      
   </div>
 
     </asp:Content>  

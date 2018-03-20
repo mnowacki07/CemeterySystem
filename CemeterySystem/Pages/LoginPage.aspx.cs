@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity.Owin;
+using CemeterySystem.DBModels;
+using CemeterySystem.Repositories;
+using System.Web.Security;
 
 namespace CemeterySystem.Pages
 {
@@ -13,11 +16,12 @@ namespace CemeterySystem.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // if user is autthenticated and is in role as "cemetary manager" then redirect to his dashboard
             if (!IsPostBack)
             {
-                if (this.User.Identity.IsAuthenticated)
+                if (this.User.Identity.IsAuthenticated && this.User.IsInRole(UserRoleRepository.MANAGER_ROLE_NAME))
                 {
-                    Response.Redirect("/Pages/Dashboard.aspx");
+                    Response.Redirect("/Pages/DashboardZarzadca.aspx");
                 }
             }
         }
@@ -32,7 +36,12 @@ namespace CemeterySystem.Pages
             switch(signInResult)
             {
                 case SignInStatus.Success:
-                    Response.Redirect("/Pages/DashboardZarzadca.aspx");
+                    // if user is autthenticated and is in role as "cemetary manager" then redirect to his dashboard
+                    ApplicationUser currentUser = new UserRepository(new ApplicationDbContext()).getByUsername(username);
+                    if (currentUser.Roles.First(x => x.RoleId.Equals(UserRoleRepository.MANAGER_ROLE_ID)) != null)
+                    {
+                        Response.Redirect("/Pages/DashboardZarzadca.aspx");
+                    }
                     break;
                 case SignInStatus.Failure:
 

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using static CemeterySystem.App_Start.IdentityConfig;
 
 namespace CemeterySystem.Services
@@ -41,10 +42,22 @@ namespace CemeterySystem.Services
         {
             try
             {
-                return SignInManager.PasswordSignInAsync(username, password, true, shouldLockout: false).Result;
+                return SignInManager.PasswordSignInAsync(username, password, true, false).Result;
             }
             catch (Exception ex) { }
             return SignInStatus.Failure;
+        }
+
+        public void signOut(HttpContext context)
+        {
+            try
+            {
+                context.Request.GetOwinContext().Authentication.SignOut();
+                context.Response.Cookies.Clear();
+                FormsAuthentication.SignOut();
+                context.Session.Clear();
+            }
+            catch (Exception ex) { }
         }
     }
 }
