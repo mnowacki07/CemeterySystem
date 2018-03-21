@@ -172,6 +172,7 @@
     <Content Include="Content\js\jQueryDataTable_CustomScripts.js" />
     <Content Include="Content\js\jQuery_3_3_1.min.js" />
     <Content Include="Content\js\jQuery_Validation_1_17_0.min.js" />
+    <Content Include="Content\js\scripts.js" />
     <Content Include="favicon.ico" />
     <Content Include="Content\css\fonts.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
