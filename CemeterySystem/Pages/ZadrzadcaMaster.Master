@@ -43,14 +43,14 @@
             <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width: 100%; font-size: 22px">Zamknij Menu</a>
             <div class="w3-container">
                 <h3 class="w3-padding-64 color-styks-gold2"><b>Cmentarz<br>
-                    Komunalny Międzylesie</b></h3>
+                    Komunalny "Wesoła Czaszka"</b></h3>
             </div>
             <div class="w3-bar-block color-styks-gold ">
-                <a href="#Header" onclick="w3_close()" class="w3-bar-item w3-button ">Strona główna</a>
+                <a href="/Pages/DashBoardZarzadca#Header" onclick="w3_close()" class="w3-bar-item w3-button ">Strona główna</a>
                 <hr />
-                <a href="#pogrzeby" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Pogrzeby</a>
-                <a href="#osoby_zmarle" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Osoby zmarłe</a>
-                <a href="#miejsca_pochowku" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Miejsca Pochówku</a>
+                <a href="/Pages/Pogrzeby" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Pogrzeby</a>
+                <a href="/Pages/osobyZmarle" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Osoby zmarłe</a>
+                <a href="/Pages/MiejscaPogrzebania" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Miejsca Pochówku</a>
                 <a href="#rezerwacje" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Rezerwacje</a>
                 <a href="/Pages/PaymentClassList" class="w3-bar-item w3-button w3-hover-grey">Klasy opłat</a>
                 <hr />

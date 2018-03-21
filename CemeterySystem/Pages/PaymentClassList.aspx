@@ -1,6 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Pages/ZadrzadcaMaster.Master" CodeBehind="PaymentClassList.aspx.cs" Inherits="CemeterySystem.Pages.PaymentClassList" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+       <div class="w3-container" style="margin-top:80px" id="top">
+    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Opłaty.</b></h1>
+    <hr style="width:300px;border:5px solid grey" class="w3-round">
+  </div>
+
+
+
+
     <script>        
         jQuery(document).ready(function () {
             jQuery('#table-payment-class').DataTable({
