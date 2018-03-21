@@ -17,6 +17,8 @@ namespace CemeterySystem.DBModels
         [Required]
         public decimal Price { get; set; }
         public string Description { get; set; }
+        [Required]
+        public bool IsDeleted { get; set; }
 
         // not DB fields:
         [NotMapped]

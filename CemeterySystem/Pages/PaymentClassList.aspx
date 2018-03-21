@@ -33,7 +33,7 @@
                     <ItemTemplate>
                         <tr>
                             <td style="text-align: center;">
-                                <a href="/Pages/PaymentClassDetails?ID=<%# Eval("PaymentClassID") %>">Pokaż</a>                                
+                                <a href="/Pages/PaymentClassDetails?PaymentClassID=<%# Eval("PaymentClassID") %>">Pokaż</a>                                
                             </td>
                             <td><%# Eval("Name") %></td>
                             <td><%# Eval("PriceFormatted") %></td>
@@ -45,7 +45,7 @@
         </table>
         <div class="w3-row">
             <div class="w3-col m12" style="padding-top: 20px;">
-                <a href="/Pages/PaymentClassDetails?Create=True" class="w3-button w3-blue w3-round-large" style="float: right;"><i class="fa fa-plus"></i>&nbsp;Nowy</a>
+                <a href="/Pages/PaymentClassDetails?IsCreateMode=True" class="w3-button w3-blue w3-round-large" style="float: right;"><i class="fa fa-plus"></i>&nbsp;Nowy</a>
             </div>
         </div>        
     </div>

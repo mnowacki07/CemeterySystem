@@ -81,5 +81,14 @@ namespace CemeterySystem.Services
             catch (Exception ex) { }
             return null;
         }
+
+        public void delete(PaymentClass paymentClass)
+        {
+            using (ApplicationDbContext dbContext = new ApplicationDbContext())
+            {
+                new PaymentClassRepository(dbContext).delete(paymentClass);
+                dbContext.SaveChanges();
+            }
+        }
     }
 }

@@ -17,22 +17,29 @@ namespace CemeterySystem.Repositories
 
         public override void delete(PaymentClass objectToDelete)
         {
-            throw new NotImplementedException();
+            if(objectToDelete != null)
+            {
+                objectToDelete.IsDeleted = true;
+                this.update(objectToDelete);
+            }
         }
 
         public override List<PaymentClass> getAll()
         {
-            return _dbContext.PaymentClassess.ToList();
+            return _dbContext
+                    .PaymentClassess
+                    .Where(x => !x.IsDeleted)
+                    .ToList();
         }
 
         public override List<PaymentClass> getBy(Func<PaymentClass, bool> whereClausule)
         {
-            return _dbContext.PaymentClassess.Where(whereClausule).ToList();
+            return _dbContext.PaymentClassess.Where(x => !x.IsDeleted).Where(whereClausule).ToList();
         }
 
         public override PaymentClass getByID(string id)
         {
-            return _dbContext.PaymentClassess.FirstOrDefault(x => x.PaymentClassID.ToString().Equals(id));
+            return _dbContext.PaymentClassess.FirstOrDefault(x => !x.IsDeleted && x.PaymentClassID.ToString().Equals(id));
         }
 
         public override void update(PaymentClass objectToUpdate)

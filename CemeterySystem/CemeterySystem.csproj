@@ -185,6 +185,7 @@
     <Content Include="Pages\DashboardZarzadca.aspx" />
     <Content Include="Pages\miejscaPogrzebania.aspx" />
     <Content Include="Pages\osobyZmarle.aspx" />
+    <Content Include="Pages\PaymentClassDetails.aspx" />
     <Content Include="Pages\PaymentClassList.aspx" />
     <Content Include="Pages\Pogrzeby.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
@@ -261,6 +262,10 @@
     <Compile Include="Migrations\201803171640346_User_FamilyMember_Nullable_ForeignKey.Designer.cs">
       <DependentUpon>201803171640346_User_FamilyMember_Nullable_ForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803210902563_PaymentClass_IsDeleted.cs" />
+    <Compile Include="Migrations\201803210902563_PaymentClass_IsDeleted.Designer.cs">
+      <DependentUpon>201803210902563_PaymentClass_IsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\LoginMasterPage.Master.cs">
       <DependentUpon>LoginMasterPage.Master</DependentUpon>
@@ -296,6 +301,13 @@
     </Compile>
     <Compile Include="Pages\osobyZmarle.aspx.designer.cs">
       <DependentUpon>osobyZmarle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PaymentClassDetails.aspx.cs">
+      <DependentUpon>PaymentClassDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PaymentClassDetails.aspx.designer.cs">
+      <DependentUpon>PaymentClassDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PaymentClassList.aspx.cs">
       <DependentUpon>PaymentClassList.aspx</DependentUpon>
@@ -334,6 +346,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Web.config2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -356,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803171640346_User_FamilyMember_Nullable_ForeignKey.resx">
       <DependentUpon>201803171640346_User_FamilyMember_Nullable_ForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803210902563_PaymentClass_IsDeleted.resx">
+      <DependentUpon>201803210902563_PaymentClass_IsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
