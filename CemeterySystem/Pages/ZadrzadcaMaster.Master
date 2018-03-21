@@ -43,7 +43,7 @@
             <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width: 100%; font-size: 22px">Zamknij Menu</a>
             <div class="w3-container">
                 <h3 class="w3-padding-64 color-styks-gold2"><b>Cmentarz<br>
-                    Komunalny Międzylesie</b></h3>
+                    Komunalny "Wesoła Czaszka"</b></h3>
             </div>
             <div class="w3-bar-block color-styks-gold ">
                 <a href="/Pages/DashBoardZarzadca#Header" onclick="w3_close()" class="w3-bar-item w3-button ">Strona główna</a>
