@@ -19,6 +19,8 @@ namespace CemeterySystem.DBModels
         public string FlatNumber { get; set; }
         [Required]
         public string Town { get; set; }
+        [Required]
+        public string PostCode { get; set; }
         public string PhoneNumber { get; set; }
     }
 }

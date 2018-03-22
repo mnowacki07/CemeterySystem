@@ -183,6 +183,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\CompanyInfo.aspx" />
     <Content Include="Pages\LoginMasterPage.Master" />
     <Content Include="Pages\DashboardZarzadca.aspx" />
     <Content Include="Pages\miejscaPogrzebania.aspx" />
@@ -272,7 +273,18 @@
     <Compile Include="Migrations\201803210902563_PaymentClass_IsDeleted.Designer.cs">
       <DependentUpon>201803210902563_PaymentClass_IsDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803221832075_Address_PostCode.cs" />
+    <Compile Include="Migrations\201803221832075_Address_PostCode.Designer.cs">
+      <DependentUpon>201803221832075_Address_PostCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Pages\CompanyInfo.aspx.cs">
+      <DependentUpon>CompanyInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CompanyInfo.aspx.designer.cs">
+      <DependentUpon>CompanyInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginMasterPage.Master.cs">
       <DependentUpon>LoginMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,10 +350,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBModels\ApplicationDBContext.cs" />
+    <Compile Include="Repositories\FuneralCompanyRepository.cs" />
     <Compile Include="Repositories\PaymentClassRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
+    <Compile Include="Services\FuneralCompanyService.cs" />
     <Compile Include="Services\PaymentClassService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
@@ -371,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803210902563_PaymentClass_IsDeleted.resx">
       <DependentUpon>201803210902563_PaymentClass_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803221832075_Address_PostCode.resx">
+      <DependentUpon>201803221832075_Address_PostCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
