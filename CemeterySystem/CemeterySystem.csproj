@@ -183,15 +183,17 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Pages\FuneralCompanyInfo.aspx" />
+    <Content Include="Pages\FuneralCompanyDetails.aspx" />
     <Content Include="Pages\LoginMasterPage.Master" />
     <Content Include="Pages\DashboardZarzadca.aspx" />
     <Content Include="Pages\miejscaPogrzebania.aspx" />
     <Content Include="Pages\osobyZmarle.aspx" />
     <Content Include="Pages\PaymentClassDetails.aspx" />
+    <Content Include="Pages\FuneralCompanyList.aspx" />
     <Content Include="Pages\PaymentClassList.aspx" />
     <Content Include="Pages\Pogrzeby.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
+    <Content Include="Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -223,7 +225,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Bundle.config" />
-    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -277,13 +278,17 @@
     <Compile Include="Migrations\201803221832075_Address_PostCode.Designer.cs">
       <DependentUpon>201803221832075_Address_PostCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803241332554_FuneralCompany_IsDeleted.cs" />
+    <Compile Include="Migrations\201803241332554_FuneralCompany_IsDeleted.Designer.cs">
+      <DependentUpon>201803241332554_FuneralCompany_IsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Pages\FuneralCompanyInfo.aspx.cs">
-      <DependentUpon>FuneralCompanyInfo.aspx</DependentUpon>
+    <Compile Include="Pages\FuneralCompanyDetails.aspx.cs">
+      <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\FuneralCompanyInfo.aspx.designer.cs">
-      <DependentUpon>FuneralCompanyInfo.aspx</DependentUpon>
+    <Compile Include="Pages\FuneralCompanyDetails.aspx.designer.cs">
+      <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoginMasterPage.Master.cs">
       <DependentUpon>LoginMasterPage.Master</DependentUpon>
@@ -326,6 +331,13 @@
     </Compile>
     <Compile Include="Pages\PaymentClassDetails.aspx.designer.cs">
       <DependentUpon>PaymentClassDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FuneralCompanyList.aspx.cs">
+      <DependentUpon>FuneralCompanyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FuneralCompanyList.aspx.designer.cs">
+      <DependentUpon>FuneralCompanyList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PaymentClassList.aspx.cs">
       <DependentUpon>PaymentClassList.aspx</DependentUpon>
@@ -388,6 +400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803221832075_Address_PostCode.resx">
       <DependentUpon>201803221832075_Address_PostCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803241332554_FuneralCompany_IsDeleted.resx">
+      <DependentUpon>201803241332554_FuneralCompany_IsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

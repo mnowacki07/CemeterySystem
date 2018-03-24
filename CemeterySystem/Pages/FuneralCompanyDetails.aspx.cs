@@ -10,8 +10,29 @@ using System.Web.UI.WebControls;
 
 namespace CemeterySystem.Pages
 {
-    public partial class FuneralCompanyInfo : System.Web.UI.Page
+    public partial class FuneralCompanyDetails : System.Web.UI.Page
     {
+        public bool IsCreateMode
+        {
+            get
+            {
+                return ("" + this.Request.QueryString["IsCreateMode"]).Trim().ToLower().Equals("true");
+            }
+        }
+
+        public Guid FuneralCompanyID
+        {
+            get
+            {
+                try
+                {
+                    return Guid.Parse("" + this.Request.QueryString["FuneralCompanyID"]);
+                }
+                catch (Exception ex) { }
+                return Guid.Empty;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -22,14 +43,22 @@ namespace CemeterySystem.Pages
                 }
                 else
                 {
-                    this.loadFuneralCompanyInfo();
+                    if(IsCreateMode)
+                    {
+                        btnDelete.Visible = false;
+                    }
+                    else
+                    {
+                        btnDelete.Visible = true;
+                        this.loadFuneralCompanyInfo();
+                    }
                 }
             }
         }
 
         private void loadFuneralCompanyInfo()
         {
-            FuneralCompany funeralCompany = new FuneralCompanyService().get();
+            FuneralCompany funeralCompany = new FuneralCompanyService().getByID(FuneralCompanyID);
 
             if(funeralCompany != null)
             {
@@ -51,19 +80,19 @@ namespace CemeterySystem.Pages
 
         private void saveFuneralCompanyInfo()
         {
-            FuneralCompany funeralCompany = new FuneralCompanyService().get();
+            FuneralCompany funeralCompany = null;
 
-            bool create = false;
-
-            if(funeralCompany == null)
+            if(IsCreateMode)
             {
-                create = true;
                 funeralCompany = new FuneralCompany();
-            }
-
-            if(funeralCompany.Address == null)
-            {
+                funeralCompany.FuneralCompanyID = Guid.NewGuid();
                 funeralCompany.Address = new Address();
+                funeralCompany.Address.CustomAddressID = Guid.NewGuid();
+                funeralCompany.AddressID = funeralCompany.Address.CustomAddressID;
+            }
+            else
+            {
+                funeralCompany = new FuneralCompanyService().getByID(FuneralCompanyID);
             }
 
             funeralCompany.Name = txtName.Text;
@@ -75,9 +104,10 @@ namespace CemeterySystem.Pages
             funeralCompany.Address.PostCode = txtPostCode.Text;
             funeralCompany.Address.PhoneNumber = txtPhoneNumber.Text;
 
-            if (create)
+            if (IsCreateMode)
             {
                 new FuneralCompanyService().create(funeralCompany);
+                Response.Redirect(string.Format("/Pages/FuneralCompanyDetails?FuneralCompanyID={0}", funeralCompany.FuneralCompanyID.ToString()));
             }
             else
             {
@@ -88,6 +118,16 @@ namespace CemeterySystem.Pages
         protected void btnSave_ServerClick(object sender, EventArgs e)
         {
             this.saveFuneralCompanyInfo();
+        }
+
+        protected void btnDelete_ServerClick(object sender, EventArgs e)
+        {
+            FuneralCompany funeralCompany = new FuneralCompanyService().getByID(FuneralCompanyID);
+            if (funeralCompany != null)
+            {
+                new FuneralCompanyService().delete(funeralCompany);
+            }
+            Response.Redirect("/Pages/FuneralCompanyList.aspx");
         }
     }
 }

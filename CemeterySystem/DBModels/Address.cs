@@ -22,5 +22,19 @@ namespace CemeterySystem.DBModels
         [Required]
         public string PostCode { get; set; }
         public string PhoneNumber { get; set; }
+
+        [NotMapped]
+        public string AddressHtmlFormatted
+        {
+            get
+            {
+                return string.Join("<br/>", new string[] 
+                {
+                    Street + " " + HouseNumber + (!string.IsNullOrEmpty(FlatNumber) ? " / " + FlatNumber : ""),
+                    Town,
+                    PostCode
+                }.Where(x => !string.IsNullOrEmpty(x)));
+            }
+        }
     }
 }

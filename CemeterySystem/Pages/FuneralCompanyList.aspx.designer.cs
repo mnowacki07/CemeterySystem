@@ -10,15 +10,15 @@
 namespace CemeterySystem.Pages {
     
     
-    public partial class PaymentClassList {
+    public partial class FuneralCompanyList {
         
         /// <summary>
-        /// repPaymentClass control.
+        /// repFuneralCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repPaymentClass;
+        protected global::System.Web.UI.WebControls.Repeater repFuneralCompany;
     }
 }

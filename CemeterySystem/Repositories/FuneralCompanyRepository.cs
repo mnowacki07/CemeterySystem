@@ -20,7 +20,11 @@ namespace CemeterySystem.Repositories
 
         public override void delete(FuneralCompany objectToDelete)
         {
-            throw new NotImplementedException();
+            if (objectToDelete != null)
+            {
+                objectToDelete.IsDeleted = true;
+                this.update(objectToDelete);
+            }
         }
 
         public override List<FuneralCompany> getAll()
@@ -28,15 +32,8 @@ namespace CemeterySystem.Repositories
             return this._dbContext
                             .FuneralCompanies
                             .Include(x => x.Address)
+                            .Where(x => !x.IsDeleted)
                             .ToList();
-        }
-
-        public FuneralCompany getFirst()
-        {
-            return this._dbContext
-                        .FuneralCompanies
-                        .Include(x => x.Address)
-                        .FirstOrDefault();
         }
 
         public override List<FuneralCompany> getBy(Func<FuneralCompany, bool> whereClausule)
@@ -44,6 +41,7 @@ namespace CemeterySystem.Repositories
             return this._dbContext
                         .FuneralCompanies
                         .Include(x => x.Address)
+                        .Where(x => !x.IsDeleted)
                         .Where(whereClausule)
                         .ToList();
         }
@@ -53,7 +51,7 @@ namespace CemeterySystem.Repositories
             return this._dbContext
                         .FuneralCompanies
                         .Include(x => x.Address)
-                        .FirstOrDefault(x => x.FuneralCompanyID.ToString().Equals(id));
+                        .FirstOrDefault(x => !x.IsDeleted && x.FuneralCompanyID.ToString().Equals(id));
         }
 
         public override void update(FuneralCompany objectToUpdate)

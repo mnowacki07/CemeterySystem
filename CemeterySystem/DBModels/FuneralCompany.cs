@@ -20,5 +20,7 @@ namespace CemeterySystem.DBModels
         public Guid AddressID { get; set; }
         [ForeignKey("AddressID")]
         public Address Address { get; set; }
+        [Required]
+        public bool IsDeleted { get; set; }
     }
 }

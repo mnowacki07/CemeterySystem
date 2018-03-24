@@ -9,14 +9,14 @@ namespace CemeterySystem.Services
 {
     public class FuneralCompanyService
     {
-        public FuneralCompany get()
+        public FuneralCompany getByID(Guid id)
         {
             try
             {
                 FuneralCompany funeralCompany = null;
                 using (ApplicationDbContext dbContext = new ApplicationDbContext())
                 {
-                    funeralCompany = new FuneralCompanyRepository(dbContext).getFirst();
+                    funeralCompany = new FuneralCompanyRepository(dbContext).getByID(id.ToString());
                 }
                 return funeralCompany;
             }
@@ -24,22 +24,34 @@ namespace CemeterySystem.Services
             return null;
         }
 
-        public void create(FuneralCompany funeralCompany)
+        public List<FuneralCompany> getAll()
+        {
+            try
+            {
+                List<FuneralCompany> listFuneralCompany = new List<FuneralCompany>();
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    listFuneralCompany = new FuneralCompanyRepository(db).getAll();
+                }
+                return listFuneralCompany;
+            }
+            catch (Exception ex) { }
+            return new List<FuneralCompany>();
+        }
+
+        public FuneralCompany create(FuneralCompany funeralCompany)
         {
             try
             {
                 using (ApplicationDbContext dbContext = new ApplicationDbContext())
                 {
-                    var repo = new FuneralCompanyRepository(dbContext);
-                    funeralCompany.FuneralCompanyID = Guid.NewGuid();
-                    funeralCompany.Address.CustomAddressID = Guid.NewGuid();
-                    funeralCompany.AddressID = funeralCompany.Address.CustomAddressID;
-
-                    repo.create(funeralCompany);
+                    new FuneralCompanyRepository(dbContext).create(funeralCompany);
                     dbContext.SaveChanges();
+                    return funeralCompany;
                 }
             }
             catch (Exception ex) { }
+            return null;
         }
 
         public void update(FuneralCompany funeralCompany)
@@ -50,9 +62,18 @@ namespace CemeterySystem.Services
                 {
                     new FuneralCompanyRepository(dbContext).update(funeralCompany);
                     dbContext.SaveChanges();
-                }                
+                }
             }
-            catch (Exception ex) { }            
+            catch (Exception ex) { }
+        }
+
+        internal void delete(FuneralCompany funeralCompany)
+        {
+            using (ApplicationDbContext dbContext = new ApplicationDbContext())
+            {
+                new FuneralCompanyRepository(dbContext).delete(funeralCompany);
+                dbContext.SaveChanges();
+            }
         }
     }
 }
