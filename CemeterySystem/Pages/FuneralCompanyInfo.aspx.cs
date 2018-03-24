@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace CemeterySystem.Pages
 {
-    public partial class CompanyInfo : System.Web.UI.Page
+    public partial class FuneralCompanyInfo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,12 +22,12 @@ namespace CemeterySystem.Pages
                 }
                 else
                 {
-                    this.loadCompanyInfo();
+                    this.loadFuneralCompanyInfo();
                 }
             }
         }
 
-        private void loadCompanyInfo()
+        private void loadFuneralCompanyInfo()
         {
             FuneralCompany funeralCompany = new FuneralCompanyService().get();
 
@@ -49,7 +49,7 @@ namespace CemeterySystem.Pages
             }
         }
 
-        private void saveCompanyInfo()
+        private void saveFuneralCompanyInfo()
         {
             FuneralCompany funeralCompany = new FuneralCompanyService().get();
 
@@ -87,7 +87,7 @@ namespace CemeterySystem.Pages
 
         protected void btnSave_ServerClick(object sender, EventArgs e)
         {
-            this.saveCompanyInfo();
+            this.saveFuneralCompanyInfo();
         }
     }
 }

@@ -1,5 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Pages/ZadrzadcaMaster.Master" CodeBehind="CompanyInfo.aspx.cs" Inherits="CemeterySystem.Pages.CompanyInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Pages/ZadrzadcaMaster.Master" CodeBehind="FuneralCompanyInfo.aspx.cs" Inherits="CemeterySystem.Pages.FuneralCompanyInfo" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+        <!-- ZAWARTOŚĆ STRONY START -->
+   <div class="w3-container" style="margin-top:80px" id="top">
+    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Zakłady pogrzebowe</b></h1>
+    <hr style="width:300px;border:5px solid grey" class="w3-round">
+  </div>
+
+
+      <!-- start formularza-->
+
     <script>
         jQuery(document).ready(function () {
             jQuery("#form1").validate({
