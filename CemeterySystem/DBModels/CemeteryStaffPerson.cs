@@ -20,5 +20,7 @@ namespace CemeterySystem.DBModels
         public string Position { get; set; }
         [Required]
         public string PESEL { get; set; }
+        [Required]
+        public bool IsDeleted { get; set; }
     }
 }

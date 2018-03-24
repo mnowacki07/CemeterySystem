@@ -1,20 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Pages/ZadrzadcaMaster.Master" CodeBehind="PaymentClassDetails.aspx.cs" Inherits="CemeterySystem.Pages.PaymentClassDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Pages/ZadrzadcaMaster.Master" CodeBehind="CemeteryStaffPersonDetails.aspx.cs" Inherits="CemeterySystem.Pages.CemeteryStaffPersonDetails" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script>
         jQuery(document).ready(function () {
             jQuery("#form1").validate({
                 rules: {
-                    "<%= txtName.UniqueID %>": {
+                    "<%= txtFirstName.UniqueID %>": {
                         required: true
                     },
-                    "<%= txtPrice.UniqueID %>": {
-                        required: true,
-                        priceRegex: true
+                    "<%= txtLastName.UniqueID %>": {
+                        required: true
+                    },
+                    "<%= txtPosition.UniqueID %>": {
+                        required: true
+                    },
+                    "<%= txtPESEL.UniqueID %>": {
+                        required: true
                     }            
                 },
                 messages: {
-                    "<%= txtName.UniqueID %>": { required: "Proszę wpisać nazwę" },
-                    "<%= txtPrice.UniqueID %>": { required: "Proszę wpisać cenę" }
+                    "<%= txtFirstName.UniqueID %>": { required: "Proszę wpisać imię" },
+                    "<%= txtLastName.UniqueID %>": { required: "Proszę wpisać nazwisko" },
+                    "<%= txtPosition.UniqueID %>": { required: "Proszę wpisać pozycję" },
+                    "<%= txtPESEL.UniqueID %>": { required: "Proszę wpisać PESEL" }
                 },
                 submitHandler: function (form) {
                     form.submit();
@@ -30,34 +37,44 @@
 
     <div class="w3-row">
         <div class="w3-col m12">
-            <asp:Label runat="server" ID="lblName" Text="Nazwa:" />
+            <asp:Label runat="server" ID="lblFirstName" Text="Imię:" />
         </div>
     </div>
     <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 5px;">
-            <asp:TextBox runat="server" ID="txtName" CssClass="w3-input w3-round-large" />        
+            <asp:TextBox runat="server" ID="txtFirstName" CssClass="w3-input w3-round-large" />        
         </div>
     </div>
 
     <div class="w3-row">
         <div class="w3-col m12">
-            <asp:Label runat="server" ID="lblPrice" Text="Cena:" />
+            <asp:Label runat="server" ID="lblLastName" Text="Nazwisko:" />
         </div>
     </div>
     <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 5px;">
-            <asp:TextBox runat="server" ID="txtPrice" CssClass="w3-input w3-round-large" />        
+            <asp:TextBox runat="server" ID="txtLastName" CssClass="w3-input w3-round-large" />        
         </div>
     </div>
 
     <div class="w3-row">
         <div class="w3-col m12">
-            <asp:Label runat="server" ID="lblDescription" Text="Opis:" />
+            <asp:Label runat="server" ID="lblPosition" Text="Pozycja" />
         </div>
     </div>
     <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 5px;">
-            <asp:TextBox runat="server" ID="txtDescription" CssClass="w3-input w3-round-large" />        
+            <asp:TextBox runat="server" ID="txtPosition" CssClass="w3-input w3-round-large" />        
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col m12">
+            <asp:Label runat="server" ID="lblPESEL" Text="PESEL:" />
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col m12" style="padding-top: 5px;">
+            <asp:TextBox runat="server" ID="txtPESEL" CssClass="w3-input w3-round-large" />        
         </div>
     </div>
     <div class="w3-row">

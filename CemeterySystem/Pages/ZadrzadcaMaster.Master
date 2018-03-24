@@ -58,6 +58,7 @@
                 <a href="#rezerwacje" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Rezerwacje</a>
                 <a href="/Pages/PaymentClassList" class="w3-bar-item w3-button w3-hover-grey">Klasy opłat</a>
                 <a href="/Pages/FuneralCompanyList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Zakłady pogrzebowe</a>
+                <a href="/Pages/CemeteryStaffPersonList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Personel cmentarza</a>
                 <hr />
                 <asp:LinkButton runat="server" ID="lbtnSignOut" Text="Wyloguj" CssClass="w3-bar-item w3-button w3-text-grey w3-hover-red" OnClick="lbtnSignOut_Click"></asp:LinkButton>                
             </div>

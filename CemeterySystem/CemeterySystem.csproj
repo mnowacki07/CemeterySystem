@@ -188,8 +188,10 @@
     <Content Include="Pages\DashboardZarzadca.aspx" />
     <Content Include="Pages\miejscaPogrzebania.aspx" />
     <Content Include="Pages\osobyZmarle.aspx" />
+    <Content Include="Pages\CemeteryStaffPersonDetails.aspx" />
     <Content Include="Pages\PaymentClassDetails.aspx" />
     <Content Include="Pages\FuneralCompanyList.aspx" />
+    <Content Include="Pages\CemeteryStaffPersonList.aspx" />
     <Content Include="Pages\PaymentClassList.aspx" />
     <Content Include="Pages\Pogrzeby.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
@@ -282,6 +284,10 @@
     <Compile Include="Migrations\201803241332554_FuneralCompany_IsDeleted.Designer.cs">
       <DependentUpon>201803241332554_FuneralCompany_IsDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803241747361_CemeteryStaffPerson_IsDeleted.cs" />
+    <Compile Include="Migrations\201803241747361_CemeteryStaffPerson_IsDeleted.Designer.cs">
+      <DependentUpon>201803241747361_CemeteryStaffPerson_IsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\FuneralCompanyDetails.aspx.cs">
       <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
@@ -325,6 +331,13 @@
     <Compile Include="Pages\osobyZmarle.aspx.designer.cs">
       <DependentUpon>osobyZmarle.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CemeteryStaffPersonDetails.aspx.cs">
+      <DependentUpon>CemeteryStaffPersonDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CemeteryStaffPersonDetails.aspx.designer.cs">
+      <DependentUpon>CemeteryStaffPersonDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PaymentClassDetails.aspx.cs">
       <DependentUpon>PaymentClassDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +351,13 @@
     </Compile>
     <Compile Include="Pages\FuneralCompanyList.aspx.designer.cs">
       <DependentUpon>FuneralCompanyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CemeteryStaffPersonList.aspx.cs">
+      <DependentUpon>CemeteryStaffPersonList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CemeteryStaffPersonList.aspx.designer.cs">
+      <DependentUpon>CemeteryStaffPersonList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PaymentClassList.aspx.cs">
       <DependentUpon>PaymentClassList.aspx</DependentUpon>
@@ -362,12 +382,14 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBModels\ApplicationDBContext.cs" />
+    <Compile Include="Repositories\CemeteryStaffPersonRepository.cs" />
     <Compile Include="Repositories\FuneralCompanyRepository.cs" />
     <Compile Include="Repositories\PaymentClassRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
     <Compile Include="Services\FuneralCompanyService.cs" />
+    <Compile Include="Services\CemeteryStaffPersonService.cs" />
     <Compile Include="Services\PaymentClassService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
@@ -403,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803241332554_FuneralCompany_IsDeleted.resx">
       <DependentUpon>201803241332554_FuneralCompany_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803241747361_CemeteryStaffPerson_IsDeleted.resx">
+      <DependentUpon>201803241747361_CemeteryStaffPerson_IsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
