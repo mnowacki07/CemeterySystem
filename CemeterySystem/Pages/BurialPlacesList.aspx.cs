@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CemeterySystem.Pages
 {
-    public partial class osobyZmarle : System.Web.UI.Page
+    public partial class BurialPlacesList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

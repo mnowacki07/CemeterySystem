@@ -10,6 +10,6 @@
 namespace CemeterySystem.Pages {
     
     
-    public partial class miejscaPogrzebania {
+    public partial class DeadPersonsDetails {
     }
 }

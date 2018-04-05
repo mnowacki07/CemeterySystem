@@ -183,17 +183,20 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\BurialPlacesDetails.aspx" />
+    <Content Include="Pages\BurialPlacesList.aspx" />
+    <Content Include="Pages\DeadPersonsDetails.aspx" />
+    <Content Include="Pages\DeadPersonsList.aspx" />
     <Content Include="Pages\FuneralCompanyDetails.aspx" />
+    <Content Include="Pages\FuneralsDetails.aspx" />
+    <Content Include="Pages\FuneralsList.aspx" />
     <Content Include="Pages\LoginMasterPage.Master" />
     <Content Include="Pages\DashboardZarzadca.aspx" />
-    <Content Include="Pages\miejscaPogrzebania.aspx" />
-    <Content Include="Pages\osobyZmarle.aspx" />
     <Content Include="Pages\CemeteryStaffPersonDetails.aspx" />
     <Content Include="Pages\PaymentClassDetails.aspx" />
     <Content Include="Pages\FuneralCompanyList.aspx" />
     <Content Include="Pages\CemeteryStaffPersonList.aspx" />
     <Content Include="Pages\PaymentClassList.aspx" />
-    <Content Include="Pages\Pogrzeby.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
     <Content Include="Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -289,12 +292,54 @@
       <DependentUpon>201803241747361_CemeteryStaffPerson_IsDeleted.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Pages\BurialPlacesDetails.aspx.cs">
+      <DependentUpon>BurialPlacesDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BurialPlacesDetails.aspx.designer.cs">
+      <DependentUpon>BurialPlacesDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BurialPlacesList.aspx.cs">
+      <DependentUpon>BurialPlacesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BurialPlacesList.aspx.designer.cs">
+      <DependentUpon>BurialPlacesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DeadPersonsDetails.aspx.cs">
+      <DependentUpon>DeadPersonsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DeadPersonsDetails.aspx.designer.cs">
+      <DependentUpon>DeadPersonsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DeadPersonsList.aspx.cs">
+      <DependentUpon>DeadPersonsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DeadPersonsList.aspx.designer.cs">
+      <DependentUpon>DeadPersonsList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FuneralCompanyDetails.aspx.cs">
       <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\FuneralCompanyDetails.aspx.designer.cs">
       <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FuneralsDetails.aspx.cs">
+      <DependentUpon>FuneralsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FuneralsDetails.aspx.designer.cs">
+      <DependentUpon>FuneralsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FuneralsList.aspx.cs">
+      <DependentUpon>FuneralsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FuneralsList.aspx.designer.cs">
+      <DependentUpon>FuneralsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoginMasterPage.Master.cs">
       <DependentUpon>LoginMasterPage.Master</DependentUpon>
@@ -316,20 +361,6 @@
     </Compile>
     <Compile Include="Pages\DashboardZarzadca.aspx.designer.cs">
       <DependentUpon>DashboardZarzadca.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\miejscaPogrzebania.aspx.cs">
-      <DependentUpon>miejscaPogrzebania.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\miejscaPogrzebania.aspx.designer.cs">
-      <DependentUpon>miejscaPogrzebania.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\osobyZmarle.aspx.cs">
-      <DependentUpon>osobyZmarle.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\osobyZmarle.aspx.designer.cs">
-      <DependentUpon>osobyZmarle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CemeteryStaffPersonDetails.aspx.cs">
       <DependentUpon>CemeteryStaffPersonDetails.aspx</DependentUpon>
@@ -365,13 +396,6 @@
     </Compile>
     <Compile Include="Pages\PaymentClassList.aspx.designer.cs">
       <DependentUpon>PaymentClassList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Pogrzeby.aspx.cs">
-      <DependentUpon>Pogrzeby.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Pogrzeby.aspx.designer.cs">
-      <DependentUpon>Pogrzeby.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ZadrzadcaMaster.Master.cs">
       <DependentUpon>ZadrzadcaMaster.Master</DependentUpon>
