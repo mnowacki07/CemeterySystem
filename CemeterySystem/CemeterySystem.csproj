@@ -242,6 +242,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Utils.cs" />
     <Compile Include="DBModels\ApplicationUser.cs" />
     <Compile Include="DBModels\Address.cs" />
     <Compile Include="DBModels\BurialPlace.cs" />
@@ -290,6 +291,10 @@
     <Compile Include="Migrations\201803241747361_CemeteryStaffPerson_IsDeleted.cs" />
     <Compile Include="Migrations\201803241747361_CemeteryStaffPerson_IsDeleted.Designer.cs">
       <DependentUpon>201803241747361_CemeteryStaffPerson_IsDeleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804080944300_BurialPlace_IsDeleted.cs" />
+    <Compile Include="Migrations\201804080944300_BurialPlace_IsDeleted.Designer.cs">
+      <DependentUpon>201804080944300_BurialPlace_IsDeleted.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\BurialPlacesDetails.aspx.cs">
@@ -406,12 +411,14 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBModels\ApplicationDBContext.cs" />
+    <Compile Include="Repositories\BurialPlaceRepository.cs" />
     <Compile Include="Repositories\CemeteryStaffPersonRepository.cs" />
     <Compile Include="Repositories\FuneralCompanyRepository.cs" />
     <Compile Include="Repositories\PaymentClassRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
+    <Compile Include="Services\BurialPlaceService.cs" />
     <Compile Include="Services\FuneralCompanyService.cs" />
     <Compile Include="Services\CemeteryStaffPersonService.cs" />
     <Compile Include="Services\PaymentClassService.cs" />
@@ -452,6 +459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803241747361_CemeteryStaffPerson_IsDeleted.resx">
       <DependentUpon>201803241747361_CemeteryStaffPerson_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804080944300_BurialPlace_IsDeleted.resx">
+      <DependentUpon>201804080944300_BurialPlace_IsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

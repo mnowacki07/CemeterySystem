@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,17 +10,21 @@ namespace CemeterySystem.DBModels
 {
     public enum EnumBurialPlaceType
     {
-        // null has to stay as a null value in db
-        NULL = 0,
-        // define some types:
+        [Description("---")]            
+        NULL = 0,        
+        [Description("Typ 1")]
         TYPE1 = 1,
+        [Description("Typ 2")]
         TYPE2 = 2            
     }
 
     public enum EnumBurialPlaceStatus
     {
+        [Description("---")]
         NULL = 0,
+        [Description("Status 1")]
         STATUS1 = 1,
+        [Description("Status 2")]
         STATUS2 = 2
     }
 
@@ -42,5 +47,41 @@ namespace CemeterySystem.DBModels
         public string Description { get; set; }
         [Required]
         public EnumBurialPlaceStatus Status { get; set; }
+        [Required]
+        public bool IsDeleted { get; set; }
+
+        [NotMapped]
+        public string PaymentDateFormatted
+        {
+            get
+            {
+                try
+                {
+                    if (this.PaymentDate.HasValue)
+                    {
+                        return this.PaymentDate.Value.ToString(new System.Globalization.CultureInfo("pl-PL").DateTimeFormat.ShortDatePattern);
+                    }
+                }
+                catch (Exception ex) { }
+                return "";
+            }
+        }
+
+        [NotMapped]
+        public string PaymentClassNameFormatted
+        {
+            get
+            {
+                try
+                {
+                    if(this.PaymentClass != null)
+                    {
+                        return this.PaymentClass.Name + " - " + this.PaymentClass.PriceFormatted;
+                    }
+                }
+                catch (Exception ex) { }
+                return "";
+            }
+        }
     }
 }

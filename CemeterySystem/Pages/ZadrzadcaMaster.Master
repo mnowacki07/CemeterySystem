@@ -17,6 +17,10 @@
     <script src="/Content/js/jQueryDataTable_1_10_16.min.js"></script>
     <script src="/Content/js/jQueryDataTable_CustomScripts.js"></script>
     <script src="/Content/js/scripts.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <style>
         body, h1, h2, h3, h4, h5 {
             font-family: "Poppins", sans-serif
