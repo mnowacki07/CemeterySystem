@@ -198,6 +198,15 @@
     <Content Include="Pages\CemeteryStaffPersonList.aspx" />
     <Content Include="Pages\PaymentClassList.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
+    <Content Include="photos\1.jpg" />
+    <Content Include="photos\2.jpg" />
+    <Content Include="photos\3.jpg" />
+    <Content Include="photos\4.jpg" />
+    <Content Include="photos\5.jpg" />
+    <Content Include="photos\6.jpg" />
+    <Content Include="photos\7.jpg" />
+    <Content Include="photos\8.jpg" />
+    <Content Include="photos\9.jpg" />
     <Content Include="Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pages\LoginPage.aspx" />

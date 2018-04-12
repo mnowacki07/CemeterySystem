@@ -8,38 +8,23 @@
   </div>
   
   <!-- Icon grid -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="https://i.imgur.com/nzgTknT.png" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
-      <img src="https://i.imgur.com/zD7PEHB.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
- 
-    </div>
-
-    <div class="w3-half">
-      <img src="https://i.imgur.com/OD3KOXq.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="https://i.imgur.com/u1AEkOJ.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-
-    </div>
+  <div class="w3-container">
+    <div class="w3-container">
+      <img src="/photos/8.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+     </div>  
   </div>
 
   <!-- Osoby zmarłe -->
-  <div class="w3-container   " id="osoby_zmarle" style="margin-top:75px">
+  <div class="w3-container" id="osoby_zmarle" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red w3-text-dark-grey"><b>Osoby zmarłe.</b></h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
      </div>
-     <!-- Icon grid -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="https://i.imgur.com/aD6lEtw.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks">
-      <img src="https://i.imgur.com/zD7PEHB.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-  
-    </div>
-
-    <div class="w3-half">
-      <img src="https://i.imgur.com/OD3KOXq.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="https://i.imgur.com/u1AEkOJ.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-  
-    </div>
+    
+  <!-- Icon grid -->
+  <div class="w3-container">
+    <div class="w3-container">
+      <img src="/photos/1.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+     </div>  
   </div>
   
   <!-- Miejsca pochówku -->
@@ -48,18 +33,11 @@
     <hr style="width:300px;border:5px solid grey" class="w3-round">
      </div>
        <!-- Icon grid -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="https://i.imgur.com/aD6lEtw.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks">
-      <img src="https://i.imgur.com/zD7PEHB.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-
-    </div>
-
-    <div class="w3-half">
-      <img src="https://i.imgur.com/OD3KOXq.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="https://i.imgur.com/u1AEkOJ.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-    
-    </div>
+ 
+  <div class="w3-container">
+    <div class="w3-container">
+      <img src="/photos/5.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+     </div>  
   </div>
 
 
@@ -69,7 +47,48 @@
     <hr style="width:300px;border:5px solid grey" class="w3-round">
      </div>
 
+  <div class="w3-container">
+    <div class="w3-container">
+      <img src="/photos/10.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+     </div>  
+  </div>
 
+  <!-- Zaklady pogrzebowe -->
+  <div class="w3-container" id="zaklady_pogrzebowe" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Zakłady pogrzebowe.</b></h1>
+    <hr style="width:300px;border:5px solid grey" class="w3-round">
+     </div>
+
+  <div class="w3-container">
+    <div class="w3-container">
+      <img src="/photos/4.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+     </div>  
+  </div>
+
+  <!-- Opłaty -->
+  <div class="w3-container" id="oplaty" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Ustawienia opłat.</b></h1>
+    <hr style="width:300px;border:5px solid grey" class="w3-round">
+     </div>
+
+  <div class="w3-container">
+    <div class="w3-container">
+      <img src="/photos/11.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+     </div>  
+  </div>
+
+  <!-- Opiekunowie -->
+  <div class="w3-container" id="opiekunowie" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Opiekunowie miejsc pogrzebania.</b></h1>
+    <hr style="width:300px;border:5px solid grey" class="w3-round">
+     </div>
+
+  <div class="w3-container">
+    <div class="w3-container">
+      <img src="/photos/7.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+     </div>  
+  </div>
+  
   
   <!-- Dodatkowe informacje -->
   <div class="w3-container" id="Dodatkowe informacje" style="margin-top:75px">
