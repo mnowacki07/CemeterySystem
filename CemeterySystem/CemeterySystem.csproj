@@ -199,6 +199,8 @@
     <Content Include="Pages\PaymentClassList.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
     <Content Include="photos\1.jpg" />
+    <Content Include="photos\10.jpg" />
+    <Content Include="photos\11.jpg" />
     <Content Include="photos\2.jpg" />
     <Content Include="photos\3.jpg" />
     <Content Include="photos\4.jpg" />

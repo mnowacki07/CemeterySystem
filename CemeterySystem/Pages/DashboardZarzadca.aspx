@@ -2,90 +2,120 @@
   <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
 
 <!-- ZAWARTOŚĆ STRONY START -->
+
+  <!-- Pogrzeby -->
    <div class="w3-container" style="margin-top:80px" id="pogrzeby">
-    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Pogrzeby.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-dark-grey"> <a href="/Pages/FuneralsList" style="text-decoration:none;"><b>Pogrzeby.</b> </a></h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
   </div>
   
-  <!-- Icon grid -->
+  <!-- zdjecie pogrzeby-->
   <div class="w3-container">
     <div class="w3-container">
-      <img src="/photos/8.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+    <a href="/Pages/FuneralsList">  <img src="/photos/8.jpg" style="width:100%" OnClick="Button1_Click" alt="Pogrzeby"> </a>
      </div>  
   </div>
 
   <!-- Osoby zmarłe -->
   <div class="w3-container" id="osoby_zmarle" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red w3-text-dark-grey"><b>Osoby zmarłe.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red w3-text-dark-grey"><a href="/Pages/DeadPersonsList" style="text-decoration:none;"><b>Osoby zmarłe.</b></a></h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
      </div>
     
-  <!-- Icon grid -->
+    <!-- zdjecie osoby zmarle -->
   <div class="w3-container">
     <div class="w3-container">
-      <img src="/photos/1.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+   <a href="/Pages/DeadPersonsList">   <img src="/photos/1.jpg" style="width:100%" OnClick="Button1_Click" alt="Osoby zmarłe"> </a>
      </div>  
   </div>
   
   <!-- Miejsca pochówku -->
   <div class="w3-container" id="miejsca_pochowku" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Miejsca pochówku.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-dark-grey">
+        <a href="/Pages/BurialPlacesList" style="text-decoration:none;"><b>Miejsca pochówku.</b></a>
+    </h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
-     </div>
-       <!-- Icon grid -->
- 
+  </div>
+     
+   <!-- zdjęcie miejsce pochowku -->
   <div class="w3-container">
     <div class="w3-container">
-      <img src="/photos/5.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
-     </div>  
+    <a href="/Pages/BurialPlacesList">   
+        <img src="/photos/5.jpg" style="width:100%" OnClick="Button1_Click" alt="Miejsca pochówku"> 
+    </a>
+    </div>  
   </div>
 
 
   <!-- Rezerwacje -->
   <div class="w3-container" id="rezerwacje" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Rezerwacje.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-dark-grey">
+        <a href="/Pages/DashboardZarzadca" style="text-decoration:none;">
+            <b>Rezerwacje.</b>
+        </a>
+    </h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
-     </div>
+   </div>
 
   <div class="w3-container">
     <div class="w3-container">
-      <img src="/photos/10.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+          <a href="/Pages/DashboardZarzadca">  
+              <img src="/photos/10.jpg" style="width:100%" OnClick="Button1_Click" alt="Rezerwacje"> 
+          </a>
      </div>  
   </div>
 
   <!-- Zaklady pogrzebowe -->
   <div class="w3-container" id="zaklady_pogrzebowe" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Zakłady pogrzebowe.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-dark-grey">
+       <a href="/Pages/FuneralCompanyList" style="text-decoration:none;">
+        <b>Zakłady pogrzebowe.</b>
+        </a>
+    </h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
-     </div>
+   </div>
 
   <div class="w3-container">
     <div class="w3-container">
-      <img src="/photos/4.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+         <a href="/Pages/FuneralCompanyList" style="text-decoration:none;">
+            <img src="/photos/4.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+         </a>
      </div>  
   </div>
 
   <!-- Opłaty -->
   <div class="w3-container" id="oplaty" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Ustawienia opłat.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-dark-grey">
+     <a href="/Pages/PaymentClassList" style="text-decoration:none;">
+        <b>Ustawienia opłat.</b>
+    </a>
+    </h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
-     </div>
+    </div>
 
   <div class="w3-container">
     <div class="w3-container">
+      <a href="/Pages/PaymentClassList" style="text-decoration:none;">
       <img src="/photos/11.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+      </a>
      </div>  
   </div>
 
   <!-- Opiekunowie -->
   <div class="w3-container" id="opiekunowie" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Opiekunowie miejsc pogrzebania.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-dark-grey">
+       <a href="/Pages/DashboardZarzadca" style="text-decoration:none;">
+        <b>Opiekunowie miejsc pogrzebania.</b>
+       </a>
+    </h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
      </div>
 
   <div class="w3-container">
     <div class="w3-container">
-      <img src="/photos/7.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+        <a href="/Pages/DashboardZarzadca" style="text-decoration:none;">
+         <img src="/photos/7.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+         </a>
      </div>  
   </div>
   
