@@ -12,7 +12,7 @@
   <!-- zdjecie pogrzeby-->
   <div class="w3-container">
     <div class="w3-container">
-    <a href="/Pages/FuneralsList">  <img src="/photos/8.jpg" style="width:100%" OnClick="Button1_Click" alt="Pogrzeby"> </a>
+    <a href="/Pages/FuneralsList">  <img src="/Content/img/8.jpg" style="width:100%" OnClick="Button1_Click" alt="Pogrzeby"> </a>
      </div>  
   </div>
 
@@ -25,7 +25,7 @@
     <!-- zdjecie osoby zmarle -->
   <div class="w3-container">
     <div class="w3-container">
-   <a href="/Pages/DeadPersonsList">   <img src="/photos/1.jpg" style="width:100%" OnClick="Button1_Click" alt="Osoby zmarłe"> </a>
+   <a href="/Pages/DeadPersonsList">   <img src="/Content/img/1.jpg" style="width:100%" OnClick="Button1_Click" alt="Osoby zmarłe"> </a>
      </div>  
   </div>
   
@@ -41,17 +41,17 @@
   <div class="w3-container">
     <div class="w3-container">
     <a href="/Pages/BurialPlacesList">   
-        <img src="/photos/5.jpg" style="width:100%" OnClick="Button1_Click" alt="Miejsca pochówku"> 
+        <img src="/Content/img/5.jpg" style="width:100%" OnClick="Button1_Click" alt="Miejsca pochówku"> 
     </a>
     </div>  
   </div>
 
 
-  <!-- Rezerwacje -->
-  <div class="w3-container" id="rezerwacje" style="margin-top:75px">
+  <!-- Personel cmentarza -->
+  <div class="w3-container" id="personel" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-dark-grey">
-        <a href="/Pages/DashboardZarzadca" style="text-decoration:none;">
-            <b>Rezerwacje.</b>
+        <a href="/Pages/CemeteryStaffPersonList" style="text-decoration:none;">
+            <b>Personel cmentarza.</b>
         </a>
     </h1>
     <hr style="width:300px;border:5px solid grey" class="w3-round">
@@ -59,8 +59,8 @@
 
   <div class="w3-container">
     <div class="w3-container">
-          <a href="/Pages/DashboardZarzadca">  
-              <img src="/photos/10.jpg" style="width:100%" OnClick="Button1_Click" alt="Rezerwacje"> 
+          <a href="/Pages/CemeteryStaffPersonList">  
+              <img src="/Content/img/12.jpg" style="width:100%" OnClick="Button1_Click" alt="Rezerwacje"> 
           </a>
      </div>  
   </div>
@@ -78,7 +78,7 @@
   <div class="w3-container">
     <div class="w3-container">
          <a href="/Pages/FuneralCompanyList" style="text-decoration:none;">
-            <img src="/photos/4.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+            <img src="/Content/img/4.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
          </a>
      </div>  
   </div>
@@ -96,7 +96,7 @@
   <div class="w3-container">
     <div class="w3-container">
       <a href="/Pages/PaymentClassList" style="text-decoration:none;">
-      <img src="/photos/11.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+      <img src="/Content/img/11.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
       </a>
      </div>  
   </div>
@@ -114,7 +114,7 @@
   <div class="w3-container">
     <div class="w3-container">
         <a href="/Pages/DashboardZarzadca" style="text-decoration:none;">
-         <img src="/photos/7.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
+         <img src="/Content/img/7.jpg" style="width:100%" OnClick="Button1_Click" alt="Concrete meets bricks"> 
          </a>
      </div>  
   </div>
