@@ -52,7 +52,7 @@
                 <a href="/Pages/DashBoardZarzadca#Header" onclick="w3_close()" class="w3-bar-item w3-button ">Strona główna</a>
                 <hr />
                
-                <a href="/Pages/Pogrzeby" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Pogrzeby</a>
+                <a href="/Pages/FuneralsList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Pogrzeby</a>
                 <a href="/Pages/osobyZmarle" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Osoby zmarłe</a>
                 <a href="/Pages/MiejscaPogrzebania" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Miejsca Pochówku</a>
                 <a href="#rezerwacje" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Rezerwacje</a>

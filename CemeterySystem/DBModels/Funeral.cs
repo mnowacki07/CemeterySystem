@@ -22,5 +22,7 @@ namespace CemeterySystem.DBModels
         public Guid CemeteryStaffPersonID { get; set; }
         [ForeignKey("CemeteryStaffPersonID")]
         public CemeteryStaffPerson CemeteryStaffPerson { get; set; }
+        [Required]
+        public bool IsDeleted { get; set; }
     }
 }

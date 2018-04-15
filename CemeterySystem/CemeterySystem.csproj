@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -184,6 +185,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Pages\FuneralCompanyDetails.aspx" />
+    <Content Include="Pages\FuneralsDetails.aspx" />
+    <Content Include="Pages\FuneralsList.aspx" />
     <Content Include="Pages\LoginMasterPage.Master" />
     <Content Include="Pages\DashboardZarzadca.aspx" />
     <Content Include="Pages\miejscaPogrzebania.aspx" />
@@ -288,6 +291,14 @@
     <Compile Include="Migrations\201803241747361_CemeteryStaffPerson_IsDeleted.Designer.cs">
       <DependentUpon>201803241747361_CemeteryStaffPerson_IsDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803251146578_Funeral_IsDeleted.cs" />
+    <Compile Include="Migrations\201803251146578_Funeral_IsDeleted.Designer.cs">
+      <DependentUpon>201803251146578_Funeral_IsDeleted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803251214471_Funeral_IsDeleted1.cs" />
+    <Compile Include="Migrations\201803251214471_Funeral_IsDeleted1.Designer.cs">
+      <DependentUpon>201803251214471_Funeral_IsDeleted1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\FuneralCompanyDetails.aspx.cs">
       <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
@@ -295,6 +306,20 @@
     </Compile>
     <Compile Include="Pages\FuneralCompanyDetails.aspx.designer.cs">
       <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FuneralsDetails.aspx.cs">
+      <DependentUpon>FuneralsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FuneralsDetails.aspx.designer.cs">
+      <DependentUpon>FuneralsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FuneralsList.aspx.cs">
+      <DependentUpon>FuneralsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FuneralsList.aspx.designer.cs">
+      <DependentUpon>FuneralsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoginMasterPage.Master.cs">
       <DependentUpon>LoginMasterPage.Master</DependentUpon>
@@ -384,12 +409,14 @@
     <Compile Include="DBModels\ApplicationDBContext.cs" />
     <Compile Include="Repositories\CemeteryStaffPersonRepository.cs" />
     <Compile Include="Repositories\FuneralCompanyRepository.cs" />
+    <Compile Include="Repositories\FuneralRepository.cs" />
     <Compile Include="Repositories\PaymentClassRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
     <Compile Include="Services\FuneralCompanyService.cs" />
     <Compile Include="Services\CemeteryStaffPersonService.cs" />
+    <Compile Include="Services\FuneralService.cs" />
     <Compile Include="Services\PaymentClassService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
@@ -428,6 +455,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803241747361_CemeteryStaffPerson_IsDeleted.resx">
       <DependentUpon>201803241747361_CemeteryStaffPerson_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803251146578_Funeral_IsDeleted.resx">
+      <DependentUpon>201803251146578_Funeral_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803251214471_Funeral_IsDeleted1.resx">
+      <DependentUpon>201803251214471_Funeral_IsDeleted1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
