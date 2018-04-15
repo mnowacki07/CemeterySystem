@@ -308,6 +308,10 @@
     <Compile Include="Migrations\201804080944300_BurialPlace_IsDeleted.Designer.cs">
       <DependentUpon>201804080944300_BurialPlace_IsDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804151408360_Funeral_IsDeleted.cs" />
+    <Compile Include="Migrations\201804151408360_Funeral_IsDeleted.Designer.cs">
+      <DependentUpon>201804151408360_Funeral_IsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\BurialPlacesDetails.aspx.cs">
       <DependentUpon>BurialPlacesDetails.aspx</DependentUpon>
@@ -426,6 +430,7 @@
     <Compile Include="Repositories\BurialPlaceRepository.cs" />
     <Compile Include="Repositories\CemeteryStaffPersonRepository.cs" />
     <Compile Include="Repositories\FuneralCompanyRepository.cs" />
+    <Compile Include="Repositories\FuneralRepository.cs" />
     <Compile Include="Repositories\PaymentClassRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
@@ -433,6 +438,7 @@
     <Compile Include="Services\BurialPlaceService.cs" />
     <Compile Include="Services\FuneralCompanyService.cs" />
     <Compile Include="Services\CemeteryStaffPersonService.cs" />
+    <Compile Include="Services\FuneralService.cs" />
     <Compile Include="Services\PaymentClassService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
@@ -474,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804080944300_BurialPlace_IsDeleted.resx">
       <DependentUpon>201804080944300_BurialPlace_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804151408360_Funeral_IsDeleted.resx">
+      <DependentUpon>201804151408360_Funeral_IsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
