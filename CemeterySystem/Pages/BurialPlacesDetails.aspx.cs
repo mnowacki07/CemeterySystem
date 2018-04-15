@@ -125,6 +125,17 @@ namespace CemeterySystem.Pages
                 burialPlace = new BurialPlaceService().getByID(this.BurialPlaceID.ToString());
             }
 
+            var burialPlaceExisting = new BurialPlaceService().getBy(x =>
+                (!x.BurialPlaceID.Equals(burialPlace.BurialPlaceID)) &&
+                ("" + x.GraveNumber).Trim().ToLower().Equals(txtGraveNumber.Text.Trim().ToLower()) &&
+                ("" + x.FieldNumber).Trim().ToLower().Equals(txtFieldNumber.Text.Trim().ToLower()));
+
+            if(burialPlaceExisting.Count > 0)
+            {
+                ViewState["Existing"] = "True";
+                return;
+            }
+
             burialPlace.FieldNumber = txtFieldNumber.Text;
             burialPlace.GraveNumber = txtGraveNumber.Text;
             burialPlace.Type = (EnumBurialPlaceType) Convert.ToInt32(ddlType.SelectedValue);
@@ -134,7 +145,7 @@ namespace CemeterySystem.Pages
             if (paymentClass != null)
             {
                 burialPlace.PaymentClassID = paymentClass.PaymentClassID;
-                burialPlace.PaymentClass = paymentClass;
+                burialPlace.PaymentClass = null;
             }
 
             if(string.IsNullOrEmpty(("" + txtPaymentDate.Text).Trim()))

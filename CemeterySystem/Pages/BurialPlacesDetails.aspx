@@ -19,7 +19,7 @@
             
             jQuery("#<%= txtPaymentDate.ClientID %>").datepicker({
                 dateFormat: 'dd.mm.yy'
-            });
+            });           
         });
 
         function validateForm() {
@@ -28,9 +28,14 @@
         }
     </script>
 
-    <div class="w3-container" style="margin-top: 80px" id="top">
+    <div class="w3-container" style="margin-top: 80px; padding-bottom: 20px;" id="top">
         <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Miejsca pogrzebania</b></h1>
         <hr style="width: 300px; border: 5px solid grey" class="w3-round">
+        <% if (("" + ViewState["Existing"]).Equals("True")) { %> 
+            <span style="color: #cb2121; font-size: 20px;">
+                Miejsce pogrzebania z podanym numerem pola i miejsca już istnieje
+            </span>
+         <%} %>
     </div>
 
     <div class="w3-row">
