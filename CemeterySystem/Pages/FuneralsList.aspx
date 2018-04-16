@@ -42,8 +42,8 @@
                                 <a href="/Pages/FuneralsDetails?FuneralID=<%# Eval("FuneralID") %>">Pokaż</a>                                
                             </td>
                             <td><%# Eval("FuneralDate") %></td>
-                            <td><%# Eval("FuneralCompany") %></td>
-                            <td><%# Eval("CemeteryStaffPerson") %></td>
+                            <td><%# Eval("FuneralCompany.Name") %></td>
+                            <td><%# Eval("CemeteryStaffPerson.LastName") %></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
