@@ -26,5 +26,8 @@ namespace CemeterySystem.DBModels
         public Guid FuneralID { get; set; }
         [ForeignKey("FuneralID")]
         public Funeral Funeral { get; set; }
+        public Guid? FamilyMemberID { get; set; }
+        [ForeignKey("FamilyMemberID")]
+        public FamilyMember FamilyMember { get; set; }
     }
 }
