@@ -29,5 +29,7 @@ namespace CemeterySystem.DBModels
         public Guid? FamilyMemberID { get; set; }
         [ForeignKey("FamilyMemberID")]
         public FamilyMember FamilyMember { get; set; }
+        [Required]
+        public bool IsDeleted { get; set; }
     }
 }

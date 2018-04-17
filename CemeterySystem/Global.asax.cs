@@ -57,6 +57,20 @@ namespace CemeterySystem
                 new UserService().registerUser(user, "aB34567!");
             }
 
+            // create dummy family member user
+            // remove this after user registration implementation is done
+            var familyMemberUsers = new UserRepository(dbContext).getBy(x => x.UserName.Equals("fmember"));
+            if (familyMemberUsers.Count == 0)
+            {
+                ApplicationUser user = new ApplicationUser()
+                {
+                    UserName = "fmember",
+                    Email = "dummy2@example.com"
+                };
+
+                new UserService().registerUser(user, "aB34567!");
+            }
+
             var roleAdmin = userRoleRepo.getByID(UserRoleRepository.ADMIN_ROLE_ID);
             // attach admin role to user
             var serviceUser = new UserRepository(dbContext).getBy(x => x.UserName.Equals("service"))[0];
@@ -73,6 +87,15 @@ namespace CemeterySystem
             {
                 managerUser.Roles.Add(new IdentityUserRole() { RoleId = managerRole.Id, UserId = managerUser.Id });
                 new UserRepository(dbContext).update(managerUser);
+            }
+
+            var familyMemberRole = userRoleRepo.getByID(UserRoleRepository.FAMILY_MEMBER_ROLE_ID);
+            // attach manager role to user
+            var familyMemberUser = new UserRepository(dbContext).getBy(x => x.UserName.Equals("fmember"))[0];
+            if (familyMemberUser.Roles.FirstOrDefault(x => x.RoleId.Equals(UserRoleRepository.FAMILY_MEMBER_ROLE_ID)) == null)
+            {
+                familyMemberUser.Roles.Add(new IdentityUserRole() { RoleId = familyMemberRole.Id, UserId = familyMemberUser.Id });
+                new UserRepository(dbContext).update(familyMemberUser);
             }
 
             dbContext.SaveChanges();

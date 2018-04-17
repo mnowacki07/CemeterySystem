@@ -186,8 +186,10 @@
     </Content>
     <Content Include="Pages\BurialPlacesDetails.aspx" />
     <Content Include="Pages\BurialPlacesList.aspx" />
+    <Content Include="Pages\DashboardFamilyMember.aspx" />
     <Content Include="Pages\DeadPersonsDetails.aspx" />
     <Content Include="Pages\DeadPersonsList.aspx" />
+    <Content Include="Pages\FamilyMemberDeadPersonsList.aspx" />
     <Content Include="Pages\FuneralCompanyDetails.aspx" />
     <Content Include="Pages\FuneralsDetails.aspx" />
     <Content Include="Pages\FuneralsList.aspx" />
@@ -211,6 +213,7 @@
     <Content Include="Content\img\8.jpg" />
     <Content Include="Content\img\9.jpg" />
     <Content Include="Web.config" />
+    <Content Include="Pages\FamilyMemberMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -312,6 +315,14 @@
     <Compile Include="Migrations\201804151408360_Funeral_IsDeleted.Designer.cs">
       <DependentUpon>201804151408360_Funeral_IsDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804171617583_DeadPerosn_FamilyMember.cs" />
+    <Compile Include="Migrations\201804171617583_DeadPerosn_FamilyMember.Designer.cs">
+      <DependentUpon>201804171617583_DeadPerosn_FamilyMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804171627351_DeadPerson_IsDeleted.cs" />
+    <Compile Include="Migrations\201804171627351_DeadPerson_IsDeleted.Designer.cs">
+      <DependentUpon>201804171627351_DeadPerson_IsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\BurialPlacesDetails.aspx.cs">
       <DependentUpon>BurialPlacesDetails.aspx</DependentUpon>
@@ -327,6 +338,13 @@
     <Compile Include="Pages\BurialPlacesList.aspx.designer.cs">
       <DependentUpon>BurialPlacesList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DashboardFamilyMember.aspx.cs">
+      <DependentUpon>DashboardFamilyMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DashboardFamilyMember.aspx.designer.cs">
+      <DependentUpon>DashboardFamilyMember.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DeadPersonsDetails.aspx.cs">
       <DependentUpon>DeadPersonsDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -340,6 +358,13 @@
     </Compile>
     <Compile Include="Pages\DeadPersonsList.aspx.designer.cs">
       <DependentUpon>DeadPersonsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberDeadPersonsList.aspx.cs">
+      <DependentUpon>FamilyMemberDeadPersonsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberDeadPersonsList.aspx.designer.cs">
+      <DependentUpon>FamilyMemberDeadPersonsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FuneralCompanyDetails.aspx.cs">
       <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
@@ -418,6 +443,13 @@
     <Compile Include="Pages\PaymentClassList.aspx.designer.cs">
       <DependentUpon>PaymentClassList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FamilyMemberMaster.Master.cs">
+      <DependentUpon>FamilyMemberMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberMaster.Master.designer.cs">
+      <DependentUpon>FamilyMemberMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ZadrzadcaMaster.Master.cs">
       <DependentUpon>ZadrzadcaMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -429,6 +461,7 @@
     <Compile Include="DBModels\ApplicationDBContext.cs" />
     <Compile Include="Repositories\BurialPlaceRepository.cs" />
     <Compile Include="Repositories\CemeteryStaffPersonRepository.cs" />
+    <Compile Include="Repositories\DeadPersonRepository.cs" />
     <Compile Include="Repositories\FuneralCompanyRepository.cs" />
     <Compile Include="Repositories\FuneralRepository.cs" />
     <Compile Include="Repositories\PaymentClassRepository.cs" />
@@ -436,6 +469,7 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
     <Compile Include="Services\BurialPlaceService.cs" />
+    <Compile Include="Services\DeadPersonService.cs" />
     <Compile Include="Services\FuneralCompanyService.cs" />
     <Compile Include="Services\CemeteryStaffPersonService.cs" />
     <Compile Include="Services\FuneralService.cs" />
@@ -483,6 +517,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804151408360_Funeral_IsDeleted.resx">
       <DependentUpon>201804151408360_Funeral_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804171617583_DeadPerosn_FamilyMember.resx">
+      <DependentUpon>201804171617583_DeadPerosn_FamilyMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804171627351_DeadPerson_IsDeleted.resx">
+      <DependentUpon>201804171627351_DeadPerson_IsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

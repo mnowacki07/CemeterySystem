@@ -19,9 +19,13 @@ namespace CemeterySystem.Pages
             // if user is autthenticated and is in role as "cemetary manager" then redirect to his dashboard
             if (!IsPostBack)
             {
-                if (this.User.Identity.IsAuthenticated && this.User.IsInRole(UserRoleRepository.MANAGER_ROLE_NAME))
+                if (this.User.IsInRole(UserRoleRepository.MANAGER_ROLE_NAME))
                 {
                     Response.Redirect("/Pages/DashboardZarzadca.aspx");
+                }
+                else if(this.User.IsInRole(UserRoleRepository.FAMILY_MEMBER_ROLE_NAME))
+                {
+                    Response.Redirect("/Pages/DashboardFamilyMember.aspx");
                 }
             }
         }
@@ -38,9 +42,16 @@ namespace CemeterySystem.Pages
                 case SignInStatus.Success:
                     // if user is autthenticated and is in role as "cemetary manager" then redirect to his dashboard
                     ApplicationUser currentUser = new UserRepository(new ApplicationDbContext()).getByUsername(username);
-                    if (currentUser.Roles.First(x => x.RoleId.Equals(UserRoleRepository.MANAGER_ROLE_ID)) != null)
+
+                    var userRoles = currentUser.Roles.ToList();
+
+                    if (userRoles.FirstOrDefault(x => x.RoleId.Equals(UserRoleRepository.MANAGER_ROLE_ID)) != null)
                     {
                         Response.Redirect("/Pages/DashboardZarzadca.aspx");
+                    }
+                    else if (userRoles.FirstOrDefault(x => x.RoleId.Equals(UserRoleRepository.FAMILY_MEMBER_ROLE_ID)) != null)
+                    {
+                        Response.Redirect("/Pages/DashboardFamilyMember.aspx");
                     }
                     break;
                 case SignInStatus.Failure:
