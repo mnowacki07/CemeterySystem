@@ -12,6 +12,8 @@
 
     body {
         background: url(/Content/img/background.jpg);
+        background-repeat: no-repeat;
+        background-size: auto;
         height: 100%;
     }
 

@@ -166,9 +166,9 @@
     <Content Include="Content\css\jQueryDataTable_1_10_16.css" />
     <Content Include="Content\css\jQueryDataTable_CustomStyles.css" />
     <Content Include="Content\img\12.jpg" />
-    <Content Include="Content\img\background.jpg" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\img\background.jpg" />
     <Content Include="Content\js\jQueryDataTable_1_10_16.min.js" />
     <Content Include="Content\js\jQueryDataTable_CustomScripts.js" />
     <Content Include="Content\js\jQuery_3_3_1.min.js" />
