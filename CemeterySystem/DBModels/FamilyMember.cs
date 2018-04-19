@@ -22,10 +22,6 @@ namespace CemeterySystem.DBModels
         [Required]
         public Guid AddressID { get; set; }
         [ForeignKey("AddressID")]
-        public Address Address { get; set; }
-        [Required]
-        public Guid DeadPersonID { get; set; }
-        [ForeignKey("DeadPersonID")]
-        public DeadPerson DeadPerson { get; set; }
+        public Address Address { get; set; }        
     }
 }
