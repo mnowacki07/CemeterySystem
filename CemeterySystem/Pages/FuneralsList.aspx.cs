@@ -27,12 +27,34 @@ namespace CemeterySystem.Pages
             }
         }
 
+        private class FuneralViewModel
+        {
+            public Funeral Funeral { get; private set; }
+            public DeadPerson DeadPerson { get; private set; }
+
+            public FuneralViewModel(Funeral funeral, DeadPerson deadPerson)
+            {
+                this.Funeral = funeral;
+                this.DeadPerson = deadPerson;
+            }
+        }
+
         private void bindFuneralList()
         {
             try
             {
                 List<Funeral> listFuneral = new FuneralService().getAll();
-                repFuneral.DataSource = listFuneral;
+                List<Guid> listFuneralID = listFuneral.Select(x => x.FuneralID).ToList();
+                List<DeadPerson> listDeadPerson = new DeadPersonService().getBy(x => listFuneralID.Contains(x.FuneralID));
+                List<FuneralViewModel> listFuneralViewModel = new List<FuneralViewModel>();
+
+                for (int i = 0; i < listFuneral.Count; i++)
+                {
+                    DeadPerson deadPerson = listDeadPerson.FirstOrDefault(x => x.FuneralID.Equals(listFuneral[i].FuneralID));
+                    listFuneralViewModel.Add(new FuneralViewModel(listFuneral[i], deadPerson));
+                }
+                
+                repFuneral.DataSource = listFuneralViewModel;
                 repFuneral.DataBind();
             }
             catch (Exception ex) { }

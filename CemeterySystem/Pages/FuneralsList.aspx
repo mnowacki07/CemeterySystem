@@ -21,7 +21,7 @@
                 <tr>
                     <th style="max-width: 100px;">Pokaż</th>
                     <th style="max-width: 300px;">Data</th>
-                             
+                    <th>Osoba zmarła</th>
                     <th>Zakład pogrzebowy</th> 
                     <th>Osoba prowadząca ceremonię</th>
                 </tr>
@@ -30,6 +30,7 @@
                 <tr>
                     <th></th>
                     <th>data</th>
+                    <th>osoba zmarła</th>
                     <th>zakład pogrzebowy</th>
                     <th>osoba prowadząca ceremonię</th>
                 </tr>
@@ -39,11 +40,12 @@
                     <ItemTemplate>
                         <tr>
                             <td style="text-align: center;">
-                                <a href="/Pages/FuneralsDetails?FuneralID=<%# Eval("FuneralID") %>">Pokaż</a>                                
+                                <a href="/Pages/FuneralsDetails?FuneralID=<%# Eval("Funeral.FuneralID") %>">Pokaż</a>                                
                             </td>
-                            <td><%# Eval("FuneralDate") %></td>
-                            <td><%# Eval("FuneralCompany.Name") %></td>
-                            <td><%# Eval("CemeteryStaffPerson.LastName") %></td>
+                            <td><%# Eval("Funeral.FuneralShortDateFormatted") %></td>
+                            <td><%# Eval("DeadPerson.NameFormatted") %></td>
+                            <td><%# Eval("Funeral.FuneralCompany.Name") %></td>
+                            <td><%# Eval("Funeral.CemeteryStaffPerson.LastName") %></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>

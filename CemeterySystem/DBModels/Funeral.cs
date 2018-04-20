@@ -24,5 +24,14 @@ namespace CemeterySystem.DBModels
         public CemeteryStaffPerson CemeteryStaffPerson { get; set; }
         [Required]
         public bool IsDeleted { get; set; }
+
+        [NotMapped]
+        public string FuneralShortDateFormatted
+        {
+            get
+            {
+                return this.FuneralDate.ToString(new System.Globalization.CultureInfo("pl-PL").DateTimeFormat.ShortDatePattern);
+            }
+        }
     }
 }

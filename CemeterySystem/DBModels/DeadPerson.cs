@@ -31,5 +31,14 @@ namespace CemeterySystem.DBModels
         public FamilyMember FamilyMember { get; set; }
         [Required]
         public bool IsDeleted { get; set; }
+
+        [NotMapped]
+        public string NameFormatted
+        {
+            get
+            {
+                return this.FirstName + " " + this.LastName;
+            }
+        }
     }
 }

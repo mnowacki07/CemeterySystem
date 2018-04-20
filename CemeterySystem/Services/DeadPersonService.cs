@@ -23,5 +23,20 @@ namespace CemeterySystem.Services
             catch (Exception ex) { }
             return new List<DeadPerson>();
         }
+
+        public List<DeadPerson> getBy(Func<DeadPerson, bool> whereClausule)
+        {
+            try
+            {
+                List<DeadPerson> listDeadPerson = new List<DeadPerson>();
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    listDeadPerson = new DeadPersonRepository(db).getBy(whereClausule);
+                }
+                return listDeadPerson;
+            }
+            catch (Exception ex) { }
+            return new List<DeadPerson>();
+        }
     }
 }
