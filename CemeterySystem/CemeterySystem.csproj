@@ -462,6 +462,7 @@
     <Compile Include="Repositories\BurialPlaceRepository.cs" />
     <Compile Include="Repositories\CemeteryStaffPersonRepository.cs" />
     <Compile Include="Repositories\DeadPersonRepository.cs" />
+    <Compile Include="Repositories\FamilyMemberRepository.cs" />
     <Compile Include="Repositories\FuneralCompanyRepository.cs" />
     <Compile Include="Repositories\FuneralRepository.cs" />
     <Compile Include="Repositories\PaymentClassRepository.cs" />
@@ -470,6 +471,7 @@
     <Compile Include="Repositories\UserRoleRepository.cs" />
     <Compile Include="Services\BurialPlaceService.cs" />
     <Compile Include="Services\DeadPersonService.cs" />
+    <Compile Include="Services\FamilyMemberService.cs" />
     <Compile Include="Services\FuneralCompanyService.cs" />
     <Compile Include="Services\CemeteryStaffPersonService.cs" />
     <Compile Include="Services\FuneralService.cs" />

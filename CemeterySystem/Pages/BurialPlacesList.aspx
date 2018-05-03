@@ -23,7 +23,8 @@
                     <th>Numer pola</th>
                     <th>Numer miejsca</th>
                     <th>Klasa opłaty</th>
-                    <th>Opis</th>
+                    <th>Osoba zmarła</th>
+                    <th>Opiekun grobu</th>
                     <th>Termin płatności</th>
                 </tr>
             </thead>
@@ -33,7 +34,8 @@
                     <th>Numer pola</th>
                     <th>Numer miejsca</th>
                     <th>Klasa opłaty</th>
-                    <th>Opis</th>
+                    <th>Osoba zmarła</th>
+                    <th>Opiekun grobu</th>
                     <th>Termin płatności</th>
                 </tr>
             </tfoot>
@@ -42,13 +44,14 @@
                     <ItemTemplate>
                         <tr>
                             <td style="text-align: center;">
-                                <a href="/Pages/BurialPlacesDetails.aspx?BurialPlaceID=<%# Eval("BurialPlaceID") %>">Pokaż</a>
+                                <a href="/Pages/BurialPlacesDetails.aspx?BurialPlaceID=<%# Eval("BurialPlace.BurialPlaceID") %>">Pokaż</a>
                             </td>
-                            <td><%# Eval("FieldNumber") %></td>
-                            <td><%# Eval("GraveNumber") %></td>
-                            <td><%# Eval("PaymentClassNameFormatted") %></td>
-                            <td><%# Eval("Description") %></td>
-                            <td><%# Eval("PaymentDateFormatted") %></td>
+                            <td><%# Eval("BurialPlace.FieldNumber") %></td>
+                            <td><%# Eval("BurialPlace.GraveNumber") %></td>
+                            <td><%# Eval("BurialPlace.PaymentClassNameFormatted") %></td>
+                            <td><%# Eval("DeadPersonAnchor") %></td>
+                            <td><%# Eval("FamilyMemberAnchor") %></td>
+                            <td><%# Eval("BurialPlace.PaymentDateFormatted") %></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>

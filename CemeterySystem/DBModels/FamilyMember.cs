@@ -22,6 +22,15 @@ namespace CemeterySystem.DBModels
         [Required]
         public Guid AddressID { get; set; }
         [ForeignKey("AddressID")]
-        public Address Address { get; set; }        
+        public Address Address { get; set; }     
+        
+        [NotMapped]
+        public string NameFormatted
+        {
+            get
+            {
+                return (this.FirstName + " " + this.LastName).Trim();
+            }
+        }
     }
 }
