@@ -8,6 +8,14 @@
 
 
    <!-- Tutaj kod tabelki -->
+        <script>        
+        jQuery(document).ready(function () {
+            jQuery('#table-deadperson').DataTable({
+                language: jQueryDataTableTranslations
+            });
+            generateFooterFilters(jQuery('#table-deadperson'));
+        });
+    </script>
 
 
 </asp:Content>
