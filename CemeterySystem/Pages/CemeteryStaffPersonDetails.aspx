@@ -1,11 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Pages/ZadrzadcaMaster.Master" CodeBehind="CemeteryStaffPersonDetails.aspx.cs" Inherits="CemeterySystem.Pages.CemeteryStaffPersonDetails" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-        
-           
- 
-
  <div class="w3-container" style="margin-top: 80px" id="top">
         <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Personel cmentarza</b></h1> 
         <hr style="width: 300px; border: 5px solid grey" class="w3-round">  <br />  

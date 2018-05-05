@@ -27,9 +27,14 @@ namespace CemeterySystem.Pages
 
         private void bindDeadPersonList()
         {
-            List<DeadPerson> listDeadPerson = new DeadPersonService().getAll();
-            repDeadPersons.DataSource = listDeadPerson;
-            repDeadPersons.DataBind();
+            ApplicationUser user = new UserService().getCurrentUser(Context);
+
+            if(user.FamilyMember != null)
+            {
+                List<DeadPerson> listDeadPerson = new DeadPersonService().getBy(x => x.FamilyMemberID.HasValue && x.FamilyMemberID.Equals(user.FamilyMember.FamilyMemberID));
+                repDeadPersons.DataSource = listDeadPerson;
+                repDeadPersons.DataBind();
+            }            
         }
     }
 }

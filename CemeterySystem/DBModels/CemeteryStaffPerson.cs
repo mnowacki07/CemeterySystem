@@ -22,5 +22,14 @@ namespace CemeterySystem.DBModels
         public string PESEL { get; set; }
         [Required]
         public bool IsDeleted { get; set; }
+
+        [NotMapped]
+        public string NameFormatted
+        {
+            get
+            {
+                return (this.FirstName + " " + this.LastName).Trim();
+            }
+        }
     }
 }

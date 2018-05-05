@@ -10,7 +10,7 @@
 namespace CemeterySystem.Pages {
     
     
-    public partial class CemeteryStaffPersonDetails {
+    public partial class FamilyMemberDeadPerson {
         
         /// <summary>
         /// lblFirstName control.
@@ -49,24 +49,6 @@ namespace CemeterySystem.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
         
         /// <summary>
-        /// lblPosition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPosition;
-        
-        /// <summary>
-        /// txtPosition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPosition;
-        
-        /// <summary>
         /// lblPESEL control.
         /// </summary>
         /// <remarks>
@@ -85,21 +67,93 @@ namespace CemeterySystem.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtPESEL;
         
         /// <summary>
-        /// btnDelete control.
+        /// lblBurialPlaceFieldNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnDelete;
+        protected global::System.Web.UI.WebControls.Label lblBurialPlaceFieldNumber;
         
         /// <summary>
-        /// btnSave control.
+        /// txtBurialPlaceFieldNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSave;
+        protected global::System.Web.UI.WebControls.TextBox txtBurialPlaceFieldNumber;
+        
+        /// <summary>
+        /// lblBurialPlaceGraveNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBurialPlaceGraveNumber;
+        
+        /// <summary>
+        /// txtBurialPlaceGraveNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBurialPlaceGraveNumber;
+        
+        /// <summary>
+        /// lblFuneralDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFuneralDate;
+        
+        /// <summary>
+        /// txtFuneralDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFuneralDate;
+        
+        /// <summary>
+        /// lblFuneralCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFuneralCompany;
+        
+        /// <summary>
+        /// txtFuneralCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFuneralCompany;
+        
+        /// <summary>
+        /// lblFuneralStaffPerson control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFuneralStaffPerson;
+        
+        /// <summary>
+        /// txtFuneralStaffPerson control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFuneralStaffPerson;
     }
 }
