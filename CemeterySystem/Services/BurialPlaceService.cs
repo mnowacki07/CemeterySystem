@@ -67,6 +67,42 @@ namespace CemeterySystem.Services
             return new List<BurialPlace>();
         }
 
+        public BurialPlace getByFamilyMemberID(Guid familyMemberID)
+        {
+            try
+            {
+                BurialPlace burialPlace = null;
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    var burialPlaceBookers = new BurialPlaceBookerRepository(db).getBy(x => x.FamilyMemberID.HasValue && x.FamilyMemberID.Value.Equals(familyMemberID));
+                    if(burialPlaceBookers != null && burialPlaceBookers.Count > 0)
+                    {
+                        burialPlace = burialPlaceBookers[0].BurialPlace;                        
+                    }
+                }
+                return burialPlace;
+            }
+            catch (Exception ex) { }
+            return null;
+        }
+
+        public List<BurialPlace> getForBooking()
+        {
+            try
+            {
+                List<BurialPlace> listBurialPlace = new List<BurialPlace>();
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    List<BurialPlaceBooker> listBurialPlaceBooker = new BurialPlaceBookerRepository(db).getAll();
+                    List<Guid> listBurialPlaceIDsToNotInclude = listBurialPlaceBooker.Select(x => x.BurialPlaceID).ToList();
+                    listBurialPlace = new BurialPlaceRepository(db).getBy(x => !listBurialPlaceIDsToNotInclude.Contains(x.BurialPlaceID));
+                }
+                return listBurialPlace;
+            }
+            catch (Exception ex) { }
+            return new List<BurialPlace>();
+        }
+
         public BurialPlace getByID(string id)
         {
             try
