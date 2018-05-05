@@ -7,6 +7,7 @@ using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using static CemeterySystem.App_Start.IdentityConfig;
+using System.Data.Entity;
 
 namespace CemeterySystem.Repositories
 {
@@ -41,6 +42,8 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Include(x => x.FamilyMember)
+                        .Include(x => x.FamilyMember.Address)
                         .ToList();
         }
 
@@ -48,6 +51,8 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Include(x => x.FamilyMember)
+                        .Include(x => x.FamilyMember.Address)
                         .Where(whereClausule)
                         .ToList();
         }
@@ -56,6 +61,8 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Include(x => x.FamilyMember)
+                        .Include(x => x.FamilyMember.Address)
                         .FirstOrDefault(x => x.Id.Equals(id));
         }
 
@@ -63,6 +70,8 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Include(x => x.FamilyMember)
+                        .Include(x => x.FamilyMember.Address)
                         .FirstOrDefault(x => x.UserName.Equals(username));
         }
 

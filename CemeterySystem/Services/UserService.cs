@@ -59,5 +59,25 @@ namespace CemeterySystem.Services
             }
             catch (Exception ex) { }
         }
+
+        public ApplicationUser getCurrentUser(HttpContext context)
+        {
+            try
+            {
+                if (context.User.Identity.IsAuthenticated)
+                {
+                    ApplicationUser user = null;
+
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        user = new UserRepository(db).getByUsername(context.User.Identity.Name);
+                    }
+
+                    return user;
+                }
+            }
+            catch(Exception ex) { }
+            return null;
+        }
     }
 }

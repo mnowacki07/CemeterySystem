@@ -29,6 +29,8 @@ namespace CemeterySystem.Repositories
                     .Include(x => x.BurialPlace)
                     .Include(x => x.FamilyMember)
                     .Include(x => x.Funeral)
+                    .Include(x => x.Funeral.CemeteryStaffPerson)
+                    .Include(x => x.Funeral.FuneralCompany)
                     .Where(x => !x.IsDeleted)
                     .ToList();
         }
@@ -40,6 +42,8 @@ namespace CemeterySystem.Repositories
                     .Include(x => x.BurialPlace)
                     .Include(x => x.FamilyMember)
                     .Include(x => x.Funeral)
+                    .Include(x => x.Funeral.CemeteryStaffPerson)
+                    .Include(x => x.Funeral.FuneralCompany)
                     .Where(whereClausule)
                     .Where(x => !x.IsDeleted)
                     .ToList();
@@ -52,6 +56,8 @@ namespace CemeterySystem.Repositories
                     .Include(x => x.BurialPlace)
                     .Include(x => x.FamilyMember)
                     .Include(x => x.Funeral)
+                    .Include(x => x.Funeral.CemeteryStaffPerson)
+                    .Include(x => x.Funeral.FuneralCompany)
                     .FirstOrDefault(x => !x.IsDeleted && x.DeadPersonID.ToString().Equals(id));
         }
 

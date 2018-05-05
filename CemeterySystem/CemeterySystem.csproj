@@ -189,6 +189,8 @@
     <Content Include="Pages\DashboardFamilyMember.aspx" />
     <Content Include="Pages\DeadPersonsDetails.aspx" />
     <Content Include="Pages\DeadPersonsList.aspx" />
+    <Content Include="Pages\FamilyMemberBooking.aspx" />
+    <Content Include="Pages\FamilyMemberDeadPerson.aspx" />
     <Content Include="Pages\FamilyMemberDeadPersonsList.aspx" />
     <Content Include="Pages\FuneralCompanyDetails.aspx" />
     <Content Include="Pages\FuneralsDetails.aspx" />
@@ -323,6 +325,14 @@
     <Compile Include="Migrations\201804171627351_DeadPerson_IsDeleted.Designer.cs">
       <DependentUpon>201804171627351_DeadPerson_IsDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805051655365_BurialPlaceBooker_FamilyMember.cs" />
+    <Compile Include="Migrations\201805051655365_BurialPlaceBooker_FamilyMember.Designer.cs">
+      <DependentUpon>201805051655365_BurialPlaceBooker_FamilyMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805052230347_BurialPlaceBooker_NullableData.cs" />
+    <Compile Include="Migrations\201805052230347_BurialPlaceBooker_NullableData.Designer.cs">
+      <DependentUpon>201805052230347_BurialPlaceBooker_NullableData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\BurialPlacesDetails.aspx.cs">
       <DependentUpon>BurialPlacesDetails.aspx</DependentUpon>
@@ -358,6 +368,20 @@
     </Compile>
     <Compile Include="Pages\DeadPersonsList.aspx.designer.cs">
       <DependentUpon>DeadPersonsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberBooking.aspx.cs">
+      <DependentUpon>FamilyMemberBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberBooking.aspx.designer.cs">
+      <DependentUpon>FamilyMemberBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberDeadPerson.aspx.cs">
+      <DependentUpon>FamilyMemberDeadPerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberDeadPerson.aspx.designer.cs">
+      <DependentUpon>FamilyMemberDeadPerson.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FamilyMemberDeadPersonsList.aspx.cs">
       <DependentUpon>FamilyMemberDeadPersonsList.aspx</DependentUpon>
@@ -459,6 +483,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBModels\ApplicationDBContext.cs" />
+    <Compile Include="Repositories\BurialPlaceBookerRepository.cs" />
     <Compile Include="Repositories\BurialPlaceRepository.cs" />
     <Compile Include="Repositories\CemeteryStaffPersonRepository.cs" />
     <Compile Include="Repositories\DeadPersonRepository.cs" />
@@ -469,6 +494,7 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
+    <Compile Include="Services\BurialPlaceBookerService.cs" />
     <Compile Include="Services\BurialPlaceService.cs" />
     <Compile Include="Services\DeadPersonService.cs" />
     <Compile Include="Services\FamilyMemberService.cs" />
@@ -525,6 +551,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804171627351_DeadPerson_IsDeleted.resx">
       <DependentUpon>201804171627351_DeadPerson_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051655365_BurialPlaceBooker_FamilyMember.resx">
+      <DependentUpon>201805051655365_BurialPlaceBooker_FamilyMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805052230347_BurialPlaceBooker_NullableData.resx">
+      <DependentUpon>201805052230347_BurialPlaceBooker_NullableData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

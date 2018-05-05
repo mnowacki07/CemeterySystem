@@ -55,7 +55,7 @@
             <div class="w3-bar-block color-styks-gold ">
                 <a href="/Pages/DashboardFamilyMember" onclick="w3_close()" class="w3-bar-item w3-button ">Strona główna</a>
                 <hr />               
-                <a href="/Pages/FuneralsList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Rezerwacje</a>
+                <a href="/Pages/FamilyMemberBooking" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Rezerwacje</a>
                 <a href="/Pages/FamilyMemberDeadPersonsList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Podlegające osoby zmarłe</a>
                 <a href="/Pages/BurialPlacesList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Opłaty</a>
                 <a href="/Pages/BurialPlacesList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Usługi</a>                
