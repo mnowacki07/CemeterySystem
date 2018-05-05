@@ -16,6 +16,50 @@
             generateFooterFilters(jQuery('#table-deadperson'));
         });
     </script>
-
+        <div class="table-wrapper">
+        <table id="table-deadperson" class="display" style="width: 100%">
+            <thead>
+                <tr>
+                    <th style="max-width: 100px;">Pokaż</th>
+                    <th style="max-width: 300px;">Zmarły</th>
+                    <th>Płeć</th>
+                    <th>Pesel</th>
+                    <th>Numer pola</th>
+                    <th>Data pogrzebu</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th>Zmarły</th>
+                    <th>Płeć</th>
+                    <th>Pesel</th>
+                    <th>Numer pola</th>
+                    <th>Data pogrzebu</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <asp:Repeater runat="server" ID="repDeadPerson">
+                    <ItemTemplate>
+                        <tr>
+                            <td style="text-align: center;">
+                                <a href="/Pages/DeadPersonsDetails?DeadPersonID=<%# Eval("DeadPerson.DeadPersonID") %>">Pokaż</a>                                
+                            </td>
+                            <td><%# Eval("DeadPerson.NameFormatted") %></td>
+                            <td><%# Eval("DeadPerson.Gender") %></td>
+                            <td><%# Eval("DeadPerson.Pesel") %></td>
+                            <td><%# Eval("DeadPerson.BurialPlace.FieldNumber") %></td>
+                            <td><%# Eval("DeadPerson.Funeral.FuneralShortDateFormatted") %></td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </tbody>
+        </table>
+        <div class="w3-row">
+            <div class="w3-col m12" style="padding-top: 20px;">
+                <a href="/Pages/Funeral.aspx?IsCreateMode=True" class="w3-button w3-blue w3-round-large" style="float: right;"><i class="fa fa-plus"></i>&nbsp;Nowy</a>
+            </div>
+        </div>        
+    </div>
 
 </asp:Content>

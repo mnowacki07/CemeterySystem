@@ -27,9 +27,34 @@ namespace CemeterySystem.Pages
             }
         }
 
+
+        private class DeadPersonViewModel
+        {
+            public DeadPerson DeadPerson { get; private set; }
+
+            public DeadPersonViewModel(DeadPerson deadPerson)
+            {
+                  this.DeadPerson = deadPerson;
+            }
+        }
+
         private void bindDeadPersonList()
         {
-         
+            try
+            {
+                List<DeadPerson> listDeadPerson = new DeadPersonService().getAll();
+                List<Guid> listDeadPersonID = listDeadPerson.Select(x => x.DeadPersonID).ToList();
+                List<DeadPersonViewModel> listDeadPersonViewModel = new List<DeadPersonViewModel>();
+
+                for (int i = 0; i < listDeadPerson.Count; i++)
+                {
+                  listDeadPersonViewModel.Add(new DeadPersonViewModel(listDeadPerson[i]));
+                }
+
+                repDeadPerson.DataSource = listDeadPersonViewModel;
+                repDeadPerson.DataBind();
+            }
+            catch (Exception ex) { }
         }
     }
 }
