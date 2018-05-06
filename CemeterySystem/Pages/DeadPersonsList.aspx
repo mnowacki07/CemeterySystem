@@ -46,7 +46,7 @@
                                 <a href="/Pages/DeadPersonsDetails?DeadPersonID=<%# Eval("DeadPerson.DeadPersonID") %>">Pokaż</a>                                
                             </td>
                             <td><%# Eval("DeadPerson.NameFormatted") %></td>
-                            <td><%# Eval("DeadPerson.Gender") %></td>
+                            <td><%# Eval("DeadPerson.GenderFormatted") %></td>
                             <td><%# Eval("DeadPerson.Pesel") %></td>
                             <td><%# Eval("DeadPerson.BurialPlace.FieldNumber") %></td>
                             <td><%# Eval("DeadPerson.Funeral.FuneralShortDateFormatted") %></td>

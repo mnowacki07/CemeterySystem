@@ -40,5 +40,14 @@ namespace CemeterySystem.DBModels
                 return this.FirstName + " " + this.LastName;
             }
         }
+
+        [NotMapped]
+        public string GenderFormatted
+        {
+            get
+            {
+                return this.Gender == EnumGender.MALE ? "Mężczyzna" : "Kobieta";
+            }
+        }
     }
 }
