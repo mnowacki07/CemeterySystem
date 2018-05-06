@@ -202,6 +202,8 @@
     <Content Include="Pages\FuneralCompanyList.aspx" />
     <Content Include="Pages\CemeteryStaffPersonList.aspx" />
     <Content Include="Pages\PaymentClassList.aspx" />
+    <Content Include="Pages\ServiceDetails.aspx" />
+    <Content Include="Pages\ServiceList.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
     <Content Include="Content\img\1.jpg" />
     <Content Include="Content\img\10.jpg" />
@@ -270,6 +272,8 @@
     <Compile Include="DBModels\Funeral.cs" />
     <Compile Include="DBModels\FuneralCompany.cs" />
     <Compile Include="DBModels\PaymentClass.cs" />
+    <Compile Include="DBModels\BookedService.cs" />
+    <Compile Include="DBModels\Service.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -332,6 +336,10 @@
     <Compile Include="Migrations\201805052230347_BurialPlaceBooker_NullableData.cs" />
     <Compile Include="Migrations\201805052230347_BurialPlaceBooker_NullableData.Designer.cs">
       <DependentUpon>201805052230347_BurialPlaceBooker_NullableData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805061223134_Service_BookedService.cs" />
+    <Compile Include="Migrations\201805061223134_Service_BookedService.Designer.cs">
+      <DependentUpon>201805061223134_Service_BookedService.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\BurialPlacesDetails.aspx.cs">
@@ -474,6 +482,20 @@
     <Compile Include="Pages\FamilyMemberMaster.Master.designer.cs">
       <DependentUpon>FamilyMemberMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ServiceDetails.aspx.cs">
+      <DependentUpon>ServiceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ServiceDetails.aspx.designer.cs">
+      <DependentUpon>ServiceDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ServiceList.aspx.cs">
+      <DependentUpon>ServiceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ServiceList.aspx.designer.cs">
+      <DependentUpon>ServiceList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ZadrzadcaMaster.Master.cs">
       <DependentUpon>ZadrzadcaMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -483,6 +505,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBModels\ApplicationDBContext.cs" />
+    <Compile Include="Repositories\ServicesRepository.cs" />
     <Compile Include="Repositories\BurialPlaceBookerRepository.cs" />
     <Compile Include="Repositories\BurialPlaceRepository.cs" />
     <Compile Include="Repositories\CemeteryStaffPersonRepository.cs" />
@@ -492,8 +515,10 @@
     <Compile Include="Repositories\FuneralRepository.cs" />
     <Compile Include="Repositories\PaymentClassRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\BookedServicesRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserRoleRepository.cs" />
+    <Compile Include="Services\ServicesService.cs" />
     <Compile Include="Services\BurialPlaceBookerService.cs" />
     <Compile Include="Services\BurialPlaceService.cs" />
     <Compile Include="Services\DeadPersonService.cs" />
@@ -502,6 +527,7 @@
     <Compile Include="Services\CemeteryStaffPersonService.cs" />
     <Compile Include="Services\FuneralService.cs" />
     <Compile Include="Services\PaymentClassService.cs" />
+    <Compile Include="Services\BookedServicesService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -557,6 +583,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805052230347_BurialPlaceBooker_NullableData.resx">
       <DependentUpon>201805052230347_BurialPlaceBooker_NullableData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805061223134_Service_BookedService.resx">
+      <DependentUpon>201805061223134_Service_BookedService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

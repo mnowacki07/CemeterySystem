@@ -19,6 +19,8 @@ namespace CemeterySystem.Repositories
         public virtual DbSet<DeadPerson> DeadPersons { get; set; }
         public virtual DbSet<FamilyMember> FamilyMembers { get; set; }
         public virtual DbSet<PaymentClass> PaymentClassess { get; set; }
+        public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<BookedService> BookedServices { get; set; }
 
         public ApplicationDbContext() : base("defConnString", throwIfV1Schema: false)
         {
