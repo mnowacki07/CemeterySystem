@@ -9,14 +9,14 @@ namespace CemeterySystem.Services
 {
     public class BookedServicesService
     {
-        public List<BookedService> getAll()
+        public List<BookedService> getByFamilyMemberID(Guid familyMemberID)
         {
             try
             {
                 List<BookedService> listService = new List<BookedService>();
                 using (ApplicationDbContext db = new ApplicationDbContext())
                 {
-                    listService = new BookedServicesRepository(db).getAll();
+                    listService = new BookedServicesRepository(db).getBy(x => x.FamilyMemberID.Equals(familyMemberID));
                 }
                 return listService;
             }
@@ -24,20 +24,57 @@ namespace CemeterySystem.Services
             return new List<BookedService>();
         }
 
-        public BookedService create(BookedService service)
+        public BookedService createForFamilyMember(Guid serviceID, Guid familyMemberID, Guid deadPersonID)
+        {
+            try
+            {
+                BookedService bookedService = null;
+
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    Service service = new ServicesRepository(db).getByID(serviceID.ToString());
+                    DeadPerson deadPerson = new DeadPersonRepository(db).getByID(deadPersonID.ToString());
+
+                    bookedService = new BookedService
+                    {
+                        BookedServiceID = Guid.NewGuid(),
+                        Name = service.Name,
+                        Description = service.Description,
+                        FamilyMemberID = familyMemberID,
+                        PriceGross = service.PriceGross,
+                        BurialPlaceID = deadPerson.BurialPlaceID,
+                        IsFinished = false,
+                        IsPaid = false,
+                        CreationDateTime = DateTime.Now
+                    };
+
+                    new BookedServicesRepository(db).create(bookedService);
+                    db.SaveChanges();
+                }
+
+                return bookedService;
+            }
+            catch (Exception ex) { }
+            return null;
+        }        
+
+        public void pay(Guid bookedServiceID)
         {
             try
             {
                 using (ApplicationDbContext db = new ApplicationDbContext())
                 {
-                    service.BookedServiceID = Guid.NewGuid();
-                    new BookedServicesRepository(db).create(service);
+                    BookedService bookedService = new BookedService()
+                    {
+                        BookedServiceID = bookedServiceID,
+                        IsPaid = true
+                    };
+
+                    new BookedServicesRepository(db).pay(bookedService);
                     db.SaveChanges();
                 }
-                return service;
             }
             catch (Exception ex) { }
-            return null;
         }
 
         public void update(BookedService service)
@@ -53,14 +90,36 @@ namespace CemeterySystem.Services
             catch (Exception ex) { }
         }
 
-        public void delete(BookedService service)
+        public void delete(Guid bookedServiceID)
         {
             try
             {
                 using (ApplicationDbContext db = new ApplicationDbContext())
                 {
-                    new BookedServicesRepository(db).delete(service);
-                    db.SaveChanges();
+                    using (var transaction = db.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            BookedServicesRepository repo = new BookedServicesRepository(db);
+
+                            BookedService bookedService = repo.getByID(bookedServiceID.ToString());
+
+                            if (bookedService != null && !bookedService.IsPaid && !bookedService.IsFinished)
+                            {
+                                repo.delete(bookedService);
+                                db.SaveChanges();
+                                transaction.Commit();
+                            }
+                            else
+                            {
+                                transaction.Rollback();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                        }
+                    }
                 }
             }
             catch (Exception ex) { }

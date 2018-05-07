@@ -32,11 +32,22 @@ namespace CemeterySystem.DBModels
         [ForeignKey("FamilyMemberID")]
         public FamilyMember FamilyMember { get; set; }
 
+        [Required]
+        public DateTime CreationDateTime { get; set; }
+
         public string PriceGrossFormatted
         {
             get
             {
                 return this.PriceGross.ToString("C", new System.Globalization.CultureInfo("pl-PL"));
+            }
+        }
+
+        public string CreationDateTimeFormatted
+        {
+            get
+            {
+                return this.CreationDateTime.ToString(new System.Globalization.CultureInfo("pl-PL").DateTimeFormat);
             }
         }
     }

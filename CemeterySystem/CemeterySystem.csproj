@@ -184,6 +184,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\BookedServiceList.aspx" />
     <Content Include="Pages\BurialPlacesDetails.aspx" />
     <Content Include="Pages\BurialPlacesList.aspx" />
     <Content Include="Pages\DashboardFamilyMember.aspx" />
@@ -341,7 +342,18 @@
     <Compile Include="Migrations\201805061223134_Service_BookedService.Designer.cs">
       <DependentUpon>201805061223134_Service_BookedService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805072222049_BookedService_CreationDateTime.cs" />
+    <Compile Include="Migrations\201805072222049_BookedService_CreationDateTime.Designer.cs">
+      <DependentUpon>201805072222049_BookedService_CreationDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Pages\BookedServiceList.aspx.cs">
+      <DependentUpon>BookedServiceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookedServiceList.aspx.designer.cs">
+      <DependentUpon>BookedServiceList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BurialPlacesDetails.aspx.cs">
       <DependentUpon>BurialPlacesDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -586,6 +598,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805061223134_Service_BookedService.resx">
       <DependentUpon>201805061223134_Service_BookedService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805072222049_BookedService_CreationDateTime.resx">
+      <DependentUpon>201805072222049_BookedService_CreationDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -17,7 +17,7 @@ namespace CemeterySystem.Repositories
         }
 
         public override void delete(BookedService objectToDelete)
-        {
+        {            
             this._dbContext.Entry(objectToDelete).State = System.Data.Entity.EntityState.Deleted;
         }
 
@@ -53,6 +53,13 @@ namespace CemeterySystem.Repositories
         {
             this._dbContext.BookedServices.Attach(objectToUpdate);
             this._dbContext.Entry(objectToUpdate).State = System.Data.Entity.EntityState.Modified;
+        }
+
+        public void pay(BookedService bookedService)
+        {
+            this._dbContext.Configuration.ValidateOnSaveEnabled = false;
+            this._dbContext.BookedServices.Attach(bookedService);
+            this._dbContext.Entry(bookedService).Property(x => x.IsPaid).IsModified = true;
         }
     }
 }
