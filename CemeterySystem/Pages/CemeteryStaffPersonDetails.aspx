@@ -4,7 +4,7 @@
  <div class="w3-container" style="margin-top: 80px" id="top">
         <h1 class="w3-xxxlarge w3-text-dark-grey"><b>Personel cmentarza</b></h1> 
         <hr style="width: 300px; border: 5px solid grey" class="w3-round">  <br />  
-        <button onclick="window.history.back()"  class="w3-button w3-green w3-round-large" style="float: left;">Wróć  </button>
+  
      <br />   
      <br />    
      <br />    
@@ -90,6 +90,10 @@
     </div>
     <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 10px;">
+
+              <a runat="server" id="lbtnGoBack" onserverclick="lbtnGoBack_ServerClick" class="w3-button w3-blue w3-round-large" style="float: left; margin-right: 10px;">
+                <i class="fa fa-arrow-left"></i>&nbsp;Powrót
+            </a>
             <a runat="server" id="btnDelete" onserverclick="btnDelete_ServerClick" class="w3-button w3-red w3-round-large" style="float: left;">
                 <i class="fa fa-times"></i>&nbsp;Usuń
             </a>

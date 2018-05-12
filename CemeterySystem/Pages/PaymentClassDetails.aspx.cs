@@ -96,5 +96,11 @@ namespace CemeterySystem.Pages
             }
             Response.Redirect("/Pages/PaymentClassList.aspx");
         }
+
+
+        protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("/Pages/PaymentClassList.aspx");
+        }
     }
 }

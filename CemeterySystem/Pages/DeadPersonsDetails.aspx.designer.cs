@@ -11,5 +11,14 @@ namespace CemeterySystem.Pages {
     
     
     public partial class DeadPersonsDetails {
+        
+        /// <summary>
+        /// Kontrolka lbtnGoBack.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lbtnGoBack;
     }
 }

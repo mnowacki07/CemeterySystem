@@ -98,5 +98,10 @@ namespace CemeterySystem.Pages
             }
             Response.Redirect("/Pages/CemeteryStaffPersonList.aspx");
         }
+
+        protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("/Pages/CemeteryStaffPersonList");
+        }
     }
 }

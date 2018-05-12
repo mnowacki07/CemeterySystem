@@ -13,5 +13,14 @@ namespace CemeterySystem.Pages
         {
 
         }
+
+
+
+
+        //button powrotu do listy ze szczegółów
+        protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("/Pages/DeadPersonsList");
+        }
     }
 }

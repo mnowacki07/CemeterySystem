@@ -129,5 +129,12 @@ namespace CemeterySystem.Pages
             }
             Response.Redirect("/Pages/FuneralCompanyList.aspx");
         }
+
+        protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("/Pages/FuneralCompanyList");
+        }
+
+
     }
 }

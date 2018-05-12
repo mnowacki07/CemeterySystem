@@ -60,5 +60,12 @@ namespace CemeterySystem.Pages
                 txtBurialPlaceGraveNumber.Text = deadPerson.BurialPlace?.GraveNumber;
             }
         }
+
+
+        protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("/Pages/FamilyMemberDeadPersonsList");
+        }
+
     }
 }

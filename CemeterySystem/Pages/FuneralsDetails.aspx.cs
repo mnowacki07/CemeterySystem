@@ -13,5 +13,12 @@ namespace CemeterySystem.Pages
         {
 
         }
+
+
+
+        protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("/Pages/FuneralsList");
+        }
     }
 }

@@ -191,5 +191,10 @@ namespace CemeterySystem.Pages
         {
             saveBurialPlace();
         }
+
+        protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("/Pages/BurialPlacesList");
+        }
     }
 }

@@ -135,6 +135,10 @@
     </div>
     <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 10px;">
+            <a runat="server" id="lbtnGoBack" onserverclick="lbtnGoBack_ServerClick" class="w3-button w3-blue w3-round-large" style="float: left; margin-right: 10px;">
+                <i class="fa fa-arrow-left"></i>&nbsp;Powrót
+            </a>
+
             <a runat="server" id="btnDelete" onserverclick="btnDelete_ServerClick" class="w3-button w3-red w3-round-large" style="float: left;">
                 <i class="fa fa-times"></i>&nbsp;Usuń
             </a>
