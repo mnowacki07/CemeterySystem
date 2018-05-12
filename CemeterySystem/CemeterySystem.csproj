@@ -193,6 +193,7 @@
     <Content Include="Pages\FamilyMemberBooking.aspx" />
     <Content Include="Pages\FamilyMemberDeadPerson.aspx" />
     <Content Include="Pages\FamilyMemberDeadPersonsList.aspx" />
+    <Content Include="Pages\FamilyMemberPaymentList.aspx" />
     <Content Include="Pages\FuneralCompanyDetails.aspx" />
     <Content Include="Pages\FuneralsDetails.aspx" />
     <Content Include="Pages\FuneralsList.aspx" />
@@ -346,6 +347,10 @@
     <Compile Include="Migrations\201805072222049_BookedService_CreationDateTime.Designer.cs">
       <DependentUpon>201805072222049_BookedService_CreationDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805121950024_PaymentClass_ExtraDaysForPaymentMade.cs" />
+    <Compile Include="Migrations\201805121950024_PaymentClass_ExtraDaysForPaymentMade.Designer.cs">
+      <DependentUpon>201805121950024_PaymentClass_ExtraDaysForPaymentMade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\BookedServiceList.aspx.cs">
       <DependentUpon>BookedServiceList.aspx</DependentUpon>
@@ -409,6 +414,13 @@
     </Compile>
     <Compile Include="Pages\FamilyMemberDeadPersonsList.aspx.designer.cs">
       <DependentUpon>FamilyMemberDeadPersonsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberPaymentList.aspx.cs">
+      <DependentUpon>FamilyMemberPaymentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberPaymentList.aspx.designer.cs">
+      <DependentUpon>FamilyMemberPaymentList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FuneralCompanyDetails.aspx.cs">
       <DependentUpon>FuneralCompanyDetails.aspx</DependentUpon>
@@ -601,6 +613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805072222049_BookedService_CreationDateTime.resx">
       <DependentUpon>201805072222049_BookedService_CreationDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805121950024_PaymentClass_ExtraDaysForPaymentMade.resx">
+      <DependentUpon>201805121950024_PaymentClass_ExtraDaysForPaymentMade.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

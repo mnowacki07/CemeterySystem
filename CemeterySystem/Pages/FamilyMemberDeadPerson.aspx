@@ -97,13 +97,12 @@
             <asp:TextBox runat="server" ID="txtFuneralStaffPerson" CssClass="w3-input w3-round-large" Enabled="false" />
         </div>
     </div>
-         <!-- buttony -->
-     <div class="w3-row">
+    <!-- buttony -->
+    <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 10px;">
             <a runat="server" id="lbtnGoBack" onserverclick="lbtnGoBack_ServerClick" class="w3-button w3-blue w3-round-large" style="float: left; margin-right: 10px;">
                 <i class="fa fa-arrow-left"></i>&nbsp;Powrót
             </a>
-
         </div>
     </div>
 </asp:Content>

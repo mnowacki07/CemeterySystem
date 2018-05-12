@@ -35,14 +35,14 @@ namespace CemeterySystem.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                if(!this.User.Identity.IsAuthenticated || !this.User.IsInRole(UserRoleRepository.MANAGER_ROLE_NAME))
+                if (!this.User.Identity.IsAuthenticated || !this.User.IsInRole(UserRoleRepository.MANAGER_ROLE_NAME))
                 {
                     Response.Redirect("/Pages/LoginPage.aspx");
                 }
 
-                if(!IsCreateMode)
+                if (!IsCreateMode)
                 {
                     this.loadPaymentClass();
                     btnDelete.Visible = true;
@@ -57,11 +57,12 @@ namespace CemeterySystem.Pages
         private void loadPaymentClass()
         {
             PaymentClass paymentClass = new PaymentClassService().getByID(PaymentClassID.ToString());
-            if(paymentClass != null)
+            if (paymentClass != null)
             {
                 txtName.Text = paymentClass.Name;
                 txtDescription.Text = paymentClass.Description;
                 txtPrice.Text = paymentClass.Price.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                txtDays.Text = paymentClass.ExtraDaysForPaymentMade.ToString();
             }
         }
 
@@ -72,7 +73,8 @@ namespace CemeterySystem.Pages
                 PaymentClassID = Guid.NewGuid(),
                 Name = txtName.Text,
                 Description = txtDescription.Text,
-                Price = decimal.Parse(txtPrice.Text, System.Globalization.CultureInfo.InvariantCulture)
+                Price = decimal.Parse(txtPrice.Text, System.Globalization.CultureInfo.InvariantCulture),
+                ExtraDaysForPaymentMade = Convert.ToInt32(txtDays.Text)
             };
 
             if (IsCreateMode)
@@ -90,7 +92,7 @@ namespace CemeterySystem.Pages
         protected void btnDelete_ServerClick(object sender, EventArgs e)
         {
             PaymentClass paymentClass = new PaymentClassService().getByID(PaymentClassID.ToString());
-            if(paymentClass != null)
+            if (paymentClass != null)
             {
                 new PaymentClassService().delete(paymentClass);
             }

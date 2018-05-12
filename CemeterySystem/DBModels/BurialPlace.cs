@@ -68,6 +68,36 @@ namespace CemeterySystem.DBModels
         }
 
         [NotMapped]
+        public DateTime? FuturePaymentDate
+        {
+            get
+            {
+                if (this.PaymentClass != null && this.PaymentDate.HasValue)
+                {
+                    return this.PaymentDate.Value.AddDays(this.PaymentClass.ExtraDaysForPaymentMade);                    
+                }
+                return null;
+            }
+        }
+
+        [NotMapped]
+        public string FuturePaymentDateFormatted
+        {
+            get
+            {
+                try
+                {
+                    if (FuturePaymentDate.HasValue)
+                    {
+                        return this.FuturePaymentDate.Value.ToString(new System.Globalization.CultureInfo("pl-PL").DateTimeFormat.ShortDatePattern);
+                    }
+                }
+                catch (Exception ex) { }
+                return "";
+            }
+        }
+
+        [NotMapped]
         public string PaymentClassNameFormatted
         {
             get

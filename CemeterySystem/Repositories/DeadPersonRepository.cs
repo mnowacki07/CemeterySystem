@@ -27,6 +27,7 @@ namespace CemeterySystem.Repositories
             return this._dbContext
                     .DeadPersons
                     .Include(x => x.BurialPlace)
+                    .Include(x => x.BurialPlace.PaymentClass)
                     .Include(x => x.FamilyMember)
                     .Include(x => x.Funeral)
                     .Include(x => x.Funeral.CemeteryStaffPerson)
@@ -40,6 +41,7 @@ namespace CemeterySystem.Repositories
             return this._dbContext
                     .DeadPersons
                     .Include(x => x.BurialPlace)
+                    .Include(x => x.BurialPlace.PaymentClass)
                     .Include(x => x.FamilyMember)
                     .Include(x => x.Funeral)
                     .Include(x => x.Funeral.CemeteryStaffPerson)
@@ -54,6 +56,7 @@ namespace CemeterySystem.Repositories
             return this._dbContext
                     .DeadPersons
                     .Include(x => x.BurialPlace)
+                    .Include(x => x.BurialPlace.PaymentClass)
                     .Include(x => x.FamilyMember)
                     .Include(x => x.Funeral)
                     .Include(x => x.Funeral.CemeteryStaffPerson)

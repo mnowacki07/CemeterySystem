@@ -53,5 +53,48 @@ namespace CemeterySystem.Services
             catch (Exception ex) { }
             return null;
         }
+
+        public void processPayment(Guid deadPersonID, Guid familyMemberID)
+        {
+            try
+            {
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    using (var transaction = db.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            DeadPerson deadPerson = new DeadPersonRepository(db).getByID(deadPersonID.ToString());
+
+                            if(deadPerson.FamilyMemberID.Value != familyMemberID)
+                            {
+                                throw new Exception("Family member is allowed to edit only dead person that is under him");
+                            }
+
+                            DateTime? nextPaymentDate = deadPerson.BurialPlace.FuturePaymentDate;
+
+                            if(nextPaymentDate.HasValue)
+                            {
+                                deadPerson.BurialPlace.PaymentDate = nextPaymentDate.Value;
+                            }
+                            else
+                            {
+                                deadPerson.BurialPlace.PaymentDate = DateTime.Now.AddDays(deadPerson.BurialPlace.PaymentClass.ExtraDaysForPaymentMade);
+                            }
+
+                            new DeadPersonRepository(db).update(deadPerson);
+
+                            db.SaveChanges();
+                            transaction.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,6 +18,9 @@ namespace CemeterySystem.DBModels
         [Required]
         public decimal Price { get; set; }
         public string Description { get; set; }
+        [Required]        
+        [Range(1, int.MaxValue)]
+        public int ExtraDaysForPaymentMade { get; set; }
         [Required]
         public bool IsDeleted { get; set; }
 
