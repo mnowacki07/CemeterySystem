@@ -16,7 +16,10 @@
     <script>        
         jQuery(document).ready(function () {
             var tableBookedServices = jQuery('#table-booked-services').DataTable({
-                language: jQueryDataTableTranslations
+                language: jQueryDataTableTranslations,
+                columnDefs: [
+                    { "type": "de_datetime", targets: 6 }
+                ]
             });
             generateFooterFilters(jQuery('#table-booked-services'));
 

@@ -162,6 +162,7 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\jquery-ui-1-12-1.css" />
     <Content Include="Content\css\jQueryDataTableBootstrap.min.css" />
     <Content Include="Content\css\jQueryDataTable_1_10_16.css" />
     <Content Include="Content\css\jQueryDataTable_CustomStyles.css" />
@@ -169,6 +170,9 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\img\background.jpg" />
+    <Content Include="Content\js\font-awesome-5-0-8.min.js" />
+    <Content Include="Content\js\jquery-ui-1-12-1.js" />
+    <Content Include="Content\js\jQueryDataTableDateSortingPlugin.js" />
     <Content Include="Content\js\jQueryDataTable_1_10_16.min.js" />
     <Content Include="Content\js\jQueryDataTable_CustomScripts.js" />
     <Content Include="Content\js\jQuery_3_3_1.min.js" />

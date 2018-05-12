@@ -9,7 +9,11 @@
     <script>        
         jQuery(document).ready(function () {
             jQuery('#table-payments').DataTable({
-                language: jQueryDataTableTranslations
+                language: jQueryDataTableTranslations,
+                columnDefs: [
+                    { "type": "de_date", targets: 3 },
+                    { "type": "de_date", targets: 4 }
+                ]
             });
             generateFooterFilters(jQuery('#table-payments'));
         });

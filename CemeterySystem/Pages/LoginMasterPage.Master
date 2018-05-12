@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <link href="/Content/css/bootstrap.min.css" rel="stylesheet" />
-<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<script src="/Content/js/font-awesome-5-0-8.min.js"></script>
 
 <style>
     html {

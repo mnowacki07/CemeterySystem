@@ -9,7 +9,10 @@
     <script>        
         jQuery(document).ready(function () {
             jQuery('#table-burial-places').DataTable({
-                language: jQueryDataTableTranslations
+                language: jQueryDataTableTranslations,
+                columnDefs: [
+                    { "type": "de_date", targets: 6 }
+                ]
             });
             generateFooterFilters(jQuery('#table-burial-places'));
         });

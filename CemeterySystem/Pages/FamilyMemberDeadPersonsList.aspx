@@ -9,7 +9,10 @@
     <script>        
         jQuery(document).ready(function () {
             jQuery('#table-dead-perosons').DataTable({
-                language: jQueryDataTableTranslations
+                language: jQueryDataTableTranslations,
+                columnDefs: [
+                    { "type": "de_date", targets: 5 }
+                ]
             });
             generateFooterFilters(jQuery('#table-dead-perosons'));
         });
