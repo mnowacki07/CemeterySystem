@@ -24,6 +24,21 @@ namespace CemeterySystem.Services
             return null;
         }
 
+        public FuneralCompany getByID(String id)
+        {
+            try
+            {
+                FuneralCompany funeralCompany = null;
+                using (ApplicationDbContext dbContext = new ApplicationDbContext())
+                {
+                    funeralCompany = new FuneralCompanyRepository(dbContext).getByID(id.ToString());
+                }
+                return funeralCompany;
+            }
+            catch (Exception ex) { }
+            return null;
+        }
+
         public List<FuneralCompany> getAll()
         {
             try

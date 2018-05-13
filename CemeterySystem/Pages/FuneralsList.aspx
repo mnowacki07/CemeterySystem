@@ -53,7 +53,7 @@
         </table>
         <div class="w3-row">
             <div class="w3-col m12" style="padding-top: 20px;">
-                <a href="/Pages/Funeral.aspx?IsCreateMode=True" class="w3-button w3-blue w3-round-large" style="float: right;"><i class="fa fa-plus"></i>&nbsp;Nowy</a>
+                <a href="/Pages/FuneralsDetails.aspx?IsCreateMode=True" class="w3-button w3-blue w3-round-large" style="float: right;"><i class="fa fa-plus"></i>&nbsp;Nowy</a>
             </div>
         </div>        
     </div>

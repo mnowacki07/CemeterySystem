@@ -75,6 +75,21 @@ namespace CemeterySystem.Services
                 dbContext.SaveChanges();
             }
         }
+
+        public Funeral getByID(string id)
+        {
+            try
+            {
+                Funeral funeral = null;
+                using (ApplicationDbContext dbContext = new ApplicationDbContext())
+                {
+                    funeral = new FuneralRepository(dbContext).getByID(id);
+                }
+                return funeral;
+            }
+            catch (Exception ex) { }
+            return null;
+        }
     }
 
 }
