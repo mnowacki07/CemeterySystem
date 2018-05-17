@@ -170,6 +170,7 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\img\background.jpg" />
+    <Content Include="Content\img\mim.jpg" />
     <Content Include="Content\js\font-awesome-5-0-8.min.js" />
     <Content Include="Content\js\jquery-ui-1-12-1.js" />
     <Content Include="Content\js\jQueryDataTableDateSortingPlugin.js" />
@@ -191,6 +192,7 @@
     <Content Include="Pages\BookedServiceList.aspx" />
     <Content Include="Pages\BurialPlacesDetails.aspx" />
     <Content Include="Pages\BurialPlacesList.aspx" />
+    <Content Include="Pages\AboutTeam.aspx" />
     <Content Include="Pages\DashboardFamilyMember.aspx" />
     <Content Include="Pages\DeadPersonsDetails.aspx" />
     <Content Include="Pages\DeadPersonsList.aspx" />
@@ -376,6 +378,13 @@
     </Compile>
     <Compile Include="Pages\BurialPlacesList.aspx.designer.cs">
       <DependentUpon>BurialPlacesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AboutTeam.aspx.cs">
+      <DependentUpon>AboutTeam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AboutTeam.aspx.designer.cs">
+      <DependentUpon>AboutTeam.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DashboardFamilyMember.aspx.cs">
       <DependentUpon>DashboardFamilyMember.aspx</DependentUpon>

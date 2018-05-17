@@ -58,7 +58,8 @@
                 <a href="/Pages/FamilyMemberBooking" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Rezerwacje</a>
                 <a href="/Pages/FamilyMemberDeadPersonsList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Podlegające osoby zmarłe</a>
                 <a href="/Pages/FamilyMemberPaymentList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Opłaty</a>
-                <a href="/Pages/BookedServiceList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Usługi</a>                
+                <a href="/Pages/BookedServiceList" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">Usługi</a>   
+                <a href="/Pages/AboutTeam" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-grey">O Teamie</a>  
                 <hr />
                 <asp:LinkButton runat="server" ID="lbtnSignOut" Text="Wyloguj" CssClass="w3-bar-item w3-button w3-text-grey w3-hover-red" OnClick="lbtnSignOut_Click"></asp:LinkButton>                
             </div>
