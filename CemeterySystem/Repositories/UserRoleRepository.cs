@@ -33,6 +33,14 @@ namespace CemeterySystem.Repositories
             }
         }
 
+        public static string getRoleNameByRoleID(string roleID)
+        {
+                 if (roleID == ADMIN_ROLE_ID)           return ADMIN_ROLE_NAME;
+            else if (roleID == MANAGER_ROLE_ID)         return MANAGER_ROLE_NAME;
+            else if (roleID == FAMILY_MEMBER_ROLE_ID)   return FAMILY_MEMBER_ROLE_NAME;
+            return "";
+        }
+
         public override void create(IdentityRole objectToCreate)
         {
             try

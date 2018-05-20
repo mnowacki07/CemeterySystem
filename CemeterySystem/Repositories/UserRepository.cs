@@ -42,6 +42,7 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Include(x => x.Roles)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
                         .ToList();

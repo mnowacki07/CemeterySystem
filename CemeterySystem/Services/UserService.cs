@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using System.Data.Entity;
 using static CemeterySystem.App_Start.IdentityConfig;
 
 namespace CemeterySystem.Services
@@ -78,6 +79,21 @@ namespace CemeterySystem.Services
             }
             catch(Exception ex) { }
             return null;
+        }
+
+        public List<ApplicationUser> getAll()
+        {
+            try
+            {
+                List<ApplicationUser> users = new List<ApplicationUser>();
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    users = new UserRepository(db).getAll();                       
+                }
+                return users;
+            }
+            catch (Exception ex) { }
+            return new List<ApplicationUser>();
         }
     }
 }
