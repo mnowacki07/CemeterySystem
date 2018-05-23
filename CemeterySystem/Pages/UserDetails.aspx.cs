@@ -46,6 +46,10 @@ namespace CemeterySystem.Pages
                     {
                         this.bindUser();
                     }
+                    else
+                    {
+                        btnDelete.Visible = false;
+                    }
                 }
                 else
                 {
@@ -92,11 +96,19 @@ namespace CemeterySystem.Pages
             ddlRole.Items.Clear();
             ddlRole.Items.Add(new ListItem(UserRoleRepository.FAMILY_MEMBER_ROLE_NAME, UserRoleRepository.FAMILY_MEMBER_ROLE_ID));
             ddlRole.Items.Add(new ListItem(UserRoleRepository.MANAGER_ROLE_NAME, UserRoleRepository.MANAGER_ROLE_ID));
+            ddlRole.Items.Add(new ListItem(UserRoleRepository.ADMIN_ROLE_NAME, UserRoleRepository.ADMIN_ROLE_ID));
+
+            if (!this.IsCreateMode)
+            {
+                ddlRole.Enabled = false;
+            }
         }
 
         private void saveUser()
         {
             ApplicationUser user = null;
+
+            #region GET USER
 
             if(this.IsCreateMode)
             {
@@ -113,13 +125,20 @@ namespace CemeterySystem.Pages
                 }
             }
 
+            #endregion
+
+            #region SET BASIC DATA
+
             user.UserName = txtUsername.Text;
-            user.Email = txtEmail.Text;            
-            user.Roles.Add(new IdentityUserRole() { RoleId = ddlRole.SelectedValue, UserId = user.Id });
-            
-            if(ddlRole.SelectedValue.Equals(UserRoleRepository.FAMILY_MEMBER_ROLE_ID))
+            user.Email = txtEmail.Text;
+
+            #endregion
+
+            #region SET FAMILY MEMBER
+
+            if (ddlRole.SelectedValue.Equals(UserRoleRepository.FAMILY_MEMBER_ROLE_ID))
             {
-                if(user.FamilyMember == null)
+                if (user.FamilyMember == null)
                 {
                     user.FamilyMember = new FamilyMember()
                     {
@@ -128,7 +147,7 @@ namespace CemeterySystem.Pages
                     user.FamilyMember.FamilyMemberID = user.FamilyMember.FamilyMemberID;
                 }
 
-                if(user.FamilyMember.Address == null)
+                if (user.FamilyMember.Address == null)
                 {
                     user.FamilyMember.Address = new Address()
                     {
@@ -148,13 +167,19 @@ namespace CemeterySystem.Pages
                 user.FamilyMember.Address.PostCode = txtPostCode.Text;
                 user.FamilyMember.Address.PhoneNumber = txtPhoneNumber.Text;
             }
-            else
-            {
-                user.FamilyMember = null;
-                user.FamilyMemberID = null;
-            }
-            
+
+            #endregion
+
+            #region SET ROLE
+
             if(this.IsCreateMode)
+            {
+                user.Roles.Add(new IdentityUserRole() { UserId = user.Id, RoleId = ddlRole.SelectedValue });
+            }
+
+            #endregion
+
+            if (this.IsCreateMode)
             {
                 var result = new UserService().registerUser(user, txtPassword.Text);
 
@@ -181,6 +206,12 @@ namespace CemeterySystem.Pages
         protected void btnSave_ServerClick(object sender, EventArgs e)
         {
             this.saveUser();
+        }
+
+        protected void btnDelete_ServerClick(object sender, EventArgs e)
+        {
+            new UserService().delete(this.UserID);
+            Response.Redirect("/Pages/UsersList");
         }
     }
 }

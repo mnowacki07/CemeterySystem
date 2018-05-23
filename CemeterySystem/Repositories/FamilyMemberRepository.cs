@@ -18,7 +18,8 @@ namespace CemeterySystem.Repositories
 
         public override void delete(FamilyMember objectToDelete)
         {
-            
+            this._dbContext.FamilyMembers.Attach(objectToDelete);
+            this._dbContext.Entry(objectToDelete).State = EntityState.Deleted;
         }
 
         public override List<FamilyMember> getAll()

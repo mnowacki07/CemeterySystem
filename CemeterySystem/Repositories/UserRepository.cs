@@ -36,13 +36,17 @@ namespace CemeterySystem.Repositories
 
         public override void delete(ApplicationUser objectToDelete)
         {
-            throw new NotImplementedException();
+            objectToDelete.IsDeleted = true;
+            this._dbContext.Configuration.ValidateOnSaveEnabled = false;
+            this._dbContext.Users.Attach(objectToDelete);
+            this._dbContext.Entry(objectToDelete).Property(x => x.IsDeleted).IsModified = true;
         }
 
         public override List<ApplicationUser> getAll()
         {
             return this._dbContext
                         .Users
+                        .Where(x => !x.IsDeleted)
                         .Include(x => x.Roles)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
@@ -53,6 +57,7 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Where(x => !x.IsDeleted)
                         .Include(x => x.Roles)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
@@ -64,6 +69,7 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Where(x => !x.IsDeleted)
                         .Include(x => x.Roles)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
@@ -74,6 +80,7 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Where(x => !x.IsDeleted)
                         .Include(x => x.Roles)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
@@ -83,22 +90,31 @@ namespace CemeterySystem.Repositories
         public override void update(ApplicationUser user)
         {
             this._dbContext.Users.Attach(user);
-            this._dbContext.SaveChanges();
+            this._dbContext.Entry(user).State = EntityState.Modified;            
         }
 
         public void update(ApplicationUser user, string password)
         {
-            var userStore = new UserStore<ApplicationUser>(this._dbContext);
-            ApplicationUserManager appUserManager = new ApplicationUserManager(userStore);
-            var userManager = appUserManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            this._dbContext.Users.Attach(user);
+            this._dbContext.Entry(user).State = EntityState.Modified;
 
-            if (!string.IsNullOrEmpty(password))
+            if(user.FamilyMember != null)
             {
-                string newPasswordHash = userManager.PasswordHasher.HashPassword(password);
-                userStore.SetPasswordHashAsync(user, newPasswordHash);
+                this._dbContext.FamilyMembers.Attach(user.FamilyMember);
+                this._dbContext.Addresses.Attach(user.FamilyMember.Address);
+                this._dbContext.Entry(user.FamilyMember).State = EntityState.Modified;
+                this._dbContext.Entry(user.FamilyMember.Address).State = EntityState.Modified;
             }
 
-            userManager.Update(user);
+            if(!string.IsNullOrEmpty(password))
+            {
+                var userStore = new UserStore<ApplicationUser>(this._dbContext);
+                ApplicationUserManager appUserManager = new ApplicationUserManager(userStore);
+                var userManager = appUserManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+                string newPasswordHash = userManager.PasswordHasher.HashPassword(password);
+                user.PasswordHash = newPasswordHash;
+            }
         }
     }
 }

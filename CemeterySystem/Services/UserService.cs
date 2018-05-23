@@ -96,11 +96,6 @@ namespace CemeterySystem.Services
             return null;
         }
 
-        public ApplicationUser getByIDUsingUserManager(string id)
-        {
-
-        }
-
         public List<ApplicationUser> getAll()
         {
             try
@@ -129,8 +124,9 @@ namespace CemeterySystem.Services
                         try
                         {
                             new UserRepository(db).update(user, password);
-                            transaction.Commit();
+
                             db.SaveChanges();
+                            transaction.Commit();
                         }
                         catch(Exception ex)
                         {
@@ -140,6 +136,19 @@ namespace CemeterySystem.Services
                 }
             }
             catch (Exception ex) { }            
+        }
+
+        public void delete(Guid userID)
+        {
+            try
+            {
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    new UserRepository(db).delete(new ApplicationUser() { Id = userID.ToString() });
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex) { }
         }
     }
 }

@@ -359,6 +359,10 @@
     <Compile Include="Migrations\201805121950024_PaymentClass_ExtraDaysForPaymentMade.Designer.cs">
       <DependentUpon>201805121950024_PaymentClass_ExtraDaysForPaymentMade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805231905451_User_IsDeleted.cs" />
+    <Compile Include="Migrations\201805231905451_User_IsDeleted.Designer.cs">
+      <DependentUpon>201805231905451_User_IsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\BookedServiceList.aspx.cs">
       <DependentUpon>BookedServiceList.aspx</DependentUpon>
@@ -645,6 +649,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805121950024_PaymentClass_ExtraDaysForPaymentMade.resx">
       <DependentUpon>201805121950024_PaymentClass_ExtraDaysForPaymentMade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231905451_User_IsDeleted.resx">
+      <DependentUpon>201805231905451_User_IsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Claims;
@@ -16,6 +17,8 @@ namespace CemeterySystem.DBModels
         public Guid? FamilyMemberID { get; set; }
         [ForeignKey("FamilyMemberID")]
         public FamilyMember FamilyMember { get; set; }
+        [Required]
+        public bool IsDeleted { get; set; }
 
         [NotMapped]
         public string RoleNameFormatted
