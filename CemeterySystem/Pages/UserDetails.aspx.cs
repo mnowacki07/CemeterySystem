@@ -1,5 +1,7 @@
 ﻿using CemeterySystem.DBModels;
 using CemeterySystem.Repositories;
+using CemeterySystem.Services;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +56,35 @@ namespace CemeterySystem.Pages
 
         private void bindUser()
         {
+            ApplicationUser user = new UserService().getByID(this.UserID.ToString());
 
+            if(user == null)
+            {
+                Response.Redirect("/Pages/UsersList");
+            }
+            else
+            {
+                txtUsername.Text = user.UserName;
+                txtEmail.Text = user.Email;
+                ddlRole.SelectedValue = user.Roles.ToList()[0].RoleId;
+
+                if(user.FamilyMember != null)
+                {
+                    txtFirstName.Text = user.FamilyMember.FirstName;
+                    txtLastName.Text = user.FamilyMember.LastName;
+                    txtRelationship.Text = user.FamilyMember.Relationship;
+                    txtPhoneNumber.Text = user.FamilyMember.PhoneNumber;
+
+                    if(user.FamilyMember.Address != null)
+                    {
+                        txtStreet.Text = user.FamilyMember.Address.Street;
+                        txtHouseNumber.Text = user.FamilyMember.Address.HouseNumber;
+                        txtFlatNumber.Text = user.FamilyMember.Address.FlatNumber;
+                        txtTown.Text = user.FamilyMember.Address.Town;
+                        txtPostCode.Text = user.FamilyMember.Address.PostCode;
+                    }
+                }
+            }
         }
 
         private void bindUserRoleDDL()
@@ -66,45 +96,91 @@ namespace CemeterySystem.Pages
 
         private void saveUser()
         {
-            ApplicationUser user = new ApplicationUser();
+            ApplicationUser user = null;
 
             if(this.IsCreateMode)
             {
+                user = new ApplicationUser();
                 user.Id = Guid.NewGuid().ToString();
             }
             else
             {
-                user.Id = this.UserID.ToString();
+                user = new UserService().getByID(this.UserID.ToString());
+
+                if(user == null)
+                {
+                    Response.Redirect("/Pages/UserList");
+                }
             }
 
             user.UserName = txtUsername.Text;
-            user.Email = txtEmail.Text;
-            user.Roles.Add(new Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole() { RoleId = ddlRole.SelectedValue, UserId = user.Id });
+            user.Email = txtEmail.Text;            
+            user.Roles.Add(new IdentityUserRole() { RoleId = ddlRole.SelectedValue, UserId = user.Id });
             
             if(ddlRole.SelectedValue.Equals(UserRoleRepository.FAMILY_MEMBER_ROLE_ID))
             {
-                user.FamilyMemberID = Guid.NewGuid();
-                Guid addressID = Guid.NewGuid();
-                user.FamilyMember = new FamilyMember()
+                if(user.FamilyMember == null)
                 {
-                    FamilyMemberID = user.FamilyMemberID.Value,
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    PhoneNumber = txtPhoneNumber.Text,
-                    Relationship = txtRelationship.Text,
-                    AddressID = addressID,
-                    Address = new Address()
+                    user.FamilyMember = new FamilyMember()
                     {
-                        CustomAddressID = addressID,
-                        Street = txtStreet.Text,
-                        HouseNumber = txtHouseNumber.Text,
-                        FlatNumber = txtFlatNumber.Text,
-                        PostCode = txtPostCode.Text,
-                        Town = txtTown.Text,
-                        PhoneNumber = txtPhoneNumber.Text
-                    }
-                };
+                        FamilyMemberID = Guid.NewGuid()
+                    };
+                    user.FamilyMember.FamilyMemberID = user.FamilyMember.FamilyMemberID;
+                }
+
+                if(user.FamilyMember.Address == null)
+                {
+                    user.FamilyMember.Address = new Address()
+                    {
+                        CustomAddressID = Guid.NewGuid()
+                    };
+                    user.FamilyMember.AddressID = user.FamilyMember.Address.CustomAddressID;
+                }
+
+                user.FamilyMember.FirstName = txtFirstName.Text;
+                user.FamilyMember.LastName = txtLastName.Text;
+                user.FamilyMember.PhoneNumber = txtPhoneNumber.Text;
+                user.FamilyMember.Relationship = txtRelationship.Text;
+                user.FamilyMember.Address.Street = txtStreet.Text;
+                user.FamilyMember.Address.HouseNumber = txtHouseNumber.Text;
+                user.FamilyMember.Address.FlatNumber = txtFlatNumber.Text;
+                user.FamilyMember.Address.Town = txtTown.Text;
+                user.FamilyMember.Address.PostCode = txtPostCode.Text;
+                user.FamilyMember.Address.PhoneNumber = txtPhoneNumber.Text;
             }
+            else
+            {
+                user.FamilyMember = null;
+                user.FamilyMemberID = null;
+            }
+            
+            if(this.IsCreateMode)
+            {
+                var result = new UserService().registerUser(user, txtPassword.Text);
+
+                if(result.Succeeded)
+                {
+                    Response.Redirect(string.Format("/Pages/UserDetails?UserID{0}", user.Id));
+                }
+                else
+                {
+                    Response.Redirect("/Pages/UsersList");
+                }
+            }
+            else
+            {
+                new UserService().update(user, txtPassword.Text);
+            }
+        }
+
+        protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("/Pages/UsersList");
+        }
+
+        protected void btnSave_ServerClick(object sender, EventArgs e)
+        {
+            this.saveUser();
         }
     }
 }

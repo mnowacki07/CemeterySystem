@@ -21,6 +21,10 @@
                 jQuery('#familyMemberData').show();
             }
         }
+
+        function validateForm() {
+            return true;
+        }
     </script>
 
     <div class="w3-row" style="padding-bottom: 5px;">
@@ -179,10 +183,14 @@
         </div>
     </div>
 
-
     <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 20px;">
+            <a runat="server" id="lbtnGoBack" onserverclick="lbtnGoBack_ServerClick" class="w3-button w3-blue w3-round-large" style="float: left; margin-right: 10px;">
+                <i class="fa fa-arrow-left"></i>&nbsp;Powrót
+            </a>
+            <button type="submit" runat="server" id="btnSave" onclick="if(!validateForm()) return;" onserverclick="btnSave_ServerClick" class="w3-button w3-green w3-round-large" style="float: right;">
+                <i class="fas fa-check"></i>&nbsp;Zapisz
+            </button>
         </div>
     </div>
-
 </asp:Content>

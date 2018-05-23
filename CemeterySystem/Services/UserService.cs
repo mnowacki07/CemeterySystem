@@ -81,6 +81,26 @@ namespace CemeterySystem.Services
             return null;
         }
 
+        public ApplicationUser getByID(string id)
+        {
+            try
+            {
+                ApplicationUser user = null;
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    user = new UserRepository(db).getByID(id);
+                }
+                return user;
+            }
+            catch (Exception ex) { }
+            return null;
+        }
+
+        public ApplicationUser getByIDUsingUserManager(string id)
+        {
+
+        }
+
         public List<ApplicationUser> getAll()
         {
             try
@@ -94,6 +114,32 @@ namespace CemeterySystem.Services
             }
             catch (Exception ex) { }
             return new List<ApplicationUser>();
+        }
+
+        public void update(ApplicationUser user, string password)
+        {
+            try
+            {
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    // user transaction because repo may process multiple actions on db
+                    // changing user data and changing password
+                    using (var transaction = db.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            new UserRepository(db).update(user, password);
+                            transaction.Commit();
+                            db.SaveChanges();
+                        }
+                        catch(Exception ex)
+                        {
+                            transaction.Rollback();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }            
         }
     }
 }

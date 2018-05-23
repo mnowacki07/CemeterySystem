@@ -212,6 +212,7 @@
     <Content Include="Pages\PaymentClassList.aspx" />
     <Content Include="Pages\ServiceDetails.aspx" />
     <Content Include="Pages\ServiceList.aspx" />
+    <Content Include="Pages\UserDetails.aspx" />
     <Content Include="Pages\UsersList.aspx" />
     <Content Include="Pages\ZadrzadcaMaster.Master" />
     <Content Include="Content\img\1.jpg" />
@@ -533,6 +534,13 @@
     </Compile>
     <Compile Include="Pages\ServiceList.aspx.designer.cs">
       <DependentUpon>ServiceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\UsersList.aspx.cs">
       <DependentUpon>UsersList.aspx</DependentUpon>

@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using static CemeterySystem.App_Start.IdentityConfig;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace CemeterySystem.Repositories
 {
@@ -19,10 +20,10 @@ namespace CemeterySystem.Repositories
         {
             try
             {
-                var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+                var userStore = new UserStore<ApplicationUser>(this._dbContext);
                 ApplicationUserManager appUserManager = new ApplicationUserManager(userStore);
                 var userManager = appUserManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                return userManager.Create(objectToCreate, objectToCreate.PasswordHash);
+                return userManager.Create(objectToCreate, objectToCreate.PasswordHash);                
             }
             catch(Exception ex) { }
             return null;
@@ -52,6 +53,7 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Include(x => x.Roles)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
                         .Where(whereClausule)
@@ -62,6 +64,7 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Include(x => x.Roles)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
                         .FirstOrDefault(x => x.Id.Equals(id));
@@ -71,6 +74,7 @@ namespace CemeterySystem.Repositories
         {
             return this._dbContext
                         .Users
+                        .Include(x => x.Roles)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
                         .FirstOrDefault(x => x.UserName.Equals(username));
@@ -80,6 +84,21 @@ namespace CemeterySystem.Repositories
         {
             this._dbContext.Users.Attach(user);
             this._dbContext.SaveChanges();
+        }
+
+        public void update(ApplicationUser user, string password)
+        {
+            var userStore = new UserStore<ApplicationUser>(this._dbContext);
+            ApplicationUserManager appUserManager = new ApplicationUserManager(userStore);
+            var userManager = appUserManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            if (!string.IsNullOrEmpty(password))
+            {
+                string newPasswordHash = userManager.PasswordHasher.HashPassword(password);
+                userStore.SetPasswordHashAsync(user, newPasswordHash);
+            }
+
+            userManager.Update(user);
         }
     }
 }
