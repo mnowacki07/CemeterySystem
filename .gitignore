@@ -323,3 +323,4 @@ ASALocalRun/
 Web.config
 *.config
 CemeterySystem/Web.config
+.vs/config/applicationhost.config
