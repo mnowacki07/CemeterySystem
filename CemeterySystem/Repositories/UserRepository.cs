@@ -48,7 +48,6 @@ namespace CemeterySystem.Repositories
                         .Users
                         .Where(x => !x.IsDeleted)
                         .Include(x => x.Roles) 
-                        .Include(x=>x.Email)
                         .Include(x => x.FamilyMember)
                         .Include(x => x.FamilyMember.Address)
                         .ToList();
