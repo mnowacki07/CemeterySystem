@@ -14,9 +14,10 @@ namespace CemeterySystem.DBModels
 {
     public class ApplicationUser : IdentityUser
     {
+        public string Email { get; set; }
         public Guid? FamilyMemberID { get; set; }
         [ForeignKey("FamilyMemberID")]
-        public FamilyMember FamilyMember { get; set; }
+        public FamilyMember FamilyMember { get; set; } 
         [Required]
         public bool IsDeleted { get; set; }
 

@@ -138,6 +138,22 @@ namespace CemeterySystem.Services
             catch (Exception ex) { }            
         }
 
+        public List<ApplicationUser> getBy(Func<ApplicationUser, bool> whereClausule)
+        {
+            try
+            {
+                List<ApplicationUser> listUser = new List<ApplicationUser>();
+                using (ApplicationDbContext dbContext = new ApplicationDbContext())
+                {
+                    listUser = new UserRepository(dbContext).getBy(whereClausule);
+                }
+                return listUser;
+            }
+            catch (Exception ex) { }
+            return new List<ApplicationUser>();
+        }
+
+
         public void delete(Guid userID)
         {
             try
