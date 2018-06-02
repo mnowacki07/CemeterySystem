@@ -12,6 +12,7 @@ using CemeterySystem.Services;
 
 namespace CemeterySystem.Pages
 {
+
     public partial class DeadPersonsDetails : System.Web.UI.Page
     {
 
@@ -66,7 +67,9 @@ namespace CemeterySystem.Pages
         {
             DeadPerson deadPerson = new DeadPersonService().getByID(DeadPersonID.ToString());
 
-            if (deadPerson != null)
+      
+
+        if (deadPerson != null)
             {
                 // txtFuneralDate.Text = deadPerson.FuneralShortDateFormatted;
                 txtFirstName.Text = deadPerson.FirstName.ToString();
@@ -77,7 +80,9 @@ namespace CemeterySystem.Pages
             
                 ddlGender.SelectedValue = deadPerson.Gender.ToString();
 
+                Funeral funeral = new FuneralService().getByID(deadPerson.FuneralID.ToString());
 
+                txtFuneralDate.Text = funeral.FuneralShortDateFormatted;
 
             }
             else
@@ -95,6 +100,16 @@ namespace CemeterySystem.Pages
             catch (Exception ex) { }
         }
 
+
+      //  private void bindFuneralDateTxt()
+     //   {
+         //   try
+        //    {
+        //        List<FuneralCompany> listCompany = new FuneralCompanyService().getAll();
+        //        txtFuneralDate.(listCompany.Select(x => new ListItem(x.Name, x.FuneralCompanyID.ToString())).ToArray());
+        //    }
+       //     catch (Exception ex) { }
+     //   }
 
         protected void btnDelete_ServerClick(object sender, EventArgs e)
         {
