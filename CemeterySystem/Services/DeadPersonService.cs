@@ -96,5 +96,25 @@ namespace CemeterySystem.Services
             }
             catch (Exception ex) { }
         }
+//
+//
+//
+//
+//
+
+        public DeadPerson getByID(string id)
+        {
+            try
+            {
+                DeadPerson deadPerson = null;
+                using (ApplicationDbContext dbContext = new ApplicationDbContext())
+                {
+                    deadPerson = new DeadPersonRepository(dbContext).getByID(id);
+                }
+                return deadPerson;
+            }
+            catch (Exception ex) { }
+            return null;
+        }
     }
 }
