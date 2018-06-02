@@ -5,11 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+using System.ComponentModel;
+
 namespace CemeterySystem.DBModels
 {
     public enum EnumGender
     {
+        [Description("Mężczyzna")]
         MALE = 0,
+        [Description("Kobieta")]
         FEMALE = 1
     }
 

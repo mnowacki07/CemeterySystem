@@ -47,7 +47,7 @@ namespace CemeterySystem.Pages
                 }
                 else
                 {
-
+                    bindGenderDropdownList();
 
                     if (IsCreateMode)
                     {
@@ -70,11 +70,29 @@ namespace CemeterySystem.Pages
             {
                 // txtFuneralDate.Text = deadPerson.FuneralShortDateFormatted;
                 txtFirstName.Text = deadPerson.FirstName.ToString();
+
+                txtLastName.Text = deadPerson.LastName.ToString();
+
+                txtPesel.Text = deadPerson.PESEL.ToString();
+            
+                ddlGender.SelectedValue = deadPerson.Gender.ToString();
+
+
+
             }
             else
             {
                 Response.Redirect("/Pages/FuneralsList.aspx");
             }
+        }
+
+        private void bindGenderDropdownList()
+        {
+            try
+            {
+                Utils.populateDropdownWithEnum(typeof(EnumGender), ddlGender);
+            }
+            catch (Exception ex) { }
         }
 
 
