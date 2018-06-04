@@ -10,6 +10,9 @@ using CemeterySystem.DBModels;
 using CemeterySystem.Repositories;
 using CemeterySystem.Services;
 
+
+using System.Collections;
+
 namespace CemeterySystem.Pages
 {
 
@@ -83,6 +86,10 @@ namespace CemeterySystem.Pages
 
                 ddlFieldNumber.SelectedValue = deadPerson.BurialPlaceID.ToString();
 
+                //ddlGraveNumber.SelectedValue = deadPerson.BurialPlaceID.ToString();
+
+                ddlGraveNumber.SelectedValue = deadPerson.BurialPlaceID.ToString();
+
                 Funeral funeral = new FuneralService().getByID(deadPerson.FuneralID.ToString());
 
                 txtFuneralDate.Text = funeral.FuneralShortDateFormatted;
@@ -114,9 +121,47 @@ namespace CemeterySystem.Pages
             {
                 List<BurialPlace> listBurialPlace = new BurialPlaceService().getAll();
                 ddlFieldNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldNumber, x.BurialPlaceID.ToString())).ToArray());
+
+                //ddlGraveNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.GraveNumber, x.BurialPlaceID.ToString())).ToArray());
+
+                ddlGraveNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldFormatted, x.BurialPlaceID.ToString())).ToArray());
+
+                SortByDdl(ref this.ddlGraveNumber);
+            
+
             }
             catch (Exception ex) { }
         }
+
+
+        private void SortByDdl(ref DropDownList objDDL)
+        {
+            ArrayList textList = new ArrayList();
+            ArrayList valueList = new ArrayList();
+
+
+            foreach (ListItem li in objDDL.Items)
+            {
+                textList.Add(li.Text);
+            }
+
+            textList.Sort();
+
+
+            foreach (object item in textList)
+            {
+                string value = objDDL.Items.FindByText(item.ToString()).Value;
+                valueList.Add(value);
+            }
+            objDDL.Items.Clear();
+
+            for (int i = 0; i < textList.Count; i++)
+            {
+                ListItem objItem = new ListItem(textList[i].ToString(), valueList[i].ToString());
+                objDDL.Items.Add(objItem);
+            }
+        }
+
 
 
         //  private void bindFuneralDateTxt()
@@ -129,10 +174,61 @@ namespace CemeterySystem.Pages
         //     catch (Exception ex) { }
         //   }
 
+
+        /*
+                private void saveDeadPerson()
+                {
+                    DeadPerson deadPerson = null;
+
+                    if (IsCreateMode)
+                    {
+                        deadPerson = new DeadPerson()
+                        {
+                            DeadPersonID = Guid.NewGuid()
+                        };
+                    }
+                    else
+                    {
+                        deadPerson = new DeadPersonService().getByID(this.DeadPersonID.ToString());
+                    }
+
+                    FuneralCompany funeralCompany = new FuneralCompanyService().getByID(ddlFuneralCompany.SelectedValue);
+                    BurialPlace burialPlace = new BurialPlaceService().getByID(ddlFieldNumber.SelectedValue);
+
+
+
+
+
+
+                    CemeteryStaffPerson cemeteryStaff = new CemeteryStaffPersonService().getByID(ddlStaffPerson.SelectedValue);
+                    funeral.FuneralDate = DateTime.ParseExact(txtFuneralDate.Text.Trim(), "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                    funeral.FuneralCompanyID = funeralCompany.FuneralCompanyID;
+                    funeral.CemeteryStaffPersonID = cemeteryStaff.CemeteryStaffPersonID;
+                    // FuneralCompany company = new FuneralCompanyService().getByID(ddlFuneralCompany.SelectedValue);
+
+                    if (IsCreateMode)
+                    {
+                        new DeadPersonService().create(deadPerson);
+                        Response.Redirect(string.Format("/Pages/DeadPersonsDetails?DeadPersonID={0}", deadPerson.DeadPersonID.ToString()));
+                    }
+                    else
+                    {
+                        new DeadPersonService().update(deadPerson);
+                    }
+                }
+                */
+
+
         protected void btnDelete_ServerClick(object sender, EventArgs e)
         {
-           
-            Response.Redirect("/Pages/DeadPersonsList.aspx");
+
+            DeadPerson deadPerson = new DeadPersonService().getByID(DeadPersonID.ToString());
+            if (deadPerson != null)
+            {
+                new DeadPersonService().delete(deadPerson);
+            }
+            Response.Redirect("/Pages/FuneralsList.aspx");
+            //Response.Redirect("/Pages/DeadPersonsList.aspx");
 
         }
 

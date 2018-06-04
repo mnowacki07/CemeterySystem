@@ -113,5 +113,17 @@ namespace CemeterySystem.DBModels
                 return "";
             }
         }
+
+
+        [NotMapped]
+        public string FieldFormatted
+        {
+            get
+            {
+                return "Pole nr: " + this.FieldNumber + " Alejka nr: " + this.GraveNumber;
+            }
+        }
+
+
     }
 }

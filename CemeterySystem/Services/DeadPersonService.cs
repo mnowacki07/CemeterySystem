@@ -96,11 +96,53 @@ namespace CemeterySystem.Services
             }
             catch (Exception ex) { }
         }
-//
-//
-//
-//
-//
+        //
+        //
+        //
+        //
+        //
+
+        public DeadPerson create(DeadPerson deadPerson)
+        {
+            try
+            {
+                using (ApplicationDbContext dbContext = new ApplicationDbContext())
+                {
+                    new DeadPersonRepository(dbContext).create(deadPerson);
+                    dbContext.SaveChanges();
+                    return deadPerson;
+                }
+            }
+            catch (Exception ex) { }
+            return null;
+        }
+
+
+
+        internal void delete(DeadPerson deadPerson)
+        {
+            using (ApplicationDbContext dbContext = new ApplicationDbContext())
+            {
+                new DeadPersonRepository(dbContext).delete(deadPerson);
+                dbContext.SaveChanges();
+            }
+        }
+
+        public void update(DeadPerson deadPerson)
+        {
+            try
+            {
+                using (ApplicationDbContext dbContext = new ApplicationDbContext())
+                {
+                    new DeadPersonRepository(dbContext).update(deadPerson);
+                    dbContext.SaveChanges();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+
+
 
         public DeadPerson getByID(string id)
         {

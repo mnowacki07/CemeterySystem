@@ -112,13 +112,13 @@ namespace CemeterySystem.Pages {
         protected global::System.Web.UI.WebControls.Label lblGraveNumber;
         
         /// <summary>
-        /// txtGraveNumber control.
+        /// ddlGraveNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGraveNumber;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGraveNumber;
         
         /// <summary>
         /// lblFuneralDate control.

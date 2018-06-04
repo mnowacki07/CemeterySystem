@@ -101,7 +101,7 @@
     </div>
     <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 5px;">
-            <asp:TextBox runat="server" ID="txtGraveNumber" CssClass="w3-input w3-round-large" />
+            <asp:DropDownList runat="server" ID="ddlGraveNumber" CssClass="w3-select w3-border"></asp:DropDownList>
         </div>
     </div>
     
