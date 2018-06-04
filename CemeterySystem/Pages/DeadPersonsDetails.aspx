@@ -82,8 +82,32 @@
         </div>
     </div>
 
+    
+    <div class="w3-row">
+        <div class="w3-col m12">
+            <asp:Label runat="server" ID="lblFieldNumber" Text="Numer pola:" />
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col m12" style="padding-top: 5px;">
+            <asp:DropDownList runat="server" ID="ddlFieldNumber" CssClass="w3-select w3-border"></asp:DropDownList>
+        </div>
+    </div>
+    
+        <div class="w3-row">
+        <div class="w3-col m12">
+            <asp:Label runat="server" ID="lblGraveNumber" Text="Numer alejki:" />
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col m12" style="padding-top: 5px;">
+            <asp:TextBox runat="server" ID="txtGraveNumber" CssClass="w3-input w3-round-large" />
+        </div>
+    </div>
+    
 
-                   <div class="w3-row">
+    
+     <div class="w3-row">
         <div class="w3-col m12">
             <asp:Label runat="server" ID="lblFuneralDate" Text="Data pogrzebu:" />
         </div>
@@ -93,6 +117,7 @@
             <asp:TextBox runat="server" ID="txtFuneralDate" CssClass="w3-input w3-round-large" />
         </div>
     </div>
+
 
      <!-- buttony -->
         <div class="w3-row">

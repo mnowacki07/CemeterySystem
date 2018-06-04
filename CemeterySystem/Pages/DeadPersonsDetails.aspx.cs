@@ -49,6 +49,7 @@ namespace CemeterySystem.Pages
                 else
                 {
                     bindGenderDropdownList();
+                    bindBurialPlaceDropdownList();
 
                     if (IsCreateMode)
                     {
@@ -67,9 +68,9 @@ namespace CemeterySystem.Pages
         {
             DeadPerson deadPerson = new DeadPersonService().getByID(DeadPersonID.ToString());
 
-      
 
-        if (deadPerson != null)
+
+            if (deadPerson != null)
             {
                 // txtFuneralDate.Text = deadPerson.FuneralShortDateFormatted;
                 txtFirstName.Text = deadPerson.FirstName.ToString();
@@ -77,12 +78,16 @@ namespace CemeterySystem.Pages
                 txtLastName.Text = deadPerson.LastName.ToString();
 
                 txtPesel.Text = deadPerson.PESEL.ToString();
-            
+
                 ddlGender.SelectedValue = deadPerson.Gender.ToString();
+
+                ddlFieldNumber.SelectedValue = deadPerson.BurialPlaceID.ToString();
 
                 Funeral funeral = new FuneralService().getByID(deadPerson.FuneralID.ToString());
 
                 txtFuneralDate.Text = funeral.FuneralShortDateFormatted;
+
+
 
             }
             else
@@ -101,30 +106,47 @@ namespace CemeterySystem.Pages
         }
 
 
-      //  private void bindFuneralDateTxt()
-     //   {
-         //   try
+
+
+        private void bindBurialPlaceDropdownList()
+        {
+            try
+            {
+                List<BurialPlace> listBurialPlace = new BurialPlaceService().getAll();
+                ddlFieldNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldNumber, x.BurialPlaceID.ToString())).ToArray());
+            }
+            catch (Exception ex) { }
+        }
+
+
+        //  private void bindFuneralDateTxt()
+        //   {
+        //   try
         //    {
         //        List<FuneralCompany> listCompany = new FuneralCompanyService().getAll();
         //        txtFuneralDate.(listCompany.Select(x => new ListItem(x.Name, x.FuneralCompanyID.ToString())).ToArray());
         //    }
-       //     catch (Exception ex) { }
-     //   }
+        //     catch (Exception ex) { }
+        //   }
 
         protected void btnDelete_ServerClick(object sender, EventArgs e)
         {
            
             Response.Redirect("/Pages/DeadPersonsList.aspx");
+
         }
 
         protected void btnSave_ServerClick(object sender, EventArgs e)
         {
     
+
         }
 
         protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
         {
-            Response.Redirect("/Pages/FuneralsList");
+
+            Response.Redirect("/Pages/DeadPersonsList");
+
         }
     }
 }
