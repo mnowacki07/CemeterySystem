@@ -41,6 +41,8 @@ namespace CemeterySystem.Pages
 
         private void bindFuneralList()
         {
+
+
             try
             {
                 List<Funeral> listFuneral = new FuneralService().getAll();
@@ -58,6 +60,8 @@ namespace CemeterySystem.Pages
                 repFuneral.DataBind();
             }
             catch (Exception ex) { }
+
+    
         }
     }
 }

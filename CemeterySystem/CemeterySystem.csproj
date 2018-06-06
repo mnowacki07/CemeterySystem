@@ -363,6 +363,14 @@
     <Compile Include="Migrations\201805231905451_User_IsDeleted.Designer.cs">
       <DependentUpon>201805231905451_User_IsDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806052157328_zmiana1.cs" />
+    <Compile Include="Migrations\201806052157328_zmiana1.Designer.cs">
+      <DependentUpon>201806052157328_zmiana1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806061802256_zmiana2_back.cs" />
+    <Compile Include="Migrations\201806061802256_zmiana2_back.Designer.cs">
+      <DependentUpon>201806061802256_zmiana2_back.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\BookedServiceList.aspx.cs">
       <DependentUpon>BookedServiceList.aspx</DependentUpon>
@@ -652,6 +660,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805231905451_User_IsDeleted.resx">
       <DependentUpon>201805231905451_User_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806052157328_zmiana1.resx">
+      <DependentUpon>201806052157328_zmiana1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806061802256_zmiana2_back.resx">
+      <DependentUpon>201806061802256_zmiana2_back.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

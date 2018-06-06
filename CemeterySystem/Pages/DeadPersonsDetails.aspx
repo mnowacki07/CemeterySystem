@@ -83,28 +83,46 @@
     </div>
 
     
-    <div class="w3-row">
-        <div class="w3-col m12">
-            <asp:Label runat="server" ID="lblFieldNumber" Text="Numer pola:" />
-        </div>
-    </div>
-    <div class="w3-row">
-        <div class="w3-col m12" style="padding-top: 5px;">
-            <asp:DropDownList runat="server" ID="ddlFieldNumber" CssClass="w3-select w3-border"></asp:DropDownList>
-        </div>
-    </div>
     
         <div class="w3-row">
         <div class="w3-col m12">
-            <asp:Label runat="server" ID="lblGraveNumber" Text="Numer alejki:" />
+            <asp:Label runat="server" ID="lblGraveNumber" Text="Numer miejsca, numer alejki:" />
         </div>
     </div>
     <div class="w3-row">
         <div class="w3-col m12" style="padding-top: 5px;">
-            <asp:DropDownList runat="server" ID="ddlGraveNumber" CssClass="w3-select w3-border"></asp:DropDownList>
+      <asp:DropDownList runat="server" ID="ddlGraveNumber" CssClass="w3-select w3-border"></asp:DropDownList>
         </div>
     </div>
     
+         <div class="w3-row">
+        <div class="w3-col m12">
+            <asp:Label runat="server" ID="lblDataOfFuneral" Text="Związane ze Zmarłym dane pogrzebowe:" />
+        </div>
+    </div>
+
+        <div class="w3-row">
+        <div class="w3-col m12">
+            <asp:Label runat="server" ID="lblFuneralCompany" Text="Zakład Pogrzebowy:" />
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col m12" style="padding-top: 5px;">
+            <asp:DropDownList runat="server" ID="ddlFuneralCompany" CssClass="w3-select w3-border"></asp:DropDownList>
+        </div>
+    </div>  
+         <div class="w3-row">
+        <div class="w3-col m12">
+            <asp:Label runat="server" ID="lblStaffPerson" Text="Osoba prowadząca ceremonię:" />
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col m12" style="padding-top: 5px;">
+            <asp:DropDownList runat="server" ID="ddlStaffPerson" CssClass="w3-select w3-border"></asp:DropDownList>
+        </div>
+    </div> 
+
+
 
     
      <div class="w3-row">

@@ -54,6 +54,14 @@ namespace CemeterySystem.Services
             return null;
         }
 
+ /*       
+        internal List<DeadPerson> getBy(Func<DeadPerson, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+        */
+   
+
         public void processPayment(Guid deadPersonID, Guid familyMemberID)
         {
             try

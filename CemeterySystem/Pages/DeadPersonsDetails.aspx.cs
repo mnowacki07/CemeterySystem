@@ -11,7 +11,6 @@ using CemeterySystem.Repositories;
 using CemeterySystem.Services;
 
 
-using System.Collections;
 
 namespace CemeterySystem.Pages
 {
@@ -53,6 +52,8 @@ namespace CemeterySystem.Pages
                 {
                     bindGenderDropdownList();
                     bindBurialPlaceDropdownList();
+                    bindFuneralCompanyDropdownList();
+                    bindStaffList();
 
                     if (IsCreateMode)
                     {
@@ -61,6 +62,16 @@ namespace CemeterySystem.Pages
                     else
                     {
                         btnDelete.Visible = true;
+
+                        ddlFuneralCompany.Visible = false;
+                        lblFuneralCompany.Visible = false;
+                        ddlStaffPerson.Visible = false;
+                        lblStaffPerson.Visible = false;
+                        txtFuneralDate.Visible = false;
+                        lblFuneralDate.Visible = false;
+                        lblDataOfFuneral.Visible = false;
+
+
                         this.loadDeadPerson();
                     }
                 }
@@ -75,18 +86,27 @@ namespace CemeterySystem.Pages
 
             if (deadPerson != null)
             {
-                // txtFuneralDate.Text = deadPerson.FuneralShortDateFormatted;
+
                 txtFirstName.Text = deadPerson.FirstName.ToString();
 
                 txtLastName.Text = deadPerson.LastName.ToString();
 
                 txtPesel.Text = deadPerson.PESEL.ToString();
 
-                ddlGender.SelectedValue = deadPerson.Gender.ToString();
+                ddlGender.DataSource = Enum.GetNames(typeof(EnumGender));
 
-                ddlFieldNumber.SelectedValue = deadPerson.BurialPlaceID.ToString();
+                int gender;
+                if (deadPerson.Gender.ToString().Equals("MALE"))
+                {
+                    gender = 0;
+                }
+                else
+                {
+                    gender = 1;
+                }
 
-                //ddlGraveNumber.SelectedValue = deadPerson.BurialPlaceID.ToString();
+                ddlGender.SelectedValue = gender.ToString();
+
 
                 ddlGraveNumber.SelectedValue = deadPerson.BurialPlaceID.ToString();
 
@@ -99,7 +119,7 @@ namespace CemeterySystem.Pages
             }
             else
             {
-                Response.Redirect("/Pages/FuneralsList.aspx");
+                Response.Redirect("/Pages/DeadPersonsList.aspx");
             }
         }
 
@@ -120,103 +140,101 @@ namespace CemeterySystem.Pages
             try
             {
                 List<BurialPlace> listBurialPlace = new BurialPlaceService().getAll();
-                ddlFieldNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldNumber, x.BurialPlaceID.ToString())).ToArray());
+                //ddlFieldNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldNumber, x.BurialPlaceID.ToString())).ToArray());
 
                 //ddlGraveNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.GraveNumber, x.BurialPlaceID.ToString())).ToArray());
 
-                ddlGraveNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldFormatted, x.BurialPlaceID.ToString())).ToArray());
+                //ddlGraveNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldFormatted, x.BurialPlaceID.ToString())).ToArray());
+                ddlGraveNumber.Items.AddRange(listBurialPlace.OrderBy(x => x.FieldFormatted).Select(x => new ListItem(x.FieldFormatted, x.BurialPlaceID.ToString())).ToArray());
 
-                SortByDdl(ref this.ddlGraveNumber);
-            
+
 
             }
             catch (Exception ex) { }
         }
 
 
-        private void SortByDdl(ref DropDownList objDDL)
+
+        private void bindFuneralCompanyDropdownList()
         {
-            ArrayList textList = new ArrayList();
-            ArrayList valueList = new ArrayList();
-
-
-            foreach (ListItem li in objDDL.Items)
+            try
             {
-                textList.Add(li.Text);
+                List<FuneralCompany> listCompany = new FuneralCompanyService().getAll();
+                ddlFuneralCompany.Items.AddRange(listCompany.Select(x => new ListItem(x.Name, x.FuneralCompanyID.ToString())).ToArray());
             }
+            catch (Exception ex) { }
+        }
 
-            textList.Sort();
-
-
-            foreach (object item in textList)
+        private void bindStaffList()
+        {
+            try
             {
-                string value = objDDL.Items.FindByText(item.ToString()).Value;
-                valueList.Add(value);
+                List<CemeteryStaffPerson> staffList = new CemeteryStaffPersonService().getAll();
+                ddlStaffPerson.Items.AddRange(staffList.Select(x => new ListItem(x.LastName, x.CemeteryStaffPersonID.ToString())).ToArray());
             }
-            objDDL.Items.Clear();
-
-            for (int i = 0; i < textList.Count; i++)
-            {
-                ListItem objItem = new ListItem(textList[i].ToString(), valueList[i].ToString());
-                objDDL.Items.Add(objItem);
-            }
+            catch (Exception ex) { }
         }
 
 
 
-        //  private void bindFuneralDateTxt()
-        //   {
-        //   try
-        //    {
-        //        List<FuneralCompany> listCompany = new FuneralCompanyService().getAll();
-        //        txtFuneralDate.(listCompany.Select(x => new ListItem(x.Name, x.FuneralCompanyID.ToString())).ToArray());
-        //    }
-        //     catch (Exception ex) { }
-        //   }
 
+        private void saveDeadPerson()
+        {
 
-        /*
-                private void saveDeadPerson()
+            Funeral funeral = null;
+
+            DeadPerson deadPerson = null;
+
+            if (IsCreateMode)
+            {
+
+                funeral = new Funeral()
                 {
-                    DeadPerson deadPerson = null;
+                    FuneralID = Guid.NewGuid()
+                };
 
-                    if (IsCreateMode)
-                    {
-                        deadPerson = new DeadPerson()
-                        {
-                            DeadPersonID = Guid.NewGuid()
-                        };
-                    }
-                    else
-                    {
-                        deadPerson = new DeadPersonService().getByID(this.DeadPersonID.ToString());
-                    }
+                deadPerson = new DeadPerson()
+                {
+                    DeadPersonID = Guid.NewGuid()
+                };
+            }
+            else
+            {
+                deadPerson = new DeadPersonService().getByID(this.DeadPersonID.ToString());
+                funeral = new FuneralService().getByID(deadPerson.FuneralID.ToString());
 
-                    FuneralCompany funeralCompany = new FuneralCompanyService().getByID(ddlFuneralCompany.SelectedValue);
-                    BurialPlace burialPlace = new BurialPlaceService().getByID(ddlFieldNumber.SelectedValue);
+            }
+
+            FuneralCompany funeralCompany = new FuneralCompanyService().getByID(ddlFuneralCompany.SelectedValue);
+            CemeteryStaffPerson cemeteryStaff = new CemeteryStaffPersonService().getByID(ddlStaffPerson.SelectedValue);
+            funeral.FuneralDate = DateTime.ParseExact(txtFuneralDate.Text.Trim(), "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            funeral.FuneralCompanyID = funeralCompany.FuneralCompanyID;
+            funeral.CemeteryStaffPersonID = cemeteryStaff.CemeteryStaffPersonID;
 
 
 
+            BurialPlace burialPlace = new BurialPlaceService().getByID(ddlGraveNumber.SelectedValue);
+            deadPerson.FirstName = txtFirstName.Text;
+            deadPerson.LastName = txtLastName.Text;
+            deadPerson.PESEL = txtPesel.Text;
+            deadPerson.Gender = (EnumGender)int.Parse(ddlGender.SelectedValue);
+            deadPerson.BurialPlaceID = burialPlace.BurialPlaceID;
+            deadPerson.FuneralID = funeral.FuneralID;
 
 
+            if (IsCreateMode)
+            {
+                new FuneralService().create(funeral);
 
-                    CemeteryStaffPerson cemeteryStaff = new CemeteryStaffPersonService().getByID(ddlStaffPerson.SelectedValue);
-                    funeral.FuneralDate = DateTime.ParseExact(txtFuneralDate.Text.Trim(), "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                    funeral.FuneralCompanyID = funeralCompany.FuneralCompanyID;
-                    funeral.CemeteryStaffPersonID = cemeteryStaff.CemeteryStaffPersonID;
-                    // FuneralCompany company = new FuneralCompanyService().getByID(ddlFuneralCompany.SelectedValue);
+                new DeadPersonService().create(deadPerson);
+                Response.Redirect(string.Format("/Pages/DeadPersonsDetails?DeadPersonID={0}", deadPerson.DeadPersonID.ToString()));
+            }
+            else
+            {
+                new DeadPersonService().update(deadPerson);
+            }
+        }
 
-                    if (IsCreateMode)
-                    {
-                        new DeadPersonService().create(deadPerson);
-                        Response.Redirect(string.Format("/Pages/DeadPersonsDetails?DeadPersonID={0}", deadPerson.DeadPersonID.ToString()));
-                    }
-                    else
-                    {
-                        new DeadPersonService().update(deadPerson);
-                    }
-                }
-                */
 
 
         protected void btnDelete_ServerClick(object sender, EventArgs e)
@@ -227,14 +245,16 @@ namespace CemeterySystem.Pages
             {
                 new DeadPersonService().delete(deadPerson);
             }
-            Response.Redirect("/Pages/FuneralsList.aspx");
+            Response.Redirect("/Pages/DeadPersonsList.aspx");
             //Response.Redirect("/Pages/DeadPersonsList.aspx");
 
         }
 
         protected void btnSave_ServerClick(object sender, EventArgs e)
         {
-    
+
+            saveDeadPerson();
+
 
         }
 

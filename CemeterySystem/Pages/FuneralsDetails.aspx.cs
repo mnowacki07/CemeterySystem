@@ -69,10 +69,7 @@ namespace CemeterySystem.Pages
                 txtFuneralDate.Text = funeral.FuneralShortDateFormatted;
                 ddlFuneralCompany.SelectedValue = funeral.FuneralCompanyID.ToString();
                 ddlStaffPerson.SelectedValue = funeral.CemeteryStaffPersonID.ToString();
-                //txtName.Text = funeral.N; 
-
-
-
+          
                 //txtFieldNumber.Text = funeral.FieldNumber;
                 //txtGraveNumber.Text = funeral.GraveNumber;
                 //ddlType.SelectedValue = ((int)funeral.Type).ToString();
@@ -131,11 +128,6 @@ namespace CemeterySystem.Pages
             funeral.FuneralCompanyID = funeralCompany.FuneralCompanyID;
             funeral.CemeteryStaffPersonID = cemeteryStaff.CemeteryStaffPersonID;
             // FuneralCompany company = new FuneralCompanyService().getByID(ddlFuneralCompany.SelectedValue);
-
-
-
-
-
 
 
             if (IsCreateMode)

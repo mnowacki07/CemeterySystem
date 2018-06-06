@@ -13,7 +13,11 @@ namespace CemeterySystem.Repositories
 
         public override void create(DeadPerson objectToCreate)
         {
-            this._dbContext.DeadPersons.Add(objectToCreate);
+            //this._dbContext.DeadPersons.Add(objectToCreate);
+
+            this._dbContext
+                .DeadPersons
+                .Add(objectToCreate);
         }
 
         public override void delete(DeadPerson objectToDelete)
