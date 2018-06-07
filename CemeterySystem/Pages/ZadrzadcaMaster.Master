@@ -106,9 +106,9 @@
         <!-- stopka z podpisem -->
         <div class="w3-grey w3-container w3-padding-32" style="margin-top: 75px; padding-right: 100px">
             <p class="w3-right w3-text-dark-grey">
-                Stworzone przez:
-            <br>
-                grupę projektową SNMG
+              Stworzono przez:
+                <br />
+            <a href="/Pages/AboutTeamZarzadca"  class="w3-bar-item w3-button w3-hover-grey">grupę projektową SNMG</a>  
             </p>
         </div>
 

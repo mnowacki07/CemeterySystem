@@ -189,6 +189,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\AboutTeamZarzadca.aspx" />
     <Content Include="Pages\BookedServiceList.aspx" />
     <Content Include="Pages\BurialPlacesDetails.aspx" />
     <Content Include="Pages\BurialPlacesList.aspx" />
@@ -372,6 +373,13 @@
       <DependentUpon>201806061802256_zmiana2_back.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Pages\AboutTeamZarzadca.aspx.cs">
+      <DependentUpon>AboutTeamZarzadca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AboutTeamZarzadca.aspx.designer.cs">
+      <DependentUpon>AboutTeamZarzadca.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BookedServiceList.aspx.cs">
       <DependentUpon>BookedServiceList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
