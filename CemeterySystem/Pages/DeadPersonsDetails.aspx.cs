@@ -141,6 +141,7 @@ namespace CemeterySystem.Pages
             {
                 ddlFamilyMember.Items.Clear();
                 List<ApplicationUser> listApplicationUser = new UserService().getBy(x => x.FamilyMemberID.HasValue);
+                ddlFamilyMember.Items.Add(new ListItem("---", Guid.Empty.ToString()));
                 ddlFamilyMember.Items.AddRange(listApplicationUser.Select(x => new ListItem(x.FamilyMember.NameFormatted, x.FamilyMember.FamilyMemberID.ToString())).ToArray());
             }
             catch (Exception ex) { }
@@ -219,12 +220,21 @@ namespace CemeterySystem.Pages
             try
             {
                 Guid familyMemberID = Guid.Parse(ddlFamilyMember.SelectedValue);
-                if (!IsCreateMode)
-                {
-                    deadPerson.FamilyMember = new FamilyMemberService().getBy(x => x.FamilyMemberID.Equals(familyMemberID))[0];
-                }
 
-                deadPerson.FamilyMemberID = familyMemberID;
+                if (familyMemberID == Guid.Empty)
+                {
+                    deadPerson.FamilyMemberID = null;
+                    deadPerson.FamilyMember = null;
+                }
+                else
+                {
+                    if (!IsCreateMode)
+                    {
+                        deadPerson.FamilyMember = new FamilyMemberService().getBy(x => x.FamilyMemberID.Equals(familyMemberID))[0];
+                    }
+
+                    deadPerson.FamilyMemberID = familyMemberID;
+                }
             }
             catch (Exception ex) { }
 
