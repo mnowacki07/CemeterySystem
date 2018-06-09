@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FamilyMemberDetails.aspx.cs" Inherits="CemeterySystem.Pages.FamilyMemberDetails" %>

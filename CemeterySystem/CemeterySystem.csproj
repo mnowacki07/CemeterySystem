@@ -200,6 +200,7 @@
     <Content Include="Pages\FamilyMemberBooking.aspx" />
     <Content Include="Pages\FamilyMemberDeadPerson.aspx" />
     <Content Include="Pages\FamilyMemberDeadPersonsList.aspx" />
+    <Content Include="Pages\FamilyMemberDetails.aspx" />
     <Content Include="Pages\FamilyMemberPaymentList.aspx" />
     <Content Include="Pages\FuneralCompanyDetails.aspx" />
     <Content Include="Pages\FuneralsDetails.aspx" />
@@ -449,6 +450,13 @@
     </Compile>
     <Compile Include="Pages\FamilyMemberDeadPersonsList.aspx.designer.cs">
       <DependentUpon>FamilyMemberDeadPersonsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberDetails.aspx.cs">
+      <DependentUpon>FamilyMemberDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FamilyMemberDetails.aspx.designer.cs">
+      <DependentUpon>FamilyMemberDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FamilyMemberPaymentList.aspx.cs">
       <DependentUpon>FamilyMemberPaymentList.aspx</DependentUpon>

@@ -96,6 +96,22 @@ namespace CemeterySystem.Services
             return null;
         }
 
+        public ApplicationUser getByFamilyMemberID(Guid familyMemberID)
+        {
+            try
+            {
+                ApplicationUser user = null;
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    var list = new UserRepository(db).getBy(x => x.FamilyMemberID.HasValue && x.FamilyMemberID.Value.Equals(familyMemberID));
+                    user = list.Count > 0 ? list[0] : null;
+                }
+                return user;
+            }
+            catch (Exception ex) { }
+            return null;
+        }
+
         public List<ApplicationUser> getAll()
         {
             try

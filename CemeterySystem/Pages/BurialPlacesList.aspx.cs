@@ -38,7 +38,7 @@ namespace CemeterySystem.Pages
                 {
                     if(this.DeadPerson != null)
                     {
-                        return string.Format("<a href=\"/DeadPersonsDetails?DeadPersonID={0}\">{1}</a>", this.DeadPerson.DeadPersonID.ToString(), this.DeadPerson.NameFormatted);
+                        return string.Format("<a href=\"/Pages/DeadPersonsDetails?DeadPersonID={0}\">{1}</a>", this.DeadPerson.DeadPersonID.ToString(), this.DeadPerson.NameFormatted);
                     }
                     return "";
                 }
@@ -50,7 +50,7 @@ namespace CemeterySystem.Pages
                 {
                     if(this.DeadPerson?.FamilyMember != null)
                     {
-                        return string.Format("<a href=\"/FamilyMemberDetails?FamilyMemberID={0}\">{1}</a>", this.DeadPerson.FamilyMember.FamilyMemberID.ToString(), this.DeadPerson.FamilyMember.NameFormatted);
+                        return string.Format("<a href=\"/Pages/FamilyMemberDetails?FamilyMemberID={0}\">{1}</a>", this.DeadPerson.FamilyMember.FamilyMemberID.ToString(), this.DeadPerson.FamilyMember.NameFormatted);
                     }
                     return "";
                 }

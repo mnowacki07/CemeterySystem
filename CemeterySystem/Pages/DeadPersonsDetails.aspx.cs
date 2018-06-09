@@ -180,7 +180,6 @@ namespace CemeterySystem.Pages
 
         private void saveDeadPerson()
         {
-
             Funeral funeral = null;
 
             DeadPerson deadPerson = null;
@@ -211,8 +210,6 @@ namespace CemeterySystem.Pages
             funeral.FuneralCompanyID = funeralCompany.FuneralCompanyID;
             funeral.CemeteryStaffPersonID = cemeteryStaff.CemeteryStaffPersonID;
 
-
-
             BurialPlace burialPlace = new BurialPlaceService().getByID(ddlGraveNumber.SelectedValue);
             deadPerson.FirstName = txtFirstName.Text;
             deadPerson.LastName = txtLastName.Text;
@@ -220,7 +217,6 @@ namespace CemeterySystem.Pages
             deadPerson.Gender = (EnumGender)int.Parse(ddlGender.SelectedValue);
             deadPerson.BurialPlaceID = burialPlace.BurialPlaceID;
             deadPerson.FuneralID = funeral.FuneralID;
-
 
             if (IsCreateMode)
             {
@@ -235,8 +231,6 @@ namespace CemeterySystem.Pages
             }
         }
 
-
-
         protected void btnDelete_ServerClick(object sender, EventArgs e)
         {
 
@@ -245,24 +239,18 @@ namespace CemeterySystem.Pages
             {
                 new DeadPersonService().delete(deadPerson);
             }
-            Response.Redirect("/Pages/DeadPersonsList.aspx");
-            //Response.Redirect("/Pages/DeadPersonsList.aspx");
 
+            Response.Redirect("/Pages/DeadPersonsList.aspx");
         }
 
         protected void btnSave_ServerClick(object sender, EventArgs e)
         {
-
             saveDeadPerson();
-
-
         }
 
         protected void lbtnGoBack_ServerClick(object sender, EventArgs e)
         {
-
             Response.Redirect("/Pages/DeadPersonsList");
-
         }
     }
 }
