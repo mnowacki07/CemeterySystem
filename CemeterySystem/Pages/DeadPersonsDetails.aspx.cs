@@ -218,7 +218,13 @@ namespace CemeterySystem.Pages
 
             try
             {
-                deadPerson.FamilyMemberID = Guid.Parse(ddlFamilyMember.SelectedValue);
+                Guid familyMemberID = Guid.Parse(ddlFamilyMember.SelectedValue);
+                if (!IsCreateMode)
+                {
+                    deadPerson.FamilyMember = new FamilyMemberService().getBy(x => x.FamilyMemberID.Equals(familyMemberID))[0];
+                }
+
+                deadPerson.FamilyMemberID = familyMemberID;
             }
             catch (Exception ex) { }
 
