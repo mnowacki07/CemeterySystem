@@ -10,14 +10,10 @@ using CemeterySystem.DBModels;
 using CemeterySystem.Repositories;
 using CemeterySystem.Services;
 
-
-
 namespace CemeterySystem.Pages
 {
-
     public partial class DeadPersonsDetails : System.Web.UI.Page
     {
-
         public bool IsCreateMode
         {
             get
@@ -25,7 +21,6 @@ namespace CemeterySystem.Pages
                 return ("" + this.Request.QueryString["IsCreateMode"]).Trim().ToLower().Equals("true");
             }
         }
-
 
         public Guid DeadPersonID
         {
@@ -51,6 +46,7 @@ namespace CemeterySystem.Pages
                 else
                 {
                     bindGenderDropdownList();
+                    bindFamilyMemberDropdownList();
                     bindBurialPlaceDropdownList();
                     bindFuneralCompanyDropdownList();
                     bindStaffList();
@@ -82,8 +78,6 @@ namespace CemeterySystem.Pages
         {
             DeadPerson deadPerson = new DeadPersonService().getByID(DeadPersonID.ToString());
 
-
-
             if (deadPerson != null)
             {
 
@@ -95,8 +89,17 @@ namespace CemeterySystem.Pages
 
                 ddlGender.DataSource = Enum.GetNames(typeof(EnumGender));
 
+                if(deadPerson.FamilyMemberID.HasValue)
+                {
+                    ddlFamilyMember.SelectedValue = deadPerson.FamilyMemberID.Value.ToString();
+                }
+                else
+                {
+                    ddlFamilyMember.SelectedValue = "";
+                }
+
                 int gender;
-                if (deadPerson.Gender.ToString().Equals("MALE"))
+                if (deadPerson.Gender == EnumGender.MALE)
                 {
                     gender = 0;
                 }
@@ -132,28 +135,26 @@ namespace CemeterySystem.Pages
             catch (Exception ex) { }
         }
 
-
-
+        private void bindFamilyMemberDropdownList()
+        {
+            try
+            {
+                ddlFamilyMember.Items.Clear();
+                List<ApplicationUser> listApplicationUser = new UserService().getBy(x => x.FamilyMemberID.HasValue);
+                ddlFamilyMember.Items.AddRange(listApplicationUser.Select(x => new ListItem(x.FamilyMember.NameFormatted, x.FamilyMember.FamilyMemberID.ToString())).ToArray());
+            }
+            catch (Exception ex) { }
+        }
 
         private void bindBurialPlaceDropdownList()
         {
             try
             {
                 List<BurialPlace> listBurialPlace = new BurialPlaceService().getAll();
-                //ddlFieldNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldNumber, x.BurialPlaceID.ToString())).ToArray());
-
-                //ddlGraveNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.GraveNumber, x.BurialPlaceID.ToString())).ToArray());
-
-                //ddlGraveNumber.Items.AddRange(listBurialPlace.Select(x => new ListItem(x.FieldFormatted, x.BurialPlaceID.ToString())).ToArray());
                 ddlGraveNumber.Items.AddRange(listBurialPlace.OrderBy(x => x.FieldFormatted).Select(x => new ListItem(x.FieldFormatted, x.BurialPlaceID.ToString())).ToArray());
-
-
-
             }
             catch (Exception ex) { }
         }
-
-
 
         private void bindFuneralCompanyDropdownList()
         {
@@ -174,9 +175,6 @@ namespace CemeterySystem.Pages
             }
             catch (Exception ex) { }
         }
-
-
-
 
         private void saveDeadPerson()
         {
@@ -217,6 +215,12 @@ namespace CemeterySystem.Pages
             deadPerson.Gender = (EnumGender)int.Parse(ddlGender.SelectedValue);
             deadPerson.BurialPlaceID = burialPlace.BurialPlaceID;
             deadPerson.FuneralID = funeral.FuneralID;
+
+            try
+            {
+                deadPerson.FamilyMemberID = Guid.Parse(ddlFamilyMember.SelectedValue);
+            }
+            catch (Exception ex) { }
 
             if (IsCreateMode)
             {

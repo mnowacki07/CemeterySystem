@@ -85,6 +85,24 @@ namespace CemeterySystem.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlGender;
         
         /// <summary>
+        /// lblFamilyMember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFamilyMember;
+        
+        /// <summary>
+        /// ddlFamilyMember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFamilyMember;
+        
+        /// <summary>
         /// lblGraveNumber control.
         /// </summary>
         /// <remarks>

@@ -104,11 +104,6 @@ namespace CemeterySystem.Services
             }
             catch (Exception ex) { }
         }
-        //
-        //
-        //
-        //
-        //
 
         public DeadPerson create(DeadPerson deadPerson)
         {
