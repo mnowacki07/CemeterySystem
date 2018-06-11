@@ -3,7 +3,7 @@
 <asp:Content ID="Content" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
 
       <div style="width: 100%; height: 100%; text-align: center; padding-top: 100px; padding-bottom: 100px;">
-        <h1 class="w3-xxlarge w3-text-dark-grey ">Witamy w systemie wspomagającym pracę cmentarza.</h1>
+        <h1 class="w3-xxxlarge w3-text-dark-grey " style="padding:30px">Witamy w systemie wspomagającym pracę cmentarza.</h1>
           <br />
           <br />
 
