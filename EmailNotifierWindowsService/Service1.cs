@@ -42,7 +42,7 @@ namespace EmailNotifierWindowsService
             // where the payment period is less than 30 days
             DateTime compareDate = dateNow.AddDays(30);
 
-            List<BurialPlace> listPlaces = new BurialPlaceService().getBy(x => x.FuturePaymentDate <= compareDate);
+            List<BurialPlace> listPlaces = new BurialPlaceService().getBy(x => x.PaymentDate <= compareDate);
         
             List<Guid> listPlacesId = listPlaces.Select(x => x.BurialPlaceID).ToList();
             List<DeadPerson> listDeadPerson = new DeadPersonService().getBy(x => listPlacesId.Contains(x.BurialPlaceID));

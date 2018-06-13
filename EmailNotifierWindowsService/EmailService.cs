@@ -28,13 +28,13 @@ namespace EmailNotifierWindowsService
                     // Subject and multipart/alternative Body
                     mailMsg.Subject = "Przypomnienie o zapłaceniu prolongaty";
                     string text = "Za mniej niż 30 dni termin prolongaty upłynie. Proszę uregulować opłaty" + Environment.NewLine + "Z wyrazami szacunku administracja cmentarza";
-                    string html = @"<p>html body</p>";
+                    string html = @"<p>Przypominamy o uiszczeniu oplaty </p>";
                     mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
                     mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
 
                     // Init SmtpClient and send
                     SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
-                    System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("laborkinorek", "Cmentarz123");
+                    System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("osek", "projekt86");
                     smtpClient.Credentials = credentials;
 
                     smtpClient.Send(mailMsg);
